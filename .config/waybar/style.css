@@ -1,0 +1,93 @@
+* {
+  font-family: JetBrainsMonoNerdFontPropo;
+  font-size: 12px;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#workspaces button {
+  margin-right: 6px;
+  padding: 0px 2px;
+  color: #AACCCC;
+  background-color: #24283B;
+  border: 2px solid gray;
+}
+
+#workspaces button:hover {
+  border: 2px solid cyan;
+}
+
+#workspaces button.active {
+  color: #24283B;
+  background-color: #888888;
+  border: 2px solid #AACCCC;
+}
+
+#workspaces{
+  margin-left: 6px;
+  margin-bottom: 6px;
+  padding-top: 6px;
+} 
+
+#backlight,
+#pulseaudio,
+#network,
+#temperature,
+#battery,
+#clock,
+#tray {
+  padding: 0px 8px;
+  color: #AACCCC;
+  background-color: #24283b;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+#backlight {
+  border: 2px solid #AACCCC;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+#pulseaudio {
+  border-right: 2px solid #AACCCC;
+  border-top: 2px solid #AACCCC;
+  border-bottom: 2px solid #AACCCC;
+
+}
+
+#network {
+  border-right: 2px solid #AACCCC;
+  border-top: 2px solid #AACCCC;
+  border-bottom: 2px solid #AACCCC;
+}
+
+#temperature {
+  border-right: 2px solid #AACCCC;
+  border-top: 2px solid #AACCCC;
+  border-bottom: 2px solid #AACCCC;
+}
+
+#battery {
+  border-right: 2px solid #AACCCC;
+  border-top: 2px solid #AACCCC;
+  border-bottom: 2px solid #AACCCC;
+}
+
+#tray {
+  border-right: 2px solid #AACCCC;
+  border-top: 2px solid #AACCCC;
+  border-bottom: 2px solid #AACCCC;
+}
+
+#clock {
+  margin-right: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-right: 2px solid #AACCCC;
+  border-top: 2px solid #AACCCC;
+  border-bottom: 2px solid #AACCCC;
+}
+

@@ -1,0 +1,22 @@
+layout {
+  pane size=1 borderless=true {
+    plugin location="file:/home/jonny/.config/zellij/zjstatus.wasm" {
+      format_left       "{mode} {tabs}"
+      format_right      "#[fg=#a9b1d6,bg=#26314D] {datetime}"
+      format_space      "#[fg=#a9b1d6,bg=#26314D]"
+
+      mode_normal       "#[fg=black,bg=blue] {name} "
+      mode_resize       "#[fg=black,bg=magenta] {name} "
+      mode_move         "#[fg=black,bg=yellow] {name} "
+
+      tab_normal        "#[fg=#000000,bg=#26314D] {index} "
+      tab_active        "#[fg=#a9b1d6] {index} "
+
+      datetime          "#[fg=#6C7086,bold,bg=#26314D] {format} "
+      datetime_format   "%A, %d %b %Y %I:%M:%S%p"
+      datetime_timezone "US/Eastern"
+    }
+  }
+  pane
+}
+

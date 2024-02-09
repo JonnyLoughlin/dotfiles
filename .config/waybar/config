@@ -1,0 +1,63 @@
+{
+    "layer": "top", // waybar at top layer
+    "position": "top", // waybar position (top|bottom|left|right)
+    "spacing": 0, // gaps between modules (4px)
+    // choose the order of the modules
+    "modules-left": ["hyprland/workspaces"],
+    "modules-right": ["backlight", "pulseaudio", "network", "temperature", "battery",  "tray", "clock"],
+    "hyprland/workspaces": {
+	    "format": "{id}",
+    },
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "󰆪 {icon} {format_source}",
+        "format-muted": "󰆪 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "format-linked": "{ifname} (No IP) 󰊗",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "󰉪"]
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰃨",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""],
+    },
+    "clock": {
+        "interval": 1,
+        "format": "{:%I:%M:%S%p %m/%d/%Y}",
+        "tooltip-format": "<big>{:%Y %B}\n{calendar}</big>",
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+}

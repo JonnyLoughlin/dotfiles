@@ -1,0 +1,11 @@
+[Default Applications]
+inode/directory=nemo.desktop
+application/x-gnome-saved-search=nemo.desktop
+application/pdf=firefox.desktop
+image/jpeg=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+
+[Added Associations]
+application/pdf=firefox.desktop;
+image/jpeg=firefox.desktop;

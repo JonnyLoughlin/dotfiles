@@ -1,0 +1,87 @@
+copy_command "wl-copy"
+scroll_buffer_size 1000000
+
+themes {
+  main {
+    fg "#A9B1D6"
+    bg "#888888"
+    black "#383E5A"
+    red "#F93357"
+    green "#2AC3DE"
+    yellow "#E0AF68"
+    blue "#7AA2F7"
+    magenta "#BB9AF7"
+    cyan "#2AC3DE"
+    white "#C0CAF5"
+    orange "#FF9E64"
+  }
+}
+theme "main"
+
+pane_frames false
+ui {
+  pane_frames {
+    rounded_corners true
+  }
+}
+
+keybinds clear-defaults=true {
+  normal {}
+  shared_except "normal" "locked" {
+    bind "Esc" { SwitchToMode "Normal"; }
+  }
+  // Standard Mode Bindings
+  locked {
+    bind "Alt g" { SwitchToMode "Normal"; }
+  }
+  shared_except "locked" {
+    // Pane Settings
+    bind "Alt g" { SwitchToMode "Locked"; }
+    bind "Alt h" { MoveFocus "Left"; }
+    bind "Alt l" { MoveFocus "Right"; }
+    bind "Alt j" { MoveFocus "Down"; }
+    bind "Alt k" { MoveFocus "Up"; }
+    bind "Alt x" { NewPane "Up"; SwitchToMode "Normal"; }
+    bind "Alt v" { NewPane "Left"; SwitchToMode "Normal"; }
+    bind "Alt q" { CloseFocus; SwitchToMode "Normal"; }
+    bind "Alt w" { ToggleFloatingPanes; }
+    bind "Alt e" { TogglePaneEmbedOrFloating; }
+    // Tab Settings
+    bind "Alt H" { GoToPreviousTab; }
+    bind "Alt L" { GoToNextTab; }
+    bind "Alt N" { NewTab; }
+    bind "Alt Q" { CloseTab; }
+    bind "Alt B" { BreakPane; }
+    // Open Scrollback in Editor (Handles Search and Scroll Mode)
+    bind "Alt s" { EditScrollback; }
+  }
+  // Resize Mode Bindings
+  shared_except "resize" "locked" {
+    bind "Alt r" { SwitchToMode "Resize"; }
+  }
+  resize {
+    bind "Alt r" { SwitchToMode "Normal"; }
+    bind "h" { Resize "Increase Left"; }
+    bind "j" { Resize "Increase Down"; }
+    bind "k" { Resize "Increase Up"; }
+    bind "l" { Resize "Increase Right"; }
+    bind "H" { Resize "Decrease Left"; }
+    bind "J" { Resize "Decrease Down"; }
+    bind "K" { Resize "Decrease Up"; }
+    bind "L" { Resize "Decrease Right"; }
+  }
+  // Move Mode Bindings
+  shared_except "move" "locked" {
+    bind "Alt t" { SwitchToMode "Move"; }
+  }
+  move {
+    bind "Alt t" { SwitchToMode "Normal"; }
+    bind "n" { MovePane; }
+    bind "p" { MovePaneBackwards; }
+    bind "h" { MovePane "Left"; }
+    bind "j" { MovePane "Down"; }
+    bind "k" { MovePane "Up"; }
+    bind "l" { MovePane "Right"; }
+  }
+}
+
