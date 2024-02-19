@@ -4,9 +4,6 @@ return {
     local lint = require("lint")
     lint.linters_by_ft = {
       go = { "golangcilint" },
-      javascript = { "biomejs" },
-      typescriptreact = { "biomejs" },
-      json = { "biomejs" },
       lua = { "luacheck" },
     }
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

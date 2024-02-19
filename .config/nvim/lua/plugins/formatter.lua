@@ -7,18 +7,13 @@ return {
       lua = { "stylua" },
 
       go = { "goimports", "gofumpt" },
-      templ = { "templ", "injected" },
+      templ = { "templ" },
 
-      javascript = { "biome" },
-      typescript = { "biome" },
-      typescriptreact = { "biome" },
-      json = { "biome" },
-
-      sh = { "beautysh" },
-      zsh = { "beautysh" },
+      sh = { "shfmt" },
+      zsh = { "shfmt" },
     },
     format_on_save = {
-      lsp_fallback = false,
+      lsp_fallback = true,
       timeout_ms = 1000,
     },
     log_level = vim.log.levels.INFO,

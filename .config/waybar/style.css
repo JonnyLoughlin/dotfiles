@@ -1,5 +1,5 @@
 * {
-  font-family: JetBrainsMonoNerdFontPropo;
+  font-family: IntoneMono Nerd Font Mono;
   font-size: 12px;
 }
 
@@ -8,8 +8,8 @@ window#waybar {
 }
 
 #workspaces button {
-  margin-right: 6px;
-  padding: 0px 2px;
+  margin-right: 4px;
+  padding: 0px 0px;
   color: #AACCCC;
   background-color: #24283B;
   border: 2px solid gray;
@@ -26,9 +26,9 @@ window#waybar {
 }
 
 #workspaces{
-  margin-left: 6px;
-  margin-bottom: 6px;
-  padding-top: 6px;
+  margin-left: 4px;
+  margin-bottom: 4px;
+  padding-top: 4px;
 } 
 
 #backlight,
@@ -38,56 +38,10 @@ window#waybar {
 #battery,
 #clock,
 #tray {
-  padding: 0px 8px;
+  margin: 4px;
+  padding: 2px 6px;
   color: #AACCCC;
   background-color: #24283b;
-  margin-top: 6px;
-  margin-bottom: 6px;
+  border: 2px solid #AACCCC; 
+  border-radius: 6px;
 }
-
-#backlight {
-  border: 2px solid #AACCCC;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-}
-
-#pulseaudio {
-  border-right: 2px solid #AACCCC;
-  border-top: 2px solid #AACCCC;
-  border-bottom: 2px solid #AACCCC;
-
-}
-
-#network {
-  border-right: 2px solid #AACCCC;
-  border-top: 2px solid #AACCCC;
-  border-bottom: 2px solid #AACCCC;
-}
-
-#temperature {
-  border-right: 2px solid #AACCCC;
-  border-top: 2px solid #AACCCC;
-  border-bottom: 2px solid #AACCCC;
-}
-
-#battery {
-  border-right: 2px solid #AACCCC;
-  border-top: 2px solid #AACCCC;
-  border-bottom: 2px solid #AACCCC;
-}
-
-#tray {
-  border-right: 2px solid #AACCCC;
-  border-top: 2px solid #AACCCC;
-  border-bottom: 2px solid #AACCCC;
-}
-
-#clock {
-  margin-right: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  border-right: 2px solid #AACCCC;
-  border-top: 2px solid #AACCCC;
-  border-bottom: 2px solid #AACCCC;
-}
-

@@ -22,14 +22,18 @@ return {
         filetypes = { "bash", "zsh" },
       })
 
+      lspconfig.biome.setup({ capabilities = capabilities })
+
+      lspconfig.cssls.setup({
+        capabilities = capabilities,
+        filetypes = { "html", "css", "templ" },
+      })
+
       lspconfig.gopls.setup({ capabilities = capabilities })
 
       lspconfig.html.setup({
         capabilities = capabilities,
-        filetypes = {
-          "html",
-          "templ",
-        },
+        filetypes = { "html", "templ" },
         init_options = {
           configurationSection = { "html" },
           embeddedLanguages = {
@@ -45,25 +49,19 @@ return {
 
       lspconfig.htmx.setup({
         capabilities = capabilities,
-        filetypes = {
-          "html",
-          "templ",
-        },
+        filetypes = { "html", "templ" },
       })
+
+      lspconfig.jsonls.setup({ capabilities = capabilities })
 
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
         settings = {
           Lua = {
-            runtime = {
-              version = "LuaJIT",
-            },
-            -- Make the server aware of Neovim runtime files
+            runtime = { version = "LuaJIT" },
             workspace = {
               checkThirdParty = false,
-              library = {
-                vim.env.VIMRUNTIME,
-              },
+              library = { vim.env.VIMRUNTIME },
             },
             hint = {
               enable = true,
@@ -82,28 +80,14 @@ return {
         settings = {
           emmetCompletions = true,
         },
-        filetypes = {
-          "css",
-          "gohtml",
-          "gohtmltmpl",
-          "html",
-          "javascript",
-          "javascriptreact",
-          "templ",
-          "typescript",
-          "typescriptreact",
-        },
+        filetypes = { "css", "html", "javascript", "javascriptreact", "templ", "typescript", "typescriptreact" },
         init_options = {
-          userLanguages = {
-            templ = "html",
-          },
+          userLanguages = { templ = "html" },
         },
       })
 
       lspconfig.templ.setup({ capabilities = capabilities })
       vim.filetype.add({ extension = { templ = "templ" } })
-
-      lspconfig.tsserver.setup({ capabilities = capabilities })
 
       lspconfig.yamlls.setup({ capabilities = capabilities })
 
@@ -136,28 +120,6 @@ return {
           end, { desc = "toggle inlay hints" })
         end,
       })
-    end,
-  },
-  {
-    "jmbuhr/otter.nvim",
-    config = function()
-      local otter = require("otter")
-      otter.setup({})
-      vim.keymap.set("n", "<leader>oa", function()
-        otter.activate({ "javascript" }, true, true, nil)
-      end, { desc = "otter activate" })
-      vim.keymap.set("n", "<leader>oK", function()
-        otter.ask_hover()
-      end, { desc = "otter hover" })
-      vim.keymap.set("n", "<leader>od", function()
-        otter.ask_definition()
-      end, { desc = "otter go to definitions" })
-      vim.keymap.set("n", "<leader>ot", function()
-        otter.ask_type_definition()
-      end, { desc = "otter go to type definitions" })
-      vim.keymap.set("n", "<leader>of", function()
-        otter.ask_format()
-      end, { desc = "otter format" })
     end,
   },
   {

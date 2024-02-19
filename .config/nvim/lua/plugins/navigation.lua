@@ -7,16 +7,7 @@ return {
       "debugloop/telescope-undo.nvim",
     },
     config = function()
-      require("telescope").setup({
-        defaults = {
-          mappings = {
-            i = {
-              ["<C-u>"] = false,
-              ["<C-d>"] = false,
-            },
-          },
-        },
-      })
+      require("telescope").setup({})
 
       require("telescope").load_extension("undo")
 
@@ -52,26 +43,6 @@ return {
         enable_diagnostics = true,
         window = {
           position = "current",
-          mappings = {
-            ["h"] = function(state)
-              local node = state.tree:get_node()
-              if node.type == "directory" and node:is_expanded() then
-                require("neo-tree.sources.filesystem").toggle_directory(state, node)
-              else
-                require("neo-tree.ui.renderer").focus_node(state, node:get_parent_id())
-              end
-            end,
-            ["l"] = function(state)
-              local node = state.tree:get_node()
-              if node.type == "directory" then
-                if not node:is_expanded() then
-                  require("neo-tree.sources.filesystem").toggle_directory(state, node)
-                elseif node:has_children() then
-                  require("neo-tree.ui.renderer").focus_node(state, node:get_child_ids()[1])
-                end
-              end
-            end,
-          },
         },
         default_component_configs = {
           git_status = {
@@ -85,6 +56,13 @@ return {
               unstaged = "",
               staged = "",
               conflict = "",
+            },
+          },
+        },
+        filesystem = {
+          filtered_items = {
+            hide_by_pattern = {
+              "*_templ.go",
             },
           },
         },

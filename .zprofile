@@ -9,7 +9,10 @@ if [[ "$(hostname)" == "jonny-archbook" ]]; then
     export warn_about_missing_glyphs=false
     export WLR_NO_HARDWARE_CURSORS=1
     export GTK_THEME=Arc-Dark
+    # FZF show hidden by default
     export FZF_DEFAULT_COMMAND='fd -H'
+    # Difftastic config
+    export DFT_DISPLAY='side-by-side'
 
 fi
 
