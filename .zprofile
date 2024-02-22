@@ -6,31 +6,25 @@ export MOZ_ENABLE_WAYLAND=1 firefox
 export MANPAGER='nvim +Man!'
 
 if [[ "$(hostname)" == "jonny-archbook" ]]; then
-    export warn_about_missing_glyphs=false
-    export WLR_NO_HARDWARE_CURSORS=1
-    export GTK_THEME=Arc-Dark
-    # FZF show hidden by default
-    export FZF_DEFAULT_COMMAND='fd -H'
-    # Difftastic config
-    export DFT_DISPLAY='side-by-side'
+	export warn_about_missing_glyphs=false
+	export WLR_NO_HARDWARE_CURSORS=1
+	export GTK_THEME=Arc-Dark
 
+	export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border' fzf
+	export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+	alias fzf='fzf | wl-copy'
 fi
 
 if [[ ":$PATH:" != *":$HOME/.cargo/bin:"* ]]; then
-    export PATH="$PATH:$HOME/.cargo/bin"
-fi
-
-
-if [[ ":$PATH:" != *":$HOME/.bun/bin:"* ]]; then
-    export PATH="$PATH:$HOME/.bun/bin" && source "/home/jonny/.bun/_bun"
+	export PATH="$PATH:$HOME/.cargo/bin"
 fi
 
 GOBIN_PATH=$(go env GOBIN)
 if [[ ":$PATH:" != *":$GOBIN_PATH:"* ]]; then
-    export PATH="$PATH:$GOBIN_PATH"
+	export PATH="$PATH:$GOBIN_PATH"
 fi
 
 GOPATH_BIN=$(go env GOPATH)/bin
 if [[ ":$PATH:" != *":$GOPATH_BIN:"* ]]; then
-    export PATH="$PATH:$GOPATH_BIN"
+	export PATH="$PATH:$GOPATH_BIN"
 fi

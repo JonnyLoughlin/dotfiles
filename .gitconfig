@@ -2,24 +2,24 @@
   email = jonny@jloughlin.dev
   name = Jonny Loughlin
 
-[diff]
-  tool = difftastic
+[core]
+  pager = delta
 
-[difftool]
-  prompt = false
+[interactive]
+  diffFilter = delta --color-only
 
-[difftool "difftastic"]
-  cmd = difft "$LOCAL" "$REMOTE"
-
-[pager]
-  difftool = true
+[delta]
+  navigate = true
+  line-numbers = true
+  side-by-side = true
+  true-color = always
 
 [alias]
   cm = commit
   st = status
   br = branch
   hist = log --graph --oneline --color
-  df = difftool
+  df = diff
 
 [merge]
   conflictstyle = zdiff3

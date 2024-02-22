@@ -1,4 +1,6 @@
 # History
+SAVEHIST=500000
+setopt INC_APPEND_HISTORY
 HISTFILE=~/.histfile
 HISTSIZE=500000
 # Auto Complete
