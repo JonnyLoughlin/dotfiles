@@ -1,6 +1,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.g.netrw_liststyle = 3
+vim.g.netrw_list_hide = "./*_templ.go"
+
 vim.o.number = true
 vim.o.relativenumber = true
 
@@ -10,7 +13,7 @@ vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
-vim.opt.smartindent = true
+vim.o.smartindent = true
 vim.o.wrap = true
 vim.o.linebreak = true
 vim.o.breakindent = true
@@ -23,7 +26,7 @@ vim.o.smartcase = true
 
 vim.wo.signcolumn = "yes"
 
-vim.o.completeopt = "menuone,noselect"
+vim.opt.completeopt = { "menuone", "noselect" }
 
 vim.o.termguicolors = true
 
@@ -80,7 +83,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     command = 'silent! normal! g`"zv',
 })
 -- Window Maps
-vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, desc = "Swap to left window" })
+-- vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, desc = "Swap to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, desc = "Swap to down window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, desc = "Swap to up window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, desc = "Swap to right window" })
@@ -89,3 +92,5 @@ vim.keymap.set("n", "<C-A-h>", "<C-w><", { noremap = true, desc = "inc window wi
 vim.keymap.set("n", "<C-A-j>", "<C-w>-", { noremap = true, desc = "dec window height" })
 vim.keymap.set("n", "<C-A-k>", "<C-w>+", { noremap = true, desc = "inc window height" })
 vim.keymap.set("n", "<C-A-l>", "<C-w>>", { noremap = true, desc = "dec window width" })
+
+vim.keymap.set("n", "<leader>n", ":Explore<CR>", { desc = "open netrw" })
