@@ -2,7 +2,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.g.netrw_liststyle = 3
-vim.g.netrw_list_hide = "./*_templ.go"
 
 vim.o.number = true
 vim.o.relativenumber = true
@@ -14,9 +13,10 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.smartindent = true
-vim.o.wrap = true
 vim.o.linebreak = true
 vim.o.breakindent = true
+vim.o.wrap = false
+vim.opt.scrolloff = 5
 
 vim.o.undofile = true
 vim.o.swapfile = false
@@ -24,23 +24,38 @@ vim.o.swapfile = false
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+vim.o.termguicolors = true
+
 vim.wo.signcolumn = "yes"
+
+vim.opt.hlsearch = true
+vim.keymap.set("n", "<Esc>", "<esc>:nohlsearch<CR>")
+
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
+
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 vim.opt.completeopt = { "menuone", "noselect" }
 
-vim.o.termguicolors = true
+vim.opt.inccommand = "split"
 
-vim.g.clipboard = {
-    name = "OSC 52",
-    copy = {
-        ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-        ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-    },
-    paste = {
-        ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
-        ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
-    },
-}
+-- vim.g.clipboard = {
+--     name = "OSC 52",
+--     copy = {
+--         ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+--         ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+--     },
+--     paste = {
+--         ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+--         ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+--     },
+-- }
+
+vim.filetype.add({ extension = { templ = "templ" } })
+vim.filetype.add({ extension = { gotmpl = "gotmpl" } })
+vim.filetype.add({ extension = { gohtml = "gohtmltmpl" } })
 
 -- Install Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -83,7 +98,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     command = 'silent! normal! g`"zv',
 })
 -- Window Maps
--- vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, desc = "Swap to left window" })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, desc = "Swap to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, desc = "Swap to down window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, desc = "Swap to up window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, desc = "Swap to right window" })
@@ -93,4 +108,8 @@ vim.keymap.set("n", "<C-A-j>", "<C-w>-", { noremap = true, desc = "dec window he
 vim.keymap.set("n", "<C-A-k>", "<C-w>+", { noremap = true, desc = "inc window height" })
 vim.keymap.set("n", "<C-A-l>", "<C-w>>", { noremap = true, desc = "dec window width" })
 
-vim.keymap.set("n", "<leader>n", ":Explore<CR>", { desc = "open netrw" })
+-- go nice
+vim.keymap.set("n", "<leader>ge", "oif err != nil {}<esc>", { desc = "go insert err check" })
+
+--
+vim.keymap.set("n", "<leader>tr", 'yi":%s/<C-R>"/<C-R>"', { desc = "go insert err check" })

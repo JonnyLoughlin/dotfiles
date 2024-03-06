@@ -6,8 +6,16 @@ return {
         formatters_by_ft = {
             lua = { "stylua" },
 
-            go = { "goimports", "gofumpt" },
+            go = { "goimports", "gofumpt", "injected" },
+
             templ = { "templ" },
+
+            sql = { "sqlfmt" },
+
+            html = { "prettier" },
+            gohtmltmpl = { "prettier" },
+
+            typescriptreact = { "prettier" },
 
             sh = { "shfmt" },
             zsh = { "shfmt" },
@@ -16,7 +24,6 @@ return {
             lsp_fallback = true,
             timeout_ms = 1000,
         },
-        log_level = vim.log.levels.INFO,
         notify_on_error = true,
     },
 }

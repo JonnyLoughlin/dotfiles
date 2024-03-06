@@ -6,8 +6,10 @@ Downloads/
 Pictures/
 dev/
 go/
+games/
 
 .azuredatastudio/
+.anydesk/
 .bash_history
 .bun/
 .cache/
@@ -33,6 +35,9 @@ go/
 .zcompdump
 .zoom/
 .zshrc_secrets
+.dotnet/
+.netExtender.log
+.nuget/
 
 .config/Code/
 .config/GIMP/

@@ -19,11 +19,6 @@ themes {
 theme "main"
 
 pane_frames false
-ui {
-  pane_frames {
-    rounded_corners true
-  }
-}
 
 keybinds clear-defaults=true {
   normal {}
@@ -43,14 +38,12 @@ keybinds clear-defaults=true {
     bind "Alt k" { MoveFocus "Up"; }
     bind "Alt x" { NewPane "Up"; SwitchToMode "Normal"; }
     bind "Alt v" { NewPane "Left"; SwitchToMode "Normal"; }
-    bind "Alt c" { CloseFocus; SwitchToMode "Normal"; }
     bind "Alt o" { ToggleFloatingPanes; }
     bind "Alt O" { TogglePaneEmbedOrFloating; }
     // Tab Settings
     bind "Alt H" { GoToPreviousTab; }
     bind "Alt L" { GoToNextTab; }
-    bind "Alt N" { NewTab; }
-    bind "Alt C" { CloseTab; }
+    bind "Alt V" { NewTab; }
     bind "Alt B" { BreakPane; }
     bind "Alt 1" { GoToTab 1; }
     bind "Alt 2" { GoToTab 2; }

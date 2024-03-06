@@ -69,4 +69,24 @@ return {
             vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
         end,
     },
+    -- {
+    --     -- Configure Clipboard to work over ssh
+    --     "ojroques/nvim-osc52",
+    --     config = function()
+    --         local function copy(lines, _)
+    --             require("osc52").copy(table.concat(lines, "\n"))
+    --         end
+    --
+    --         local function paste()
+    --             ---@diagnostic disable-next-line: param-type-mismatch
+    --             return { vim.fn.split(vim.fn.getreg(""), "\n"), vim.fn.getregtype("") }
+    --         end
+    --
+    --         vim.g.clipboard = {
+    --             name = "osc52",
+    --             copy = { ["+"] = copy, ["*"] = copy },
+    --             paste = { ["+"] = paste, ["*"] = paste },
+    --         }
+    --     end,
+    -- },
 }

@@ -31,21 +31,22 @@ return {
                     enable_rename = true,
                     enable_close = true,
                     enable_close_on_slash = true,
-                    filetypes = { "html", "templ" },
+                    filetypes = { "html", "templ", "gotmpl" },
                 },
             })
 
+            vim.treesitter.language.register("gotmpl", "gohtmltmpl")
+
             -- local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-            -- parser_config.templ = {
-            --   install_info = {
-            --     url = "~/dev/tree-sitter-templ", -- local path or git repo
-            --     files = { "src/parser.c", "src/scanner.c" }, -- note that some parsers also require src/scanner.c or src/scanner.cc
-            --     -- optional entries:
-            --     branch = "main", -- default branch in case of git repo if different from master
-            --     generate_requires_npm = true, -- if stand-alone parser without npm dependencies
-            --     requires_generate_from_grammar = false, -- if folder contains pre-generated src/parser.c
-            --   },
+            -- parser_config.gotmpl = {
+            --     install_info = {
+            --         url = "https://github.com/ngalaiko/tree-sitter-go-template",
+            --         files = { "src/parser.c" },
+            --     },
+            --     filetype = "gohtmltmpl",
+            --     used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "yaml" },
             -- }
+            -- vim.filetype.add({ extension = { tmpl = "gohtmltmpl" } })
         end,
     },
 }

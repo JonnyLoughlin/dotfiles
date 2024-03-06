@@ -13,7 +13,8 @@ return {
                     hl.FloatBorder = { fg = c.none, bg = c.none }
                 end,
             })
-            vim.cmd([[colorscheme tokyonight-storm]])
+            vim.cmd.colorscheme("tokyonight-storm")
+            vim.cmd.hi("Comment gui=none")
         end,
     },
     {

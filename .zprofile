@@ -2,18 +2,9 @@ export TERM=alacritty
 export VISUAL=nvim
 export EDITOR=nvim
 export BROWSER=/usr/share/applications/firefox.desktop
-export MOZ_ENABLE_WAYLAND=1 firefox
 export MANPAGER='nvim +Man!'
-
-if [[ "$(hostname)" == "jonny-archbook" ]]; then
-	export warn_about_missing_glyphs=false
-	export WLR_NO_HARDWARE_CURSORS=1
-	export GTK_THEME=Arc-Dark
-
-	export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border' fzf
-	export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-	alias fzf='fzf | wl-copy'
-fi
+export FZF_DEFAULT_COMMAND='fd -H'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border' fzf
 
 if [[ ":$PATH:" != *":$HOME/.cargo/bin:"* ]]; then
 	export PATH="$PATH:$HOME/.cargo/bin"
