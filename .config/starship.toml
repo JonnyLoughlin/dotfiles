@@ -10,12 +10,12 @@ ${custom.directoryCRM}\
 
 [custom.hostname]
 command = """ 
-if [[ "$(hostname)" == "jonny-archbook" ]]; then 
+if [[ "$(hostname)" == "jonny-laptop" ]]; then 
   echo "$(hostname) " 
 fi 
 """
 when = """ 
-if [[ "$(hostname)" == "jonny-archbook" ]]; then 
+if [[ "$(hostname)" == "jonny-laptop" ]]; then 
   true
 else 
   false
@@ -58,12 +58,12 @@ format = "[ $output ]($style)"
 
 [custom.directory]
 command = """ 
-if [[ "$(hostname)" == "jonny-archbook" ]]; then 
+if [[ "$(hostname)" == "jonny-laptop" ]]; then 
   dirs -p | head -n 1
 fi 
 """
 when = """ 
-if [[ "$(hostname)" == "jonny-archbook" ]]; then 
+if [[ "$(hostname)" == "jonny-laptop" ]]; then 
   true
 else 
   false
