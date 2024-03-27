@@ -1,35 +1,35 @@
 * {
-  font-family: IntoneMono Nerd Font Mono;
-  font-size: 12px;
+    font-family: 'IntoneMono Nerd Font Mono';
+    font-size: 12px;
 }
 
 window#waybar {
-  background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
 }
 
 #workspaces button {
-  margin-right: 4px;
-  padding: 0px 0px;
-  color: #AACCCC;
-  background-color: #24283B;
-  border: 2px solid gray;
+    margin-right: 4px;
+    padding: 0px 0px;
+    color: #c0caf5;
+    background-color: #1a1b26;
+    border: 2px solid #565f89;
 }
 
 #workspaces button:hover {
-  border: 2px solid cyan;
+    border: 2px solid #61afef;
 }
 
 #workspaces button.active {
-  color: #24283B;
-  background-color: #888888;
-  border: 2px solid #AACCCC;
+    color: #1a1b26;
+    background-color: #888888;
+    border: 2px solid #c0caf5;
 }
 
-#workspaces{
-  margin-left: 4px;
-  margin-bottom: 4px;
-  padding-top: 4px;
-} 
+#workspaces {
+    margin-left: 4px;
+    margin-bottom: 4px;
+    padding-top: 4px;
+}
 
 #backlight,
 #pulseaudio,
@@ -38,10 +38,10 @@ window#waybar {
 #battery,
 #clock,
 #tray {
-  margin: 4px;
-  padding: 2px 6px;
-  color: #AACCCC;
-  background-color: #24283b;
-  border: 2px solid #AACCCC; 
-  border-radius: 6px;
+    margin: 4px;
+    padding: 2px 6px;
+    color: #c0caf5;
+    background-color: #1a1b26;
+    border: 2px solid #c0caf5;
+    border-radius: 6px;
 }

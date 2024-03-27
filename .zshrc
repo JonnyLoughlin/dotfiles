@@ -33,7 +33,7 @@ function zvm_after_init() {
 }
 
 # Machine Specific Config
-if [[ "$(hostname)" == "jonny-archbook" ]]; then
+if [[ "$(hostname)" == "jonny-laptop" ]]; then
 	alias z='zellij'
 	alias n='nvim'
 	alias c='clear'
