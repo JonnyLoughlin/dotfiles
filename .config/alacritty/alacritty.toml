@@ -1,12 +1,13 @@
-[font]
-size = 14
-
 [window]
 dynamic_padding = true
 decorations = "None"
 
 [scrolling]
 history = 0
+
+[font]
+size = 11.25
+# size = 10.33
 
 # TokyoNight Alacritty Colors
 # Default colors
@@ -56,3 +57,4 @@ draw_bold_text_with_bright_colors = true
 command = "firefox"
 hyperlinks = true
 post_processing = true
+

@@ -67,3 +67,7 @@ games/
 .config/unity3d/
 .config/zoom.conf
 .config/zoomus.conf
+.config/smb4krc
+.node_repl_history
+.nvidia-settings-rc
+rsi-images/

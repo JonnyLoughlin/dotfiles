@@ -15,7 +15,8 @@ vim.o.expandtab = true
 vim.o.smartindent = true
 vim.o.linebreak = true
 vim.o.breakindent = true
-vim.o.wrap = false
+vim.o.wrap = true
+vim.o.showbreak = "        "
 vim.opt.scrolloff = 5
 
 vim.o.undofile = true

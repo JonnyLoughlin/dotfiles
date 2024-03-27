@@ -51,7 +51,7 @@ if [[ "$(hostname)" == "jonny-archbook" ]]; then
 	f() {
 		selected_path=$(command fzf)
 		if [[ -d "$selected_path" ]]; then
-			cd "$selected_path" && nvim .
+			cd "$selected_path" && nvim
 		elif [[ -f "$selected_path" ]]; then
 			cd "$(dirname "$selected_path")" && nvim
 		fi
@@ -78,3 +78,6 @@ fi
 
 # Load starship
 eval "$(starship init zsh)"
+
+# bun completions
+[ -s "/home/jonny/.bun/_bun" ] && source "/home/jonny/.bun/_bun"

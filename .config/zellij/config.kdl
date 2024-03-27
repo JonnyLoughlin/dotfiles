@@ -18,7 +18,7 @@ themes {
 }
 theme "main"
 
-pane_frames false
+pane_frames true
 
 keybinds clear-defaults=true {
   normal {}
@@ -44,6 +44,8 @@ keybinds clear-defaults=true {
     bind "Alt H" { GoToPreviousTab; }
     bind "Alt L" { GoToNextTab; }
     bind "Alt V" { NewTab; }
+    bind "Alt B" { BreakPane; }
+    bind "Alt N" { NextSwapLayout; }
     bind "Alt B" { BreakPane; }
     bind "Alt 1" { GoToTab 1; }
     bind "Alt 2" { GoToTab 2; }

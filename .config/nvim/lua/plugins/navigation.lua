@@ -40,6 +40,7 @@ return {
                 enable_git_status = true,
                 enable_diagnostics = true,
                 window = { position = "current" },
+                filesystem = { filtered_items = { hide_by_pattern = { "*/*_templ*" } } },
                 default_component_configs = {
                     git_status = {
                         symbols = {
@@ -73,6 +74,15 @@ return {
         event = { "WinNew" },
         config = function()
             require("colorful-winsep").setup({})
+        end,
+    },
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("trouble").setup({ opts = { use_diagnostic_signs = true } })
+
+            vim.keymap.set("n", "<leader>tt", ":TroubleToggle<cr>", { desc = "Toggle Trouble" })
         end,
     },
 }

@@ -10,6 +10,11 @@ if [[ ":$PATH:" != *":$HOME/.cargo/bin:"* ]]; then
 	export PATH="$PATH:$HOME/.cargo/bin"
 fi
 
+if [[ ":$PATH:" != *":$HOME/.bun/bin:"* ]]; then
+	export PATH="$PATH:$HOME/.bun/bin"
+fi
+export BUN_INSTALL="$HOME/.bun"
+
 GOBIN_PATH=$(go env GOBIN)
 if [[ ":$PATH:" != *":$GOBIN_PATH:"* ]]; then
 	export PATH="$PATH:$GOBIN_PATH"

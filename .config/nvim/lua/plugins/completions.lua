@@ -19,9 +19,12 @@ return {
         cmp.setup({
             snippet = {
                 expand = function(args)
-                    require("luasnip").lsp_expand(args.body)
+                    luasnip.lsp_expand(args.body)
                 end,
             },
+
+            completion = { completeopt = "menu,menuone,noinsert" },
+
             window = {
                 completion = {
                     completion = cmp.config.window.bordered(),
@@ -34,7 +37,9 @@ return {
                     winhighlight = "Normal:None,FloatBorder:FloatBorder,Search:None",
                 },
             },
+
             preselect = cmp.PreselectMode.None,
+
             mapping = cmp.mapping.preset.insert({
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.abort(),
@@ -54,38 +59,37 @@ return {
                     end
                 end, { "i", "s" }),
             }),
+
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "cmp_nvim_lsp_signature_help" },
                 { name = "buffer" },
                 { name = "path" },
+                { name = "otter" },
             }),
+
             formatting = {
                 format = function(entry, vim_item)
-                    -- Source
                     vim_item.menu = ({
                         nvim_lsp = "[LSP]",
                         cmp_nvim_lsp_signature_help = "[LSP Sig]",
                         buffer = "[Buffer]",
                         path = "[Path]",
+                        otter = "[Otter]",
                     })[entry.source.name]
                     return vim_item
                 end,
             },
         })
+
         cmp.setup.cmdline(":", {
             mapping = cmp.mapping.preset.cmdline(),
-            sources = cmp.config.sources({
-                { name = "path" },
-            }, {
-                { name = "cmdline" },
-            }),
+            sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
         })
+
         cmp.setup.cmdline({ "/", "?" }, {
             mapping = cmp.mapping.preset.cmdline(),
-            sources = {
-                { name = "buffer" },
-            },
+            sources = { { name = "buffer" } },
         })
     end,
 }
