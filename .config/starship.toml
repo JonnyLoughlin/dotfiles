@@ -26,12 +26,12 @@ format = "[ $output ]($style)"
 
 [custom.hostnameDev]
 command = """ 
-if [[ "$(hostname)" == "CRM-Dev" ]]; then 
+if [[ "$(hostname)" == "crm-staging" ]]; then 
   echo "$(hostname) " 
 fi 
 """
 when = """ 
-if [[ "$(hostname)" == "CRM-Dev" ]]; then 
+if [[ "$(hostname)" == "crm-staging" ]]; then 
   true
 else 
   false
@@ -74,12 +74,12 @@ format = "[$output ]($style)"
 
 [custom.directoryDev]
 command = """ 
-if [[ "$(hostname)" == "CRM-Dev" ]]; then 
+if [[ "$(hostname)" == "crm-staging" ]]; then 
   dirs -p | head -n 1
 fi 
 """
 when = """ 
-if [[ "$(hostname)" == "CRM-Dev" ]]; then 
+if [[ "$(hostname)" == "crm-staging" ]]; then 
   true
 else 
   false

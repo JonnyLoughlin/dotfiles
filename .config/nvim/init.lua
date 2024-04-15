@@ -55,8 +55,7 @@ vim.opt.inccommand = "split"
 -- }
 
 vim.filetype.add({ extension = { templ = "templ" } })
-vim.filetype.add({ extension = { gotmpl = "gotmpl" } })
-vim.filetype.add({ extension = { gohtml = "gohtmltmpl" } })
+vim.filetype.add({ extension = { tmpl = "gotmpl" } })
 
 -- Install Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

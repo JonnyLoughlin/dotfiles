@@ -5,28 +5,19 @@ return {
     config = function()
         require("conform").setup({
             formatters_by_ft = {
-                lua = { "stylua" },
-
                 css = { "cssls" },
-
                 go = { "goimports", "gofumpt", "injected" },
-
-                templ = { "templ", "injected" },
-
-                sql = { "sql_formatter" },
-
+                gohtmltmpl = { "prettier" },
                 html = { "prettier" },
                 javascript = { "biome" },
-                gohtmltmpl = { "prettier" },
-                typescriptreact = { "prettier" },
-
+                lua = { "stylua" },
                 sh = { "shfmt" },
+                sql = { "sql_formatter" },
+                templ = { "templ", "injected" },
+                typescriptreact = { "prettier" },
                 zsh = { "shfmt" },
             },
-            format_on_save = {
-                lsp_fallback = true,
-                timeout_ms = 1000,
-            },
+            format_on_save = { lsp_fallback = true, timeout_ms = 1000 },
             notify_on_error = true,
         })
 

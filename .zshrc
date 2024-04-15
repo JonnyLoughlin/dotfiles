@@ -25,6 +25,7 @@ alias dc='sudo docker'
 # SSH Agent
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
+ssh-add ~/.ssh/id_rsa
 
 # Up and Down scroll history based on first letters typed
 function zvm_after_init() {
@@ -45,7 +46,6 @@ if [[ "$(hostname)" == "jonny-laptop" ]]; then
 	alias pullKeepass='rclone sync proton:Keepass/Passwords.kdbx ~/Documents/Keepass/'
 	alias pushKeepass='rclone sync ~/Documents/Keepass/Passwords.kdbx proton:Keepass/'
 
-	alias Vial='/home/jonny/Apps/Vial/AppRun'
 	alias Scarab='/home/jonny/Apps/Scarab/Scarab'
 
 	f() {
@@ -70,8 +70,8 @@ if [[ "$(hostname)" == "jonny-laptop" ]]; then
 		command fzf | wl-copy
 	}
 
-	alias sshDev='ssh jonny@192.168.0.50'
-	alias sshCRM='ssh jonny@192.168.0.152'
+	alias sshCRMStaging='ssh jonny@192.168.0.119'
+	alias sshCRMExtended='ssh jonny@192.168.0.152'
 
 	eval "$(sheldon source)"
 fi
