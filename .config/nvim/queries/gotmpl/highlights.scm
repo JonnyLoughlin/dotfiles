@@ -1,109 +1,84 @@
 ; Identifiers
+
 [
-  (field)
-  (field_identifier)
-] @variable.member
+    (field)
+    (field_identifier)
+] @property
 
 (variable) @variable
 
 ; Function calls
+
 (function_call
   function: (identifier) @function)
 
 (method_call
-  method:
-    (selector_expression
-      field: (field_identifier) @function))
-
-; Builtin functions
-(function_call
-  function: (identifier) @function.builtin
-  (#any-of? @function.builtin
-    "and" "call" "html" "index" "slice" "js" "len" "not" "or" "print" "printf" "println" "urlquery"
-    "eq" "ne" "lt" "ge" "gt" "ge"))
+  method: (selector_expression
+    field: (field_identifier) @method))
 
 ; Operators
-[
-  "|"
-  ":="
-] @operator
+
+"|" @operator
+":=" @operator
+
+; Builtin functions
+
+((identifier) @function.builtin
+ (#match? @function.builtin "^(and|call|html|index|slice|js|len|not|or|print|printf|println|urlquery|eq|ne|lt|ge|gt|ge)$"))
 
 ; Delimiters
-[
-  "."
-  ","
-] @punctuation.delimiter
+
+"." @punctuation.delimiter
+"," @punctuation.delimiter
+
+"{{" @punctuation.bracket
+"}}" @punctuation.bracket
+"{{-" @punctuation.bracket
+"-}}" @punctuation.bracket
+")" @punctuation.bracket
+"(" @punctuation.bracket
+
+; Keywords
 
 [
-  "{{"
-  "}}"
-  "{{-"
-  "-}}"
-  ")"
-  "("
-] @punctuation.bracket
-
-; Actions
-(if_action
-  [
-    "if"
     "else"
     "else if"
-    "end"
-  ] @keyword.conditional)
-
-(range_action
-  [
-    "range"
-    "else"
-    "end"
-  ] @keyword.repeat)
-
-(template_action
-  "template" @function.builtin)
-
-(block_action
-  [
-    "block"
-    "end"
-  ] @keyword.directive)
-
-(define_action
-  [
-    "define"
-    "end"
-  ] @keyword.directive.define)
-
-(with_action
-  [
+    "if"
     "with"
-    "else"
+] @conditional
+
+[
+    "range"
     "end"
-  ] @keyword.conditional)
+    "template"
+    "define"
+    "block"
+] @keyword
 
 ; Literals
+
 [
   (interpreted_string_literal)
   (raw_string_literal)
+  (rune_literal)
 ] @string
 
-(rune_literal) @string.special.symbol
-
-(escape_sequence) @string.escape
+(escape_sequence) @string.special
 
 [
   (int_literal)
+  (float_literal)
   (imaginary_literal)
 ] @number
 
-(float_literal) @number.float
-
 [
-  (true)
-  (false)
+    (true)
+    (false)
 ] @boolean
 
-(nil) @constant.builtin
+[
+  (nil)
+] @constant.builtin
 
-(comment) @comment @spell
-
+(comment) @comment
+(ERROR) @error

@@ -19,6 +19,7 @@ return {
             serverOpts["cssls"] = { filetypes = { "html", "css", "templ" } }
             serverOpts["clangd"] = {}
             serverOpts["gopls"] = {
+                filetypes = { "go" },
                 settings = {
                     gopls = {
                         analyses = { unusedparams = true },
@@ -28,8 +29,8 @@ return {
                 },
             }
             serverOpts["dockerls"] = {}
-            serverOpts["html"] = { filetypes = { "html", "templ", "gotmpl", "gohtmltmpl", "typescriptreact" } }
-            serverOpts["htmx"] = { filetypes = { "html", "templ", "gotmpl", "gohtmltmpl", "typescriptreact" } }
+            serverOpts["html"] = { filetypes = { "html", "templ", "gotmpl", "typescriptreact" } }
+            serverOpts["htmx"] = { filetypes = { "html", "templ", "gotmpl", "typescriptreact" } }
             serverOpts["jsonls"] = {}
             serverOpts["lua_ls"] = {
                 settings = {
@@ -46,7 +47,7 @@ return {
             serverOpts["marksman"] = {}
             serverOpts["rust_analyzer"] = {}
             serverOpts["tailwindcss"] = {
-                filetypes = { "css", "html", "javascriptreact", "templ", "gohtmltmpl", "typescriptreact" },
+                filetypes = { "css", "html", "javascriptreact", "templ", "typescriptreact" },
                 init_options = { userLanguages = { templ = "html" } },
             }
             serverOpts["templ"] = {}
