@@ -1,27 +1,16 @@
-[window]
-dynamic_padding = true
-decorations = "None"
-
-[scrolling]
-history = 0
-
-[font]
-size = 11.25
-# size = 10.33
-
 # TokyoNight Alacritty Colors
 # Default colors
 [colors.primary]
-background = '#24283b'
+background = '#1a1b26'
 foreground = '#c0caf5'
 
 [colors.cursor]
 cursor = '#c0caf5'
-text = '#24283b'
+text = '#1a1b26'
 
 # Normal colors
 [colors.normal]
-black = '#1d202f'
+black = '#15161e'
 red = '#f7768e'
 green = '#9ece6a'
 yellow = '#e0af68'
@@ -50,8 +39,11 @@ color = '#ff9e64'
 index = 17
 color = '#db4b4b'
 
-[colors]
-draw_bold_text_with_bright_colors = true
+[scrolling]
+history = 0
+
+[font.offset] 
+y = 1
 
 [[hints.enabled]]
 command = "firefox"

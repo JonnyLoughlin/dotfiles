@@ -1,8 +1,9 @@
 layout {
     pane size=1 borderless=true {
-        plugin location="file:/home/jonny/.config/zellij/zjstatus.wasm" {
-            format_left       "{mode} {tabs}"
-            format_right      "#[fg=#a9b1d6,bg=#26314D] {datetime}"
+        plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
+
+            format_left       "#[fg=#00ffff,bg=#26314D] {session} {mode} {tabs}"
+            format_right      "#[fg=#a9b1d6,bg=#26314D] {swap_layout} #[fg=#a9b1d6,bg=#26314D] {datetime}"
             format_space      "#[fg=#a9b1d6,bg=#26314D]"
 
             mode_normal       "#[fg=black,bg=blue] {name} "
@@ -18,6 +19,10 @@ layout {
         }
     }
     pane focus=true
+    pane size=2 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+
     swap_floating_layout {
         floating_panes max_panes=1 {
             pane x="2%" y="2%" width="96%" height="92%"

@@ -2,87 +2,132 @@ copy_command "wl-copy"
 scroll_buffer_size 1000000
 
 themes {
-  main {
-    fg "#A9B1D6"
-    bg "#888888"
-    black "#383E5A"
-    red "#F93357"
-    green "#2AC3DE"
-    yellow "#E0AF68"
-    blue "#7AA2F7"
-    magenta "#BB9AF7"
-    cyan "#2AC3DE"
-    white "#C0CAF5"
-    orange "#FF9E64"
-  }
+    main {
+        fg "#A9B1D6"
+        bg "#888888"
+        black "#383E5A"
+        red "#F93357"
+        green "#2AC3DE"
+        yellow "#E0AF68"
+        blue "#7AA2F7"
+        magenta "#BB9AF7"
+        cyan "#2AC3DE"
+        white "#C0CAF5"
+        orange "#FF9E64"
+    }
 }
 theme "main"
 
-pane_frames true
+pane_frames false
 
-keybinds clear-defaults=true {
-  normal {}
-  shared_except "normal" "locked" {
-    bind "Esc" { SwitchToMode "Normal"; }
-  }
-  // Standard Mode Bindings
-  locked {
-    bind "Alt g" { SwitchToMode "Normal"; }
-  }
-  shared_except "locked" {
-    // Pane Settings
-    bind "Alt g" { SwitchToMode "Locked"; }
-    bind "Alt h" { MoveFocus "Left"; }
-    bind "Alt l" { MoveFocus "Right"; }
-    bind "Alt j" { MoveFocus "Down"; }
-    bind "Alt k" { MoveFocus "Up"; }
-    bind "Alt x" { NewPane "Up"; SwitchToMode "Normal"; }
-    bind "Alt v" { NewPane "Left"; SwitchToMode "Normal"; }
-    bind "Alt o" { ToggleFloatingPanes; }
-    bind "Alt O" { TogglePaneEmbedOrFloating; }
-    // Tab Settings
-    bind "Alt H" { GoToPreviousTab; }
-    bind "Alt L" { GoToNextTab; }
-    bind "Alt V" { NewTab; }
-    bind "Alt B" { BreakPane; }
-    bind "Alt N" { NextSwapLayout; }
-    bind "Alt B" { BreakPane; }
-    bind "Alt 1" { GoToTab 1; }
-    bind "Alt 2" { GoToTab 2; }
-    bind "Alt 3" { GoToTab 3; }
-    bind "Alt 4" { GoToTab 4; }
-    bind "Alt 5" { GoToTab 5; }
-    bind "Alt 6" { GoToTab 6; }
-    // Open Scrollback in Editor (Handles Search and Scroll Mode)
-    bind "Alt s" { EditScrollback; }
-  }
-  // Resize Mode Bindings
-  shared_except "resize" "locked" {
-    bind "Alt r" { SwitchToMode "Resize"; }
-  }
-  resize {
-    bind "Alt r" { SwitchToMode "Normal"; }
-    bind "h" { Resize "Increase Left"; }
-    bind "j" { Resize "Increase Down"; }
-    bind "k" { Resize "Increase Up"; }
-    bind "l" { Resize "Increase Right"; }
-    bind "H" { Resize "Decrease Left"; }
-    bind "J" { Resize "Decrease Down"; }
-    bind "K" { Resize "Decrease Up"; }
-    bind "L" { Resize "Decrease Right"; }
-  }
-  // Move Mode Bindings
-  shared_except "move" "locked" {
-    bind "Alt t" { SwitchToMode "Move"; }
-  }
-  move {
-    bind "Alt t" { SwitchToMode "Normal"; }
-    bind "n" { MovePane; }
-    bind "p" { MovePaneBackwards; }
-    bind "h" { MovePane "Left"; }
-    bind "j" { MovePane "Down"; }
-    bind "k" { MovePane "Up"; }
-    bind "l" { MovePane "Right"; }
-  }
+plugins {
+    zjstatus location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" 
 }
 
+keybinds clear-defaults=true {
+    normal {}
+    shared_except "normal" "locked" {
+        bind "Esc" { SwitchToMode "Normal"; }
+    }
+    // Standard Mode Bindings
+    locked {
+        bind "Alt g" { SwitchToMode "Normal"; }
+    }
+    shared_except "locked" {
+        bind "Alt g" { SwitchToMode "Locked"; }
+        // Pane Settings
+        bind "Alt h" {
+            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm" {
+                name "move_focus_or_tab";
+                payload "left";
+                move_mod "alt";
+                resize_mod "ctrl";
+            };
+        }
+
+        bind "Alt j" {
+            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm" {
+                name "move_focus";
+                payload "down";
+                move_mod "alt";
+                resize_mod "ctrl";
+            };
+        }
+
+        bind "Alt k" {
+            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm" {
+                name "move_focus";
+                payload "up";
+                move_mod "alt";
+                resize_mod "ctrl";
+            };
+        }
+
+        bind "Alt l" {
+            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm" {
+                name "move_focus_or_tab";
+                payload "right";
+                move_mod "alt";
+                resize_mod "ctrl";
+            };
+        }
+        bind "Alt x" { NewPane "Up"; SwitchToMode "Normal"; }
+        bind "Alt v" { NewPane "Left"; SwitchToMode "Normal"; }
+
+        // Tab Settings
+        bind "Alt H" { MoveTab "Left"; }
+        bind "Alt J" { MoveFocusOrTab "Left"; }
+        bind "Alt K" { MoveFocusOrTab "Right"; }
+        bind "Alt L" { MoveTab "Right"; }
+        bind "Alt V" { NewTab; }
+        bind "Alt 1" { GoToTab 1; }
+        bind "Alt 2" { GoToTab 2; }
+        bind "Alt 3" { GoToTab 3; }
+        bind "Alt 4" { GoToTab 4; }
+        bind "Alt 5" { GoToTab 5; }
+        bind "Alt 6" { GoToTab 6; }
+        bind "Alt B" { BreakPane; }
+
+        // Floating Settings
+        bind "Alt o" { ToggleFloatingPanes; }
+        bind "Alt O" { TogglePaneEmbedOrFloating; }
+        bind "Alt N" { NextSwapLayout; }
+
+        // Plugin Setting
+        bind "Alt /" {
+            LaunchOrFocusPlugin "zellij:session-manager" {
+                floating true
+            }
+        }
+
+        bind "Alt s" { EditScrollback; }
+    }
+    // Resize Mode Bindings
+    shared_except "resize" "locked" {
+        bind "Alt r" { SwitchToMode "Resize"; }
+    }
+    resize {
+         bind "Alt r" { SwitchToMode "Normal"; }
+         bind "h" { Resize "Increase Left"; }
+         bind "j" { Resize "Increase Down"; }
+         bind "k" { Resize "Increase Up"; }
+         bind "l" { Resize "Increase Right"; }
+         bind "H" { Resize "Decrease Left"; }
+         bind "J" { Resize "Decrease Down"; }
+         bind "K" { Resize "Decrease Up"; }
+         bind "L" { Resize "Decrease Right"; }
+    }
+    // Move Mode Bindings
+    shared_except "move" "locked" {
+        bind "Alt t" { SwitchToMode "Move"; }
+    }
+    move {
+        bind "Alt t" { SwitchToMode "Normal"; }
+        bind "n" { MovePane; }
+        bind "p" { MovePaneBackwards; }
+        bind "h" { MovePane "Left"; }
+        bind "j" { MovePane "Down"; }
+        bind "k" { MovePane "Up"; }
+        bind "l" { MovePane "Right"; }
+    }
+}

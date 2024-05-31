@@ -42,22 +42,8 @@ vim.opt.completeopt = { "menuone", "noselect" }
 
 vim.opt.inccommand = "split"
 
--- vim.g.clipboard = {
---     name = "OSC 52",
---     copy = {
---         ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
---         ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
---     },
---     paste = {
---         ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
---         ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
---     },
--- }
-
-vim.filetype.add({ extension = { templ = "templ" } })
 vim.filetype.add({ extension = { tmpl = "gotmpl" } })
 
--- Install Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -70,8 +56,7 @@ if not vim.loop.fs_stat(lazypath) then
     })
 end
 vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({ { import = "plugins" } })
+require("lazy").setup({ { import = "plugins" } }, { defaults = {} })
 
 -- [[ Keymaps ]]
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
@@ -97,19 +82,15 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     pattern = "*",
     command = 'silent! normal! g`"zv',
 })
--- Window Maps
-vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, desc = "Swap to left window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, desc = "Swap to down window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, desc = "Swap to up window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, desc = "Swap to right window" })
 
-vim.keymap.set("n", "<C-A-h>", "<C-w><", { noremap = true, desc = "inc window width" })
-vim.keymap.set("n", "<C-A-j>", "<C-w>-", { noremap = true, desc = "dec window height" })
-vim.keymap.set("n", "<C-A-k>", "<C-w>+", { noremap = true, desc = "inc window height" })
-vim.keymap.set("n", "<C-A-l>", "<C-w>>", { noremap = true, desc = "dec window width" })
-
--- go nice
+-- go nice error
 vim.keymap.set("n", "<leader>ge", "oif err != nil {}<esc>", { desc = "go insert err check" })
 
+-- toggle formatter
+-- vim.keymap.set("n", "<leader>te", ":FormatEnable<cr>", { noremap = true, desc = "Enable Formatter" })
+-- vim.keymap.set("n", "<leader>td", ":FormatDisable<cr>", { noremap = true, desc = "Enable Formatter" })
 --
-vim.keymap.set("n", "<leader>tr", 'yi":%s/<C-R>"/<C-R>"', { desc = "go insert err check" })
+
+vim.keymap.del("n", "grr")
+vim.keymap.del("n", "gra")
+vim.keymap.del("n", "grn")

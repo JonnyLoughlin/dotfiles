@@ -33,48 +33,43 @@ function zvm_after_init() {
 	bindkey "^[[A" history-beginning-search-backward
 }
 
-# Machine Specific Config
-if [[ "$(hostname)" == "jonny-laptop" ]]; then
-	alias z='zellij'
-	alias n='nvim'
-	alias c='clear'
-	alias l='hyprlock'
-	alias co='wl-copy'
-	alias ss='grim -g "$(slurp -o -r )" - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png'
-	alias tm='trash-put'
+alias z='zellij'
+alias n='nvim'
+alias c='clear'
+alias l='hyprlock'
+alias co='wl-copy'
+alias ss='grim -g "$(slurp -o -r )" - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png'
+alias tm='trash-put'
+alias ls='lsd'
 
-	alias pullKeepass='rclone sync proton:Keepass/Passwords.kdbx ~/Documents/Keepass/'
-	alias pushKeepass='rclone sync ~/Documents/Keepass/Passwords.kdbx proton:Keepass/'
+alias Scarab='/home/jonny/Apps/Scarab/Scarab'
 
-	alias Scarab='/home/jonny/Apps/Scarab/Scarab'
+f() {
+	selected_path=$(command fzf)
+	if [[ -d "$selected_path" ]]; then
+		cd "$selected_path" && nvim
+	elif [[ -f "$selected_path" ]]; then
+		cd "$(dirname "$selected_path")" && nvim
+	fi
+}
 
-	f() {
-		selected_path=$(command fzf)
-		if [[ -d "$selected_path" ]]; then
-			cd "$selected_path" && nvim
-		elif [[ -f "$selected_path" ]]; then
-			cd "$(dirname "$selected_path")" && nvim
-		fi
-	}
+fz() {
+	selected_path=$(command fzf)
+	if [[ -d "$selected_path" ]]; then
+		cd "$selected_path" || exit
+	elif [[ -f "$selected_path" ]]; then
+		cd "$(dirname "$selected_path")" || exit
+	fi
+}
 
-	fz() {
-		selected_path=$(command fzf)
-		if [[ -d "$selected_path" ]]; then
-			cd "$selected_path" || exit
-		elif [[ -f "$selected_path" ]]; then
-			cd "$(dirname "$selected_path")" || exit
-		fi
-	}
+fzf() {
+	command fzf | wl-copy
+}
 
-	fzf() {
-		command fzf | wl-copy
-	}
+alias sshCRMStaging='ssh jonny@192.168.0.119'
+alias sshCRMExtended='ssh jonny@192.168.0.152'
 
-	alias sshCRMStaging='ssh jonny@192.168.0.119'
-	alias sshCRMExtended='ssh jonny@192.168.0.152'
-
-	eval "$(sheldon source)"
-fi
+eval "$(sheldon source)"
 
 # Load starship
 eval "$(starship init zsh)"
