@@ -66,8 +66,8 @@ fzf() {
 	command fzf | wl-copy
 }
 
-alias sshCRMStaging='ssh jonny@192.168.0.119'
 alias sshCRMExtended='ssh jonny@192.168.0.152'
+alias sshCRMStaging='ssh apps@192.168.0.249'
 
 eval "$(sheldon source)"
 
