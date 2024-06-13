@@ -22,8 +22,11 @@
 .config/fuzzel/
 .config/go/
 .config/keepassxc/
+.config/kritadisplayrc
+.config/kritarc
 .config/kwalletrc
 .config/libreoffice/
+.config/menus/
 .config/mimeapps.list
 .config/neofetch/
 .config/pavucontrol.ini
@@ -57,6 +60,7 @@
 .steam/
 .steampath
 .steampid
+.supermaven/
 .vscode/
 .wget-hsts
 .wine/
@@ -68,7 +72,6 @@ Downloads/
 Pictures/
 all/
 apps/
-dev/
 go/
+proj/
 rsi-images/
-test.vil

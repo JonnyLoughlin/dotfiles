@@ -1,10 +1,11 @@
 return {
-    "dynamotn/Navigator.nvim",
-    config = function()
-        require("Navigator").setup({})
-        vim.keymap.set({ "n", "t" }, "<A-h>", "<cmd>NavigatorLeft<cr>")
-        vim.keymap.set({ "n", "t" }, "<A-l>", "<cmd>NavigatorRight<cr>")
-        vim.keymap.set({ "n", "t" }, "<A-k>", "<cmd>NavigatorUp<cr>")
-        vim.keymap.set({ "n", "t" }, "<A-j>", "<cmd>NavigatorDown<cr>")
-    end,
+    "https://git.sr.ht/~swaits/zellij-nav.nvim",
+    event = "VeryLazy",
+    keys = {
+        { "<A-h>", "<cmd>ZellijNavigateLeft<cr>", { silent = true, desc = "navigate left" } },
+        { "<A-j>", "<cmd>ZellijNavigateDown<cr>", { silent = true, desc = "navigate down" } },
+        { "<A-k>", "<cmd>ZellijNavigateUp<cr>", { silent = true, desc = "navigate up" } },
+        { "<A-l>", "<cmd>ZellijNavigateRight<cr>", { silent = true, desc = "navigate right" } },
+    },
+    opts = {},
 }

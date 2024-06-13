@@ -1,6 +1,5 @@
 return {
     "stevearc/conform.nvim",
-    lazy = true,
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
     config = function()
@@ -10,7 +9,7 @@ return {
                 go = { "goimports", "gofumpt", "injected" },
                 gotmpl = { "prettier" },
                 html = { "prettier" },
-                javascript = { "prettierd" },
+                javascript = { "prettier" },
                 lua = { "stylua" },
                 sh = { "shfmt" },
                 sql = { "sql_formatter" },
@@ -18,8 +17,8 @@ return {
                 typescriptreact = { "prettierd" },
                 zsh = { "shfmt" },
             },
-            format_on_save = function(bufnr)
-                if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+            format_on_save = function()
+                if vim.g.disable_autoformat then
                     return
                 end
                 return { timeout_ms = 500, lsp_fallback = true }
@@ -36,24 +35,15 @@ return {
         --     },
         -- }
 
-        vim.api.nvim_create_user_command("FormatDisable", function(args)
-            if args.bang then
-                vim.b.disable_autoformat = true
-            else
-                vim.g.disable_autoformat = true
-            end
-        end, {
-            desc = "Disable autoformat-on-save",
-            bang = true,
-        })
-        vim.keymap.set("n", "<leader>te", ":FormatEnable<cr>", { noremap = true, desc = "Enable Formatter" })
+        vim.api.nvim_create_user_command("FormatDisable", function()
+            vim.g.disable_autoformat = true
+        end, { desc = "Disable autoformat-on-save" })
 
         vim.api.nvim_create_user_command("FormatEnable", function()
-            vim.b.disable_autoformat = false
             vim.g.disable_autoformat = false
-        end, {
-            desc = "Re-enable autoformat-on-save",
-        })
-        vim.keymap.set("n", "<leader>td", ":FormatDisable<cr>", { noremap = true, desc = "Enable Formatter" })
+        end, { desc = "Re-enable autoformat-on-save" })
+
+        vim.keymap.set("n", "<leader>xe", ":FormatEnable<cr>", { noremap = true, desc = "Enable Formatter" })
+        vim.keymap.set("n", "<leader>xd", ":FormatDisable<cr>", { noremap = true, desc = "Disable Formatter" })
     end,
 }

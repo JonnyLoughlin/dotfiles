@@ -13,7 +13,7 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.smartindent = true
-vim.o.linebreak = true
+vim.o.linebreak = false
 vim.o.breakindent = true
 vim.o.wrap = true
 vim.o.showbreak = "        "
@@ -35,12 +35,13 @@ vim.keymap.set("n", "<Esc>", "<esc>:nohlsearch<CR>")
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 
-vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 vim.opt.completeopt = { "menuone", "noselect" }
 
-vim.opt.inccommand = "split"
+-- vim.opt.spell = true
+-- vim.opt.spelllang = { "en_us" }
 
 vim.filetype.add({ extension = { tmpl = "gotmpl" } })
 
@@ -84,13 +85,4 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- go nice error
-vim.keymap.set("n", "<leader>ge", "oif err != nil {}<esc>", { desc = "go insert err check" })
-
--- toggle formatter
--- vim.keymap.set("n", "<leader>te", ":FormatEnable<cr>", { noremap = true, desc = "Enable Formatter" })
--- vim.keymap.set("n", "<leader>td", ":FormatDisable<cr>", { noremap = true, desc = "Enable Formatter" })
---
-
-vim.keymap.del("n", "grr")
-vim.keymap.del("n", "gra")
-vim.keymap.del("n", "grn")
+vim.keymap.set("n", "<leader>ve", "oif err != nil {}<esc>", { desc = "go insert err check" })
