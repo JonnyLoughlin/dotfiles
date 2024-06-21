@@ -1,17 +1,14 @@
-.azuredatastudio/
 .bash_history
 .bash_logout
 .bash_profile
 .bun/
 .cache/
 .cargo/
-.config/.avalonia-build-tasks/
 .config/Code/
 .config/HKModInstaller/
 .config/QtProject.conf
 .config/Vial/
 .config/azuredatastudio/
-.config/bottom/
 .config/cef_user_data/
 .config/chromium/
 .config/dconf/
@@ -27,8 +24,6 @@
 .config/kwalletrc
 .config/libreoffice/
 .config/menus/
-.config/mimeapps.list
-.config/neofetch/
 .config/pavucontrol.ini
 .config/pulse/
 .config/qBittorrent/
@@ -40,11 +35,9 @@
 .dotnet/
 .gnupg/
 .histfile
-.java/
 .lesshst
 .local/
 .mariadb_history
-.minecraft/
 .mozilla/
 .netExtender.log
 .netExtenderCerts/
@@ -52,6 +45,7 @@
 .node_repl_history
 .npm/
 .nuget/
+.oldgitignore
 .pki/
 .rustup/
 .sqlcmd/
@@ -60,7 +54,6 @@
 .steam/
 .steampath
 .steampid
-.supermaven/
 .vscode/
 .wget-hsts
 .wine/
@@ -70,7 +63,6 @@ Desktop/
 Documents/
 Downloads/
 Pictures/
-all/
 apps/
 go/
 proj/
