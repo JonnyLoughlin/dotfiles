@@ -5,23 +5,22 @@ return {
     config = function()
         require("conform").setup({
             formatters_by_ft = {
-                css = { "cssls" },
-                go = { "goimports", "gofumpt", "injected" },
-                gotmpl = { "prettier" },
-                html = { "prettier" },
-                javascript = { "prettier" },
+                go = { "goimports", "gofumpt" },
+                gotmpl = { "prettierd" },
+                html = { "prettierd" },
+                javascript = { "prettierd" },
                 lua = { "stylua" },
                 sh = { "shfmt" },
                 sql = { "sql_formatter" },
-                templ = { "templ", "injected" },
+                templ = { "templ" },
                 typescriptreact = { "prettierd" },
                 zsh = { "shfmt" },
             },
             format_on_save = function()
-                if vim.g.disable_autoformat then
-                    return
+                if not vim.g.disable_autoformat then
+                    return { timeout_ms = 500, lsp_format = "fallback" }
+                    ---@diagnostic disable-next-line: missing-return
                 end
-                return { timeout_ms = 500, lsp_fallback = true }
             end,
             notify_on_error = true,
         })

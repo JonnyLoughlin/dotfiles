@@ -14,7 +14,7 @@ return {
         --- @type table<table<string>>
         local serverOpts = {}
         serverOpts["bashls"] = { filetypes = { "bash", "zsh" } }
-        serverOpts["cssls"] = { filetypes = { "html", "css", "templ" } }
+        -- serverOpts["cssls"] = { filetypes = { "html", "css", "templ" } }
         serverOpts["gopls"] = { settings = {} }
         serverOpts["html"] = { filetypes = { "html", "templ", "gotmpl", "typescriptreact" } }
         serverOpts["htmx"] = { filetypes = { "html", "templ", "gotmpl", "typescriptreact" } }
