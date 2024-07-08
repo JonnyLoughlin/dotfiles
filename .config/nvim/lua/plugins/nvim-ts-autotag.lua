@@ -1,5 +1,5 @@
 return {
     "windwp/nvim-ts-autotag",
-    event = "VeryLazy",
+    ft = { "html", "jsx", "tsx", "templ" },
     opts = {},
 }

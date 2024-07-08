@@ -1,6 +1,5 @@
 return {
     "hrsh7th/nvim-cmp",
-    event = "VeryLazy",
     dependencies = {
         "hrsh7th/cmp-cmdline",
         "hrsh7th/cmp-buffer",
@@ -17,7 +16,6 @@ return {
         local cmp = require("cmp")
 
         cmp.setup({
-
             completion = { completeopt = "menu,menuone,noinsert" },
 
             preselect = cmp.PreselectMode.None,

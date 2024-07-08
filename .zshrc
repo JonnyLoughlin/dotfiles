@@ -29,8 +29,8 @@ ssh-add ~/.ssh/id_rsa
 
 # Up and Down scroll history based on first letters typed
 function zvm_after_init() {
-	bindkey "^[[B" history-beginning-search-forward
-	bindkey "^[[A" history-beginning-search-backward
+    bindkey "^[[B" history-beginning-search-forward
+    bindkey "^[[A" history-beginning-search-backward
 }
 
 alias z='zellij'
@@ -44,26 +44,28 @@ alias ls='lsd'
 
 alias Scarab='/home/jonny/Apps/Scarab/Scarab'
 
+source <(fzf --zsh)
+
 f() {
-	selected_path=$(command fzf)
-	if [[ -d "$selected_path" ]]; then
-		cd "$selected_path" && nvim
-	elif [[ -f "$selected_path" ]]; then
-		cd "$(dirname "$selected_path")" && nvim
-	fi
+    selected_path=$(command fzf)
+    if [[ -d "$selected_path" ]]; then
+        cd "$selected_path" || exit
+    elif [[ -f "$selected_path" ]]; then
+        cd "$(dirname "$selected_path")" || exit
+    fi
 }
 
 fz() {
-	selected_path=$(command fzf)
-	if [[ -d "$selected_path" ]]; then
-		cd "$selected_path" || exit
-	elif [[ -f "$selected_path" ]]; then
-		cd "$(dirname "$selected_path")" || exit
-	fi
+    selected_path=$(command fzf)
+    if [[ -d "$selected_path" ]]; then
+        cd "$selected_path" && nvim
+    elif [[ -f "$selected_path" ]]; then
+        cd "$(dirname "$selected_path")" && nvim
+    fi
 }
 
 fzf() {
-	command fzf | wl-copy
+    command fzf | wl-copy
 }
 
 alias sshCRMExtended='ssh jonny@192.168.0.152'

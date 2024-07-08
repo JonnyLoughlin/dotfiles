@@ -8,14 +8,13 @@ return {
             c = { name = "Comment" },
             g = { name = "Gitsigns" },
             o = { name = "Oil" },
+            p = { name = "Peek" },
             v = { name = "Go Snippets" },
             x = { name = "Conform" },
             y = { name = "You Surround" },
         }, { prefix = "<leader>" })
         wk.register({
-            K = {
-                name = "LSP",
-            },
+            K = { name = "LSP" },
         })
     end,
 }
