@@ -40,10 +40,15 @@ vim.opt.splitright = true
 
 vim.opt.completeopt = { "menuone", "noselect" }
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "templ",
+    callback = function()
+        vim.bo.commentstring = "// %s"
+    end,
+})
+
 -- vim.opt.spell = true
 -- vim.opt.spelllang = { "en_us" }
-
-vim.filetype.add({ extension = { tmpl = "gotmpl" } })
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

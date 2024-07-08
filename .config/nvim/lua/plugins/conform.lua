@@ -2,18 +2,29 @@ return {
     "stevearc/conform.nvim",
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
+    keys = {
+        { "<leader>xe", ":FormatEnable<cr>", noremap = true, desc = "Enable Formatter" },
+        { "<leader>xd", ":FormatDisable<cr>", noremap = true, desc = "Disable Formatter" },
+    },
     config = function()
         require("conform").setup({
             formatters_by_ft = {
                 go = { "goimports", "gofumpt" },
-                gotmpl = { "prettierd" },
+
                 html = { "prettierd" },
-                javascript = { "prettierd" },
+
+                javascript = { "biome" },
+                typescript = { "biome" },
+                typescriptreact = { "biome" },
+
                 lua = { "stylua" },
+
                 sh = { "shfmt" },
+
                 sql = { "sql_formatter" },
+
                 templ = { "templ" },
-                typescriptreact = { "prettierd" },
+
                 zsh = { "shfmt" },
             },
             format_on_save = function()
@@ -41,8 +52,5 @@ return {
         vim.api.nvim_create_user_command("FormatEnable", function()
             vim.g.disable_autoformat = false
         end, { desc = "Re-enable autoformat-on-save" })
-
-        vim.keymap.set("n", "<leader>xe", ":FormatEnable<cr>", { noremap = true, desc = "Enable Formatter" })
-        vim.keymap.set("n", "<leader>xd", ":FormatDisable<cr>", { noremap = true, desc = "Disable Formatter" })
     end,
 }

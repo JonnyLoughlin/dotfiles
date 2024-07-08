@@ -1,6 +1,5 @@
 return {
     "nvim-telescope/telescope.nvim",
-    event = "VeryLazy",
     branch = "0.1.x",
     dependencies = {
         "nvim-lua/plenary.nvim",
@@ -13,6 +12,16 @@ return {
             end,
         },
     },
+    keys = {
+        { "<leader>s", desc = "fuzzily search in current buffer" },
+        { "<leader>S", desc = "search by grep" },
+        { "<leader>f", desc = "search files" },
+        { "<leader>F", desc = "search all files" },
+        { "<leader>h", desc = "search help" },
+        { "<leader>u", desc = "search undo tree" },
+        { "KD", desc = "search diagnostics" },
+    },
+
     config = function()
         require("telescope").setup({})
 
@@ -23,14 +32,14 @@ return {
                 winblend = 10,
                 previewer = false,
             }))
-        end, { desc = "fuzzily search in current buffer" })
-        vim.keymap.set("n", "<leader>S", require("telescope.builtin").live_grep, { desc = "search by grep" })
-        vim.keymap.set("n", "<leader>f", require("telescope.builtin").find_files, { desc = "search files" })
+        end)
+        vim.keymap.set("n", "<leader>S", require("telescope.builtin").live_grep)
+        vim.keymap.set("n", "<leader>f", require("telescope.builtin").find_files)
         vim.keymap.set("n", "<leader>F", function()
             require("telescope.builtin").find_files({ hidden = true, no_ignore = true })
-        end, { desc = "search all files" })
-        vim.keymap.set("n", "<leader>h", require("telescope.builtin").help_tags, { desc = "search help" })
-        vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "search undo tree" })
-        vim.keymap.set("n", "KD", require("telescope.builtin").diagnostics, { desc = "search diagnostics" })
+        end)
+        vim.keymap.set("n", "<leader>h", require("telescope.builtin").help_tags)
+        vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>")
+        vim.keymap.set("n", "KD", require("telescope.builtin").diagnostics)
     end,
 }

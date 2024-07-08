@@ -1,7 +1,10 @@
 return {
     "toppair/peek.nvim",
-    event = "VeryLazy",
     build = "deno task --quiet build:fast",
+    keys = {
+        { "<leader>po", ":PeekOpen<cr>", desc = "Open Peek" },
+        { "<leader>pc", ":PeekClose<cr>", desc = "Close Close" },
+    },
     config = function()
         require("peek").setup({
             app = "browser",

@@ -1,9 +1,7 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    event = "VeryLazy",
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "windwp/nvim-ts-autotag",
     },
     build = ":TSUpdate",
     config = function()
@@ -22,7 +20,5 @@ return {
                 },
             },
         })
-
-        vim.treesitter.language.register("gotmpl", "tmpl")
     end,
 }
