@@ -1,5 +1,5 @@
 {
-    "langueage": "tsql",
+    "dialect": "tsql",
     "tabWidth": 4,
     "keywordCase": "upper"
 }
