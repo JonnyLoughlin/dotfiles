@@ -40,7 +40,7 @@ alias l='hyprlock'
 alias co='wl-copy'
 alias ss='grim -g "$(slurp -o -r )" - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png'
 alias tm='trash-put'
-alias ls='lsd'
+alias ls='lsd -Fv --group-directories-first'
 
 alias Scarab='/home/jonny/Apps/Scarab/Scarab'
 

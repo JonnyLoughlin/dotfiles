@@ -18,6 +18,7 @@
 .config/freerdp/
 .config/fuzzel/
 .config/go/
+.config/google-chrome-for-testing/
 .config/keepassxc/
 .config/kritadisplayrc
 .config/kritarc

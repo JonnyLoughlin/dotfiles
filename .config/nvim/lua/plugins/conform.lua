@@ -17,6 +17,8 @@ return {
                 typescript = { "biome" },
                 typescriptreact = { "biome" },
 
+                markdown = { "markdownlint" },
+
                 lua = { "stylua" },
 
                 sh = { "shfmt" },
