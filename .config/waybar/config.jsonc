@@ -1,0 +1,97 @@
+{
+    "layer": "top",
+    "position": "top",
+    "spacing": 0,
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "backlight",
+        "pulseaudio",
+        "battery",
+        "network",
+        "network#n2",
+        "network#n3",
+        "tray",
+        "clock",
+        "clock#c2"
+    ],
+    "hyprland/workspaces": {
+        "format": "{id}"
+    },
+    "hyprland/window": {
+        "format": "{class} - {title}"
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "format-tooltip": ""
+    },
+    "pulseaudio": {
+        "format": " {volume}% {format_source}",
+        "format-muted": "󰖁 0% {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " 0%",
+        "on-click": "pavucontrol"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "format-charging": "{capacity}% 󰃨",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}"
+    },
+    "network": {
+        "interface": "enp86s0u1u4u4u3",
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+        "format-disconnected": "",
+        "tooltip-format": "{ifname}"
+    },
+    "network#n2": {
+        "interface": "wlp0s20f3",
+        "format-wifi": " {ipaddr}/{cidr}",
+        "format-disconnected": "",
+        "tooltip-format": "{essid}"
+    },
+    "network#n3": {
+        "interface": "enp86s0u1u4u4u1",
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+        "format-disconnected": "",
+        "tooltip-format": "{ifname}"
+    },
+    "clock": {
+        "interval": 1,
+        "format": "{:%I:%M:%S:%p}"
+    },
+    "clock#c2": {
+        "interval": 1,
+        "format": "{:%m/%d/%y}",
+        "tooltip-format": "<big>{calendar}</big>"
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    }
+}

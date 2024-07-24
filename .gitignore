@@ -5,13 +5,10 @@
 .bun/
 .cache/
 .cargo/
-.config/BasemarkGPU/
 .config/Code/
 .config/HKModInstaller/
 .config/QtProject.conf
 .config/Vial/
-.config/azuredatastudio/
-.config/blender-benchmark-launcher/
 .config/cef_user_data/
 .config/chromium/
 .config/dconf/
@@ -22,10 +19,7 @@
 .config/freerdp/
 .config/fuzzel/
 .config/go/
-.config/google-chrome-for-testing/
 .config/keepassxc/
-.config/kritadisplayrc
-.config/kritarc
 .config/kwalletrc
 .config/libreoffice/
 .config/menus/
@@ -34,10 +28,8 @@
 .config/pulse/
 .config/qBittorrent/
 .config/remmina/
-.config/smb4krc
 .config/unity3d/
 .config/vlc/
-.config/waybar/config.jsonc
 .config/wireshark/
 .dotfiles/
 .dotnet/
@@ -54,7 +46,6 @@
 .node_repl_history
 .npm/
 .nuget/
-.oldgitignore
 .pki/
 .putty/
 .rustup/
