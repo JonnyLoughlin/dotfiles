@@ -47,9 +47,7 @@ vim.g.loaded_ruby_provider = 0
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "templ",
-    callback = function()
-        vim.bo.commentstring = "// %s"
-    end,
+    callback = function() vim.bo.commentstring = "// %s" end,
 })
 
 -- vim.opt.spell = true
@@ -75,9 +73,7 @@ vim.keymap.set({ "n", "v" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, si
 vim.keymap.set({ "n", "v" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
-    callback = function()
-        vim.highlight.on_yank()
-    end,
+    callback = function() vim.highlight.on_yank() end,
     group = highlight_group,
     pattern = "*",
 })

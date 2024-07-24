@@ -1,5 +1,5 @@
 return {
     "windwp/nvim-ts-autotag",
-    ft = { "html", "jsx", "tsx", "templ" },
+    ft = { "javascript", "javascripttreact", "typescript", "typescriptreact", "html", "templ" },
     opts = {},
 }

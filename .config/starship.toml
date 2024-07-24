@@ -1,105 +1,17 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
-${custom.hostname}\
-${custom.hostnameDev}\
-${custom.hostnameCRM}\
-${custom.directory}\
-${custom.directoryDev}\
-${custom.directoryCRM}\
+${hostname}\
+${directory}\
 [](fg:#404040)\
 """
 
-[custom.hostname]
-command = """ 
-if [[ "$(hostname)" == "jonny-laptop" ]]; then 
-  echo "$(hostname) " 
-fi 
-"""
-when = """ 
-if [[ "$(hostname)" == "jonny-laptop" ]]; then 
-  true
-else 
-  false
-fi 
-"""
+[hostname]
 style = "bg:#404040 fg:#00ffff"
-format = "[ $output ]($style)"
+format = "[ $hostname ]($style)"
 
-[custom.hostnameDev]
-command = """ 
-if [[ "$(hostname)" == "crm-staging" ]]; then 
-  echo "$(hostname) " 
-fi 
-"""
-when = """ 
-if [[ "$(hostname)" == "crm-staging" ]]; then 
-  true
-else 
-  false
-fi 
-"""
-style = "bg:#404040 fg:#00ff00"
-format = "[ $output ]($style)"
 
-[custom.hostnameCRM]
-command = """ 
-if [[ "$(hostname)" == "CRM-Extended" ]]; then 
-  echo "$(hostname) " 
-fi 
-"""
-when = """ 
-if [[ "$(hostname)" == "CRM-Extended" ]]; then 
-  true
-else 
-  false
-fi 
-"""
-style = "bg:#404040 fg:#ff0000"
-format = "[ $output ]($style)"
-
-[custom.directory]
-command = """ 
-if [[ "$(hostname)" == "jonny-laptop" ]]; then 
-  dirs -p | head -n 1
-fi 
-"""
-when = """ 
-if [[ "$(hostname)" == "jonny-laptop" ]]; then 
-  true
-else 
-  false
-fi 
-"""
+[directory]
 style = "bg:#404040 fg:#00ffff"
-format = "[$output ]($style)"
-
-[custom.directoryDev]
-command = """ 
-if [[ "$(hostname)" == "crm-staging" ]]; then 
-  dirs -p | head -n 1
-fi 
-"""
-when = """ 
-if [[ "$(hostname)" == "crm-staging" ]]; then 
-  true
-else 
-  false
-fi 
-"""
-style = "bg:#404040 fg:#00ff00"
-format = "[$output ]($style)"
-
-[custom.directoryCRM]
-command = """ 
-if [[ "$(hostname)" == "CRM-Extended" ]]; then 
-  dirs -p | head -n 1
-fi 
-"""
-when = """ 
-if [[ "$(hostname)" == "CRM-Extended" ]]; then 
-  true
-else 
-  false
-fi 
-"""
-style = "bg:#404040 fg:#ff0000"
-format = "[$output ]($style)"
+format = "[ $path ]($style)"
+truncate_to_repo = false

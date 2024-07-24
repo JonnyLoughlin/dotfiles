@@ -1,105 +1,81 @@
 return {
     "mfussenegger/nvim-dap",
     keys = {
-        { "<F1>", desc = "Debug: Start/Continue" },
-        { "<F2>", desc = "Debug: Step Into" },
-        { "<F3>", desc = "Debug: Step Over" },
-        { "<F4>", desc = "Debug: Step Out" },
-        { "<F5>", desc = "Debug: Step Back" },
-        { "<F6>", desc = "Debug: Restart" },
-        { "<F7>", desc = "Debug: Stop" },
-        { "<F8>", desc = "Debug: Disconnect" },
-        { "<F9>", desc = "Debug: Toggle Breakpoint" },
-        { "<F10>", desc = "Debug: Set Breakpoint" },
-        { "<F12>", desc = "Debug: See last session results" },
+        { "<F1>", function() require("dap").continue() end, desc = "Debug: Start/Continue" },
+        { "<F2>", function() require("dap").step_into() end, desc = "Debug: Step Into" },
+        { "<F3>", function() require("dap").step_over() end, desc = "Debug: Step Over" },
+        { "<F4>", function() require("dap").step_out() end, desc = "Debug: Step Out" },
+        { "<F5>", function() require("dap").step_back() end, desc = "Debug: Step Back" },
+        { "<F6>", function() require("dap").restart() end, desc = "Debug: Restart" },
+        { "<F7>", function() require("dap").stop() end, desc = "Debug: Stop" },
+        { "<F8>", function() require("dap").disconnect() end, desc = "Debug: Disconnect" },
+        { "<F9>", function() require("dap").toggle_breakpoint() end, desc = "Debug: Toggle Breakpoint" },
+        { "<F10>", function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end, desc = "Debug: Set Breakpoint" },
+        { "<F12>", function() require("dapui").toggle() end, desc = "Debug: See last session results" },
     },
     dependencies = {
         "williamboman/mason.nvim",
-        "jay-babu/mason-nvim-dap.nvim",
-        "rcarriga/nvim-dap-ui",
+        {
+            "jay-babu/mason-nvim-dap.nvim",
+            opts = {
+                automatic_installation = true,
+                automatic_setup = true,
+            },
+        },
+        {
+            "rcarriga/nvim-dap-ui",
+            opts = {
+                layouts = {
+                    {
+                        elements = {
+                            { id = "breakpoints", size = 0.10 },
+                            { id = "watches", size = 0.45 },
+                            { id = "scopes", size = 0.45 },
+                        },
+                        position = "left",
+                        size = 80,
+                    },
+                    {
+                        elements = {
+                            { id = "repl", size = 1 },
+                        },
+                        position = "bottom",
+                        size = 20,
+                    },
+                },
+            },
+        },
         "nvim-neotest/nvim-nio",
     },
-    config = function()
-        local dap = require("dap")
-        local dapui = require("dapui")
-
-        require("mason-nvim-dap").setup({
-            automatic_installation = true,
-            automatic_setup = true,
-        })
-
-        vim.keymap.set("n", "<F1>", dap.continue)
-        vim.keymap.set("n", "<F2>", dap.step_into)
-        vim.keymap.set("n", "<F3>", dap.step_over)
-        vim.keymap.set("n", "<F4>", dap.step_out)
-        vim.keymap.set("n", "<F5>", dap.step_back)
-        vim.keymap.set("n", "<F6>", dap.restart)
-        vim.keymap.set("n", "<F7>", dap.stop)
-        vim.keymap.set("n", "<F8>", dap.disconnect)
-        vim.keymap.set("n", "<F9>", dap.toggle_breakpoint)
-        vim.keymap.set("n", "<F10>", function()
-            dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-        end)
-        vim.keymap.set("n", "<F12>", dapui.toggle)
-
-        dapui.setup({
-            layouts = {
-                {
-                    elements = {
-                        { id = "breakpoints", size = 0.10 },
-                        { id = "watches", size = 0.45 },
-                        { id = "scopes", size = 0.45 },
-                    },
-                    position = "left",
-                    size = 80,
-                },
-                {
-                    elements = {
-                        { id = "repl", size = 1 },
-                    },
-                    position = "bottom",
-                    size = 20,
+    opts = {
+        adapters = {
+            delve = {
+                type = "server",
+                port = "${port}",
+                executable = {
+                    command = "dlv",
+                    args = { "dap", "-l", "127.0.0.1:${port}" },
                 },
             },
-        })
-        dap.listeners.after.event_initialized["dapui_config"] = dapui.open
-        dap.listeners.before.event_terminated["dapui_config"] = dapui.close
-        dap.listeners.before.event_exited["dapui_config"] = dapui.close
+        },
 
-        dap.adapters.delve = {
-            type = "server",
-            port = "${port}",
-            executable = {
-                command = "dlv",
-                args = { "dap", "-l", "127.0.0.1:${port}" },
-                -- add this if on windows, otherwise server won't open successfully
-                -- detached = false
+        configurations = {
+            go = {
+                {
+                    type = "delve",
+                    name = "Debug",
+                    request = "launch",
+                    program = "${file}",
+                },
+                {
+                    type = "delve",
+                    name = "Debug test",
+                    request = "launch",
+                    mode = "test",
+                    program = "${file}",
+                },
             },
-        }
-
-        -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
-        dap.configurations.go = {
-            {
-                type = "delve",
-                name = "Debug",
-                request = "launch",
-                program = "${file}",
-            },
-            {
-                type = "delve",
-                name = "Debug test", -- configuration for debugging test files
-                request = "launch",
-                mode = "test",
-                program = "${file}",
-            },
-            -- works with go.mod packages and sub packages
-            {
-                type = "delve",
-                name = "Debug test (go.mod)",
-                request = "launch",
-                mode = "test",
-                program = "./${relativeFileDirname}",
-            },
-        }
-    end,
+        },
+    },
+    config = function() end,
 }

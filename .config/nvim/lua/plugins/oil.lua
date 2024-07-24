@@ -2,14 +2,11 @@ return {
     "stevearc/oil.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
-        { "<leader>oo", ":Oil --float<cr>", desc = "Open Oil" },
-        { "<leader>oc", desc = "Close Oil" },
+        { "<leader>oo", function() require("oil").open_float() end, desc = "Open Oil" },
+        { "<leader>oc", function() require("oil").close() end, desc = "Close Oil" },
     },
-    config = function()
-        require("oil").setup({
-            delete_to_trash = true,
-            experimental_watch_for_changes = true,
-        })
-        vim.keymap.set("n", "<leader>oc", require("oil").close)
-    end,
+    opts = {
+        delete_to_trash = true,
+        experimental_watch_for_changes = true,
+    },
 }

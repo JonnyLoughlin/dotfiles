@@ -31,6 +31,21 @@ window#waybar {
     padding-top: 4px;
 }
 
+#window {
+    margin: 4px 4px;
+    padding: 2px 4px;
+    color: #c0caf5;
+    background-color: #1a1b26;
+    border: 2px solid #c0caf5;
+    border-radius: 6px;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+    border: 0;
+    color: transparent;
+}
+
 #backlight,
 #pulseaudio,
 #network,

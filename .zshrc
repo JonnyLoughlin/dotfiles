@@ -27,20 +27,25 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 ssh-add ~/.ssh/id_rsa
 
+# luarocks path setup
+eval "$(LUAROCKS_CONFIG=$HOME/.luarocks/config-nlua.lua luarocks path --no-bin)"
+
 # Up and Down scroll history based on first letters typed
 function zvm_after_init() {
     bindkey "^[[B" history-beginning-search-forward
     bindkey "^[[A" history-beginning-search-backward
 }
 
-alias z='zellij'
-alias n='nvim'
 alias c='clear'
-alias l='hyprlock'
 alias co='wl-copy'
+alias l='hyprlock'
+alias lr='luarocks'
+alias lrn='LUAROCKS_CONFIG=$HOME/.luarocks/config-nlua.lua luarocks --local'
+alias ls='lsd -Fv --group-directories-first'
+alias n='nvim'
 alias ss='grim -g "$(slurp -o -r )" - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png'
 alias tm='trash-put'
-alias ls='lsd -Fv --group-directories-first'
+alias z='zellij'
 
 alias Scarab='/home/jonny/Apps/Scarab/Scarab'
 
@@ -70,6 +75,7 @@ fzf() {
 
 alias sshCRMExtended='ssh jonny@192.168.0.152'
 alias sshCRMStaging='ssh apps@192.168.0.249'
+alias sshCarson-Retailer-Dashboard='ssh apps@192.168.0.118'
 
 eval "$(sheldon source)"
 

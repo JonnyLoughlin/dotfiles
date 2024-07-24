@@ -29,3 +29,7 @@ GOPATH_BIN=$(go env GOPATH)/bin
 if [[ ":$PATH:" != *":$GOPATH_BIN:"* ]]; then
     export PATH="$PATH:$GOPATH_BIN"
 fi
+
+if [[ ":$PATH:" != *":$HOME/.luarocks/bin:"* ]]; then
+    export PATH="$PATH:$HOME/.luarocks/bin"
+fi
