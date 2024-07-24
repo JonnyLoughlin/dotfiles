@@ -1,0 +1,12 @@
+# Set to true to use lowercase keywords instead of uppercase.
+lowercaseKeywords: false
+connections:
+  - alias: Nickfury-MAS_CAR
+    driver: mssql
+    dataSourceName: sqlserver://sa:Carson35@192.168.0.91:1433?database=MAS_CAR
+  - alias: Nickfury-CRM
+    driver: mssql
+    dataSourceName: sqlserver://sa:Carson35@192.168.0.91:1433?database=CRM
+  - alias: Nickfury-master
+    driver: mssql
+    dataSourceName: sqlserver://sa:Carson35@192.168.0.91:1433?database=master

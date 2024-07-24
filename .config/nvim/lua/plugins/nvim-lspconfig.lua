@@ -4,6 +4,9 @@ return {
         { "j-hui/fidget.nvim", opts = {} },
         { "williamboman/mason.nvim", opts = {} },
         { "williamboman/mason-lspconfig.nvim" },
+        { "nanotee/sqls.nvim", keys = {
+            { "<leader>ds", ":SqlsSwitchConnection", desc = "Sqls Switch Connection" },
+        } },
     },
     config = function()
         require("mason-lspconfig").setup({ automatic_installation = true })
@@ -29,11 +32,16 @@ return {
             },
         }
         serverOpts["marksman"] = {}
+        serverOpts["phpactor"] = {}
+        serverOpts["sqls"] = {
+            on_attach = function(client, bufnr) require("sqls").on_attach(client, bufnr) end,
+        }
         serverOpts["tailwindcss"] = {
             filetypes = { "css", "html", "javascriptreact", "templ", "typescriptreact" },
             init_options = { userLanguages = { templ = "html" } },
         }
         serverOpts["templ"] = {}
+        serverOpts["taplo"] = {}
         serverOpts["yamlls"] = {}
         serverOpts["zls"] = {}
 
@@ -52,9 +60,7 @@ return {
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
             callback = function(ev)
-                local function map(rhs, lhs, desc)
-                    vim.keymap.set("n", rhs, lhs, { buffer = ev.buf, desc = desc, noremap = true })
-                end
+                local function map(rhs, lhs, desc) vim.keymap.set("n", rhs, lhs, { buffer = ev.buf, desc = desc, noremap = true }) end
 
                 -- Buffer local mappings.
                 map("gd", require("telescope.builtin").lsp_definitions, "Go to Lsp Definitions")

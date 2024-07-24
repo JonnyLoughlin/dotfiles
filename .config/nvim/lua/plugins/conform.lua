@@ -6,53 +6,41 @@ return {
         { "<leader>xe", ":FormatEnable<cr>", noremap = true, desc = "Enable Formatter" },
         { "<leader>xd", ":FormatDisable<cr>", noremap = true, desc = "Disable Formatter" },
     },
-    config = function()
-        require("conform").setup({
-            formatters_by_ft = {
-                go = { "goimports", "gofumpt" },
+    opts = {
 
-                html = { "prettierd" },
+        formatters_by_ft = {
+            go = { "goimports", "gofumpt" },
 
-                javascript = { "biome" },
-                typescript = { "biome" },
-                typescriptreact = { "biome" },
+            html = { "prettierd" },
 
-                markdown = { "markdownlint" },
+            javascript = { "biome" },
+            typescript = { "biome" },
+            typescriptreact = { "biome" },
 
-                lua = { "stylua" },
+            markdown = { "markdownlint", "injected" },
 
-                sh = { "shfmt" },
+            lua = { "stylua" },
 
-                sql = { "sql_formatter" },
+            bash = { "shfmt" },
+            sh = { "shfmt" },
 
-                templ = { "templ" },
+            sql = { "sql_formatter" },
 
-                zsh = { "shfmt" },
+            templ = { "templ" },
+
+            zsh = { "shfmt" },
+        },
+        format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
+        formatters = {
+            sql_formatter = {
+                prepend_args = { "-c", vim.fn.expand("~/.config/sql-formatter.json") },
             },
-            format_on_save = function()
-                if not vim.g.disable_autoformat then
-                    return { timeout_ms = 500, lsp_format = "fallback" }
-                    ---@diagnostic disable-next-line: missing-return
-                end
-            end,
-            notify_on_error = true,
-        })
+        },
+        notify_on_error = true,
+    },
+    init = function()
+        vim.api.nvim_create_user_command("FormatDisable", function() vim.g.disable_autoformat = true end, { desc = "Disable autoformat-on-save" })
 
-        require("conform").formatters.sql_formatter = { prepend_args = { "-c", vim.fn.expand("~/.config/sql-formatter.json") } }
-
-        -- require("conform").formatters.prettier = {
-        --     prepend_args = {
-        --         "--plugin",
-        --         vim.fn.expand("~/.bun/install/global/node_modules/prettier-plugin-go-template/lib/index.js"),
-        --     },
-        -- }
-
-        vim.api.nvim_create_user_command("FormatDisable", function()
-            vim.g.disable_autoformat = true
-        end, { desc = "Disable autoformat-on-save" })
-
-        vim.api.nvim_create_user_command("FormatEnable", function()
-            vim.g.disable_autoformat = false
-        end, { desc = "Re-enable autoformat-on-save" })
+        vim.api.nvim_create_user_command("FormatEnable", function() vim.g.disable_autoformat = false end, { desc = "Re-enable autoformat-on-save" })
     end,
 }
