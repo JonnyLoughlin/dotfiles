@@ -24,8 +24,6 @@ return {
             bash = { "shfmt" },
             sh = { "shfmt" },
 
-            sql = { "sql_formatter" },
-
             templ = { "templ" },
 
             zsh = { "shfmt" },

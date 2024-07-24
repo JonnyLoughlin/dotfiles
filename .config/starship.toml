@@ -12,6 +12,7 @@ format = "[ $hostname ]($style)"
 
 
 [directory]
+truncation_length = 0
 style = "bg:#404040 fg:#00ffff"
 format = "[ $path ]($style)"
 truncate_to_repo = false
