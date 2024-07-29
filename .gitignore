@@ -19,6 +19,7 @@
 .config/freerdp/
 .config/fuzzel/
 .config/go/
+.config/google-chrome-for-testing/
 .config/keepassxc/
 .config/kwalletrc
 .config/libreoffice/
@@ -59,12 +60,12 @@
 .wget-hsts
 .wine/
 .zcompdump
-Carson/
 Desktop/
 Documents/
 Downloads/
 Pictures/
 apps/
+carson/
 go/
 proj/
 rsi-images/

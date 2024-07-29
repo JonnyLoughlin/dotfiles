@@ -4,10 +4,6 @@
 background = '#1a1b26'
 foreground = '#c0caf5'
 
-[colors.cursor]
-cursor = '#c0caf5'
-text = '#1a1b26'
-
 # Normal colors
 [colors.normal]
 black = '#15161e'
@@ -42,11 +38,13 @@ color = '#db4b4b'
 [scrolling]
 history = 0
 
-[font.offset] 
+[font.offset]
 y = 1
+
+[window]
+dynamic_padding = true
 
 [[hints.enabled]]
 command = "firefox"
 hyperlinks = true
 post_processing = true
-

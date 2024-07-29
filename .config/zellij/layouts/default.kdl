@@ -19,9 +19,6 @@ layout {
         }
     }
     pane focus=true
-    pane size=2 borderless=true {
-        plugin location="zellij:status-bar"
-    }
 
     swap_floating_layout {
         floating_panes max_panes=1 {
