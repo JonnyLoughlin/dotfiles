@@ -5,7 +5,7 @@ return {
         { "williamboman/mason.nvim", opts = {} },
         { "williamboman/mason-lspconfig.nvim" },
         { "nanotee/sqls.nvim", keys = {
-            { "<leader>ds", ":SqlsSwitchConnection", desc = "Sqls Switch Connection" },
+            { "<leader>ds", ":SqlsSwitchConnection<cr>", desc = "Sqls Switch Connection" },
         } },
     },
     config = function()
@@ -13,7 +13,7 @@ return {
 
         --- @type table<table<string>>
         local serverOpts = {}
-        serverOpts["bashls"] = { filetypes = { "bash", "zsh" } }
+        serverOpts["bashls"] = { filetypes = { "bash", "sh", "zsh" } }
         serverOpts["biome"] = {}
         serverOpts["gopls"] = { settings = {} }
         serverOpts["html"] = { filetypes = { "html", "templ", "typescriptreact" } }
@@ -64,12 +64,12 @@ return {
 
                 -- Buffer local mappings.
                 map("gd", require("telescope.builtin").lsp_definitions, "Go to Lsp Definitions")
-                map("gr", require("telescope.builtin").lsp_references, "Go to Lsp References")
+                map("grr", require("telescope.builtin").lsp_references, "Go to Lsp References")
                 map("gI", require("telescope.builtin").lsp_implementations, "Go to Lsp Implementations")
                 map("KK", vim.lsp.buf.hover, "Hover Docuementation")
                 map("KT", require("telescope.builtin").lsp_type_definitions, "Go to Type Definitions")
-                map("KR", vim.lsp.buf.rename, "Rename")
-                map("KC", vim.lsp.buf.code_action, "Code Action")
+                map("grn", vim.lsp.buf.rename, "Rename")
+                map("gra", vim.lsp.buf.code_action, "Code Action")
                 map("KH", function()
                     ---@diagnostic disable-next-line: param-type-mismatch
                     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(nil))

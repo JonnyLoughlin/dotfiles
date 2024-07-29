@@ -16,6 +16,7 @@ vim.o.smartindent = true
 vim.o.linebreak = false
 vim.o.breakindent = true
 vim.o.wrap = true
+vim.o.linebreak = true
 vim.o.showbreak = "        "
 vim.opt.scrolloff = 5
 

@@ -91,7 +91,7 @@ keybinds clear-defaults=true {
         // Floating Settings
         bind "Alt o" { ToggleFloatingPanes; }
         bind "Alt O" { TogglePaneEmbedOrFloating; }
-        bind "Alt N" { NextSwapLayout; }
+        bind "Alt n" { NextSwapLayout; }
 
         // Plugin Setting
         bind "Alt /" {

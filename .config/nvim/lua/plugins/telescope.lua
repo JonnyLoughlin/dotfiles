@@ -7,39 +7,32 @@ return {
         {
             "nvim-telescope/telescope-fzf-native.nvim",
             build = "make",
-            cond = function()
-                return vim.fn.executable("make") == 1
-            end,
+            cond = function() return vim.fn.executable("make") == 1 end,
         },
     },
     keys = {
-        { "<leader>s", desc = "fuzzily search in current buffer" },
-        { "<leader>S", desc = "search by grep" },
-        { "<leader>f", desc = "search files" },
-        { "<leader>F", desc = "search all files" },
-        { "<leader>h", desc = "search help" },
-        { "<leader>u", desc = "search undo tree" },
-        { "KD", desc = "search diagnostics" },
+        { "<leader>s", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "fuzzily search in current buffer" },
+        { "<leader>S", "<cmd>Telescope live_grep<cr>", desc = "search by grep" },
+        { "<leader>f", "<cmd>Telescope find_files<cr>", desc = "search files" },
+        { "<leader>F", "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", desc = "search all files" },
+        { "<leader>h", "<cmd>Telescope help_tags<cr>", desc = "search help" },
+        { "<leader>u", "<cmd>Telescope undo<CR>", desc = "search undo tree" },
+        { "KD", "<cmd>Telescope diagnostics<cr>", desc = "search diagnostics" },
     },
 
     config = function()
-        require("telescope").setup({})
-
         require("telescope").load_extension("undo")
-
-        vim.keymap.set("n", "<leader>s", function()
-            require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-                winblend = 10,
-                previewer = false,
-            }))
-        end)
-        vim.keymap.set("n", "<leader>S", require("telescope.builtin").live_grep)
-        vim.keymap.set("n", "<leader>f", require("telescope.builtin").find_files)
-        vim.keymap.set("n", "<leader>F", function()
-            require("telescope.builtin").find_files({ hidden = true, no_ignore = true })
-        end)
-        vim.keymap.set("n", "<leader>h", require("telescope.builtin").help_tags)
-        vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>")
-        vim.keymap.set("n", "KD", require("telescope.builtin").diagnostics)
+        require("telescope").setup({
+            pickers = {
+                current_buffer_fuzzy_find = {
+                    theme = "dropdown",
+                    previewer = false,
+                    layout_config = {
+                        height = 0.8,
+                        width = 0.8,
+                    },
+                },
+            },
+        })
     end,
 }

@@ -49,6 +49,7 @@ alias z='zellij'
 
 alias Scarab='/home/jonny/Apps/Scarab/Scarab'
 
+# shellcheck source='/usr/share/fzf/completion.zsh'
 source <(fzf --zsh)
 
 f() {
@@ -59,19 +60,7 @@ f() {
         cd "$(dirname "$selected_path")" || exit
     fi
 }
-
-fz() {
-    selected_path=$(command fzf)
-    if [[ -d "$selected_path" ]]; then
-        cd "$selected_path" && nvim
-    elif [[ -f "$selected_path" ]]; then
-        cd "$(dirname "$selected_path")" && nvim
-    fi
-}
-
-fzf() {
-    command fzf | wl-copy
-}
+alias fzc='fzf | wl-copy'
 
 alias sshCRMExtended='ssh jonny@192.168.0.152'
 alias sshCRMStaging='ssh apps@192.168.0.249'
@@ -81,6 +70,3 @@ eval "$(sheldon source)"
 
 # Load starship
 eval "$(starship init zsh)"
-
-# bun completions
-[ -s "/home/jonny/.bun/_bun" ] && source "/home/jonny/.bun/_bun"
