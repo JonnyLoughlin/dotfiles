@@ -18,7 +18,11 @@ themes {
 }
 theme "main"
 
-pane_frames false
+ui {
+    pane_frames {
+        rounded_corners true
+    }
+}
 
 plugins {
     zjstatus location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" 
@@ -71,8 +75,8 @@ keybinds clear-defaults=true {
                 resize_mod "ctrl";
             };
         }
-        bind "Alt x" { NewPane "Up"; SwitchToMode "Normal"; }
-        bind "Alt v" { NewPane "Left"; SwitchToMode "Normal"; }
+        bind "Alt x" { NewPane "Down"; SwitchToMode "Normal"; }
+        bind "Alt v" { NewPane "Right"; SwitchToMode "Normal"; }
 
         // Tab Settings
         bind "Alt H" { MoveTab "Left"; }

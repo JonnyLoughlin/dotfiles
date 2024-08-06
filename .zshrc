@@ -27,9 +27,6 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 ssh-add ~/.ssh/id_rsa
 
-# luarocks path setup
-eval "$(LUAROCKS_CONFIG=$HOME/.luarocks/config-nlua.lua luarocks path --no-bin)"
-
 # Up and Down scroll history based on first letters typed
 function zvm_after_init() {
     bindkey "^[[B" history-beginning-search-forward
@@ -62,11 +59,14 @@ f() {
 }
 alias fzc='fzf | wl-copy'
 
-alias sshCRMExtended='ssh jonny@192.168.0.152'
+alias sshCRMExtended='ssh apps@192.168.0.152'
 alias sshCRMStaging='ssh apps@192.168.0.249'
 alias sshCarson-Retailer-Dashboard='ssh apps@192.168.0.118'
 
 eval "$(sheldon source)"
+
+# Set luarocks path
+eval "$(luarocks path --bin)"
 
 # Load starship
 eval "$(starship init zsh)"

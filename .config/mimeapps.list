@@ -12,6 +12,11 @@ application/x-extension-xht=userapp-Nightly-UPDHQ2.desktop
 x-scheme-handler/mailto=firefox-beta-bin.desktop;
 image/jpeg=firefox-beta-bin.desktop
 image/png=firefox-beta-bin.desktop
+x-scheme-handler/rdp=org.remmina.Remmina.desktop
+x-scheme-handler/spice=org.remmina.Remmina.desktop
+x-scheme-handler/vnc=org.remmina.Remmina.desktop
+x-scheme-handler/remmina=org.remmina.Remmina.desktop
+application/x-remmina=org.remmina.Remmina.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox-beta-bin.desktop;userapp-Firefox-F581L2.desktop;userapp-Nightly-UPDHQ2.desktop;
@@ -28,3 +33,8 @@ text/markdown=firefox-beta-bin.desktop;
 inode/directory=nemo.desktop;
 image/jpeg=firefox-beta-bin.desktop;
 image/png=firefox-beta-bin.desktop;
+x-scheme-handler/rdp=org.remmina.Remmina.desktop;
+x-scheme-handler/spice=org.remmina.Remmina.desktop;
+x-scheme-handler/vnc=org.remmina.Remmina.desktop;
+x-scheme-handler/remmina=org.remmina.Remmina.desktop;
+application/x-remmina=org.remmina.Remmina.desktop;

@@ -32,6 +32,7 @@ return {
                 { name = "nvim_lsp" },
                 { name = "buffer" },
                 { name = "path" },
+                { name = "lazydev" },
                 { name = "nvim_lsp_signature_help" },
             }),
 
