@@ -1,4 +1,4 @@
-export TERM=alacritty
+export TERM=foot
 export VISUAL=nvim
 export EDITOR=nvim
 export BROWSER=/usr/share/applications/firefox-nightly.desktop
