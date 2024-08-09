@@ -15,6 +15,7 @@ return {
         local serverOpts = {}
         serverOpts["bashls"] = { filetypes = { "bash", "sh", "zsh" } }
         serverOpts["biome"] = {}
+        serverOpts["clangd"] = {}
         serverOpts["gopls"] = { settings = {} }
         serverOpts["html"] = { filetypes = { "html", "templ", "typescriptreact" } }
         serverOpts["htmx"] = { filetypes = { "html", "templ" } }
