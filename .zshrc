@@ -3,6 +3,8 @@ HISTFILE=~/.histfile
 HISTSIZE=500000
 SAVEHIST=500000
 setopt INC_APPEND_HISTORY
+# I hate this
+setopt IGNOREEOF
 
 # Auto Complete
 zstyle :compinstall filename "$HOME/.zshrc"
@@ -60,7 +62,7 @@ f() {
 alias fzc='fzf | wl-copy'
 
 alias sshCRMExtended='ssh apps@192.168.0.152'
-alias sshCRMStaging='ssh apps@192.168.0.249'
+alias sshCRMStaging='ssh apps@192.168.0.45'
 alias sshCarson-Retailer-Dashboard='ssh apps@192.168.0.118'
 
 eval "$(sheldon source)"
@@ -70,3 +72,5 @@ eval "$(luarocks path --bin)"
 
 # Load starship
 eval "$(starship init zsh)"
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /home/jonny/go/bin/xc xc

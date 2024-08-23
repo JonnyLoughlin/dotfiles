@@ -30,25 +30,30 @@ export FZF_DEFAULT_OPTS="\
     --preview='cat {+}' \
 "
 
-if [[ ":$PATH:" != *":$HOME/.cargo/bin:"* ]]; then
+# Cargo Path
+if [[ ":$PATH:" != *":$HOME/.cargo/bin"* ]]; then
     export PATH="$PATH:$HOME/.cargo/bin"
 fi
-
-if [[ ":$PATH:" != *":$HOME/.bun/bin:"* ]]; then
+# Bun Path
+if [[ ":$PATH:" != *":$HOME/.bun/bin"* ]]; then
     export PATH="$PATH:$HOME/.bun/bin"
 fi
 export BUN_INSTALL="$HOME/.bun"
-
-GOBIN_PATH=$(go env GOBIN)
-if [[ ":$PATH:" != *":$GOBIN_PATH:"* ]]; then
-    export PATH="$PATH:$GOBIN_PATH"
-fi
-
+# Go Path
 GOPATH_BIN=$(go env GOPATH)/bin
-if [[ ":$PATH:" != *":$GOPATH_BIN:"* ]]; then
+if [[ ":$PATH:" != *":$GOPATH_BIN"* ]]; then
     export PATH="$PATH:$GOPATH_BIN"
 fi
-
-if [[ ":$PATH:" != *":$HOME/.luarocks/bin:"* ]]; then
+# Luarocks Path
+if [[ ":$PATH:" != *":$HOME/.luarocks/bin"* ]]; then
     export PATH="$PATH:$HOME/.luarocks/bin"
 fi
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r '/home/jonny/.opam/opam-init/init.zsh' ]] || source '/home/jonny/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# END opam configuration
