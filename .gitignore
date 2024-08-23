@@ -5,15 +5,21 @@
 .bun/
 .cache/
 .cargo/
+.config/.avalonia-build-tasks/
 .config/Code/
+.config/Cogent Core/
 .config/HKModInstaller/
 .config/QtProject.conf
+.config/Slippi Launcher/
+.config/SlippiOnline/
+.config/SlippiPlayback/
 .config/Vial/
 .config/cef_user_data/
 .config/chromium/
 .config/dconf/
 .config/discord/
 .config/dlv/
+.config/dolphin-emu/
 .config/dunst/
 .config/filezilla/
 .config/freerdp/
@@ -26,6 +32,7 @@
 .config/menus/
 .config/nvim/test.sql
 .config/pavucontrol.ini
+.config/pragtical/
 .config/pulse/
 .config/qBittorrent/
 .config/remmina/
@@ -47,6 +54,8 @@
 .node_repl_history
 .npm/
 .nuget/
+.omnisharp/
+.opam/
 .pki/
 .putty/
 .rustup/
@@ -56,6 +65,7 @@
 .steam/
 .steampath
 .steampid
+.templateengine/
 .vscode/
 .wget-hsts
 .wine/
@@ -64,6 +74,7 @@ Desktop/
 Documents/
 Downloads/
 Pictures/
+Slippi/
 apps/
 carson/
 go/

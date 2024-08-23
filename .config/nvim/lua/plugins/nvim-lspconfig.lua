@@ -7,6 +7,7 @@ return {
         { "nanotee/sqls.nvim", keys = {
             { "<leader>ds", ":SqlsSwitchConnection<cr>", desc = "Sqls Switch Connection" },
         } },
+        -- { "Hoffs/omnisharp-extended-lsp.nvim", config = function() require("omnisharp_extended").setup({}) end },
     },
     config = function()
         require("mason-lspconfig").setup({ automatic_installation = true })
@@ -33,7 +34,28 @@ return {
             },
         }
         serverOpts["marksman"] = {}
-        serverOpts["phpactor"] = {}
+        -- serverOpts["omnisharp"] = {
+        --     settings = {
+        --         FormattingOptions = {
+        --             OrganizeImports = true,
+        --         },
+        --         RoslynExtensionsOptions = {
+        --             EnableAnalyzersSupport = true,
+        --             EnableImportCompletion = true,
+        --             AnalyzeOpenDocumentsOnly = true,
+        --             EnableDecompilationSupport = true,
+        --         },
+        --         Sdk = {
+        --             IncludePrereleases = true,
+        --         },
+        --     },
+        --     -- handlers = {
+        --     --     ["textDocument/definition"] = require("omnisharp_extended").definition_handler,
+        --     --     ["textDocument/typeDefinition"] = require("omnisharp_extended").type_definition_handler,
+        --     --     ["textDocument/references"] = require("omnisharp_extended").references_handler,
+        --     --     ["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
+        --     -- },
+        -- }
         serverOpts["sqls"] = {
             on_attach = function(client, bufnr) require("sqls").on_attach(client, bufnr) end,
         }
@@ -61,7 +83,7 @@ return {
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
             callback = function(ev)
-                local function map(rhs, lhs, desc) vim.keymap.set("n", rhs, lhs, { buffer = ev.buf, desc = desc, noremap = true }) end
+                local function map(rhs, lhs, desc) vim.keymap.set("n", rhs, lhs, { buffer = ev.buf, desc = desc }) end
 
                 -- Buffer local mappings.
                 map("gd", require("telescope.builtin").lsp_definitions, "Go to Lsp Definitions")
@@ -89,5 +111,10 @@ return {
                 })
             end,
         })
+
+        -- vim.api.nvim_create_autocmd({ "BufEnter" }, {
+        --     pattern = { "*.cs" },
+        --     callback = function() vim.keymap.set("n", "gd", require("omnisharp_extended").lsp_definition, { desc = "Go to Lsp Definitions" }) end,
+        -- })
     end,
 }
