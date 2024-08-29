@@ -46,6 +46,8 @@ alias ss='grim -g "$(slurp -o -r )" - | satty --filename - --fullscreen --output
 alias tm='trash-put'
 alias z='zellij'
 
+alias update-pms='go-global-update; cargo install-update --all; bun update -g --all'
+
 alias Scarab='/home/jonny/Apps/Scarab/Scarab'
 
 # shellcheck source='/usr/share/fzf/completion.zsh'
