@@ -4,6 +4,7 @@ return {
         { "j-hui/fidget.nvim", opts = {} },
         { "williamboman/mason.nvim", opts = {} },
         { "williamboman/mason-lspconfig.nvim" },
+        { "artemave/workspace-diagnostics.nvim" },
         { "nanotee/sqls.nvim", keys = {
             { "<leader>ds", ":SqlsSwitchConnection<cr>", desc = "Sqls Switch Connection" },
         } },
@@ -19,7 +20,7 @@ return {
         serverOpts["clangd"] = {}
         serverOpts["gopls"] = { settings = {} }
         serverOpts["html"] = { filetypes = { "html", "templ", "typescriptreact" } }
-        serverOpts["htmx"] = { filetypes = { "html", "templ" } }
+        serverOpts["htmx"] = { filetypes = { "templ" } }
         serverOpts["jsonls"] = {}
         serverOpts["lua_ls"] = {
             settings = {
@@ -34,28 +35,6 @@ return {
             },
         }
         serverOpts["marksman"] = {}
-        -- serverOpts["omnisharp"] = {
-        --     settings = {
-        --         FormattingOptions = {
-        --             OrganizeImports = true,
-        --         },
-        --         RoslynExtensionsOptions = {
-        --             EnableAnalyzersSupport = true,
-        --             EnableImportCompletion = true,
-        --             AnalyzeOpenDocumentsOnly = true,
-        --             EnableDecompilationSupport = true,
-        --         },
-        --         Sdk = {
-        --             IncludePrereleases = true,
-        --         },
-        --     },
-        --     -- handlers = {
-        --     --     ["textDocument/definition"] = require("omnisharp_extended").definition_handler,
-        --     --     ["textDocument/typeDefinition"] = require("omnisharp_extended").type_definition_handler,
-        --     --     ["textDocument/references"] = require("omnisharp_extended").references_handler,
-        --     --     ["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
-        --     -- },
-        -- }
         serverOpts["sqls"] = {
             on_attach = function(client, bufnr) require("sqls").on_attach(client, bufnr) end,
         }
@@ -63,6 +42,7 @@ return {
             filetypes = { "css", "html", "javascriptreact", "templ", "typescriptreact" },
             init_options = { userLanguages = { templ = "html" } },
         }
+        serverOpts["tsserver"] = {}
         serverOpts["templ"] = {}
         serverOpts["taplo"] = {}
         serverOpts["yamlls"] = {}
@@ -75,17 +55,18 @@ return {
         capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
         for k, v in pairs(serverOpts) do
             v.capabilities = capabilities
+            v.on_attach = function(client, bufnr) require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr) end
             lspconfig[k].setup(v)
         end
 
         -- Create LSP keymaps
-        vim.keymap.set("n", "KE", vim.diagnostic.open_float, { desc = "Float Error" })
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
             callback = function(ev)
                 local function map(rhs, lhs, desc) vim.keymap.set("n", rhs, lhs, { buffer = ev.buf, desc = desc }) end
 
                 -- Buffer local mappings.
+                map("KE", vim.diagnostic.open_float, "Float Error")
                 map("gd", require("telescope.builtin").lsp_definitions, "Go to Lsp Definitions")
                 map("grr", require("telescope.builtin").lsp_references, "Go to Lsp References")
                 map("gI", require("telescope.builtin").lsp_implementations, "Go to Lsp Implementations")
@@ -111,10 +92,5 @@ return {
                 })
             end,
         })
-
-        -- vim.api.nvim_create_autocmd({ "BufEnter" }, {
-        --     pattern = { "*.cs" },
-        --     callback = function() vim.keymap.set("n", "gd", require("omnisharp_extended").lsp_definition, { desc = "Go to Lsp Definitions" }) end,
-        -- })
     end,
 }
