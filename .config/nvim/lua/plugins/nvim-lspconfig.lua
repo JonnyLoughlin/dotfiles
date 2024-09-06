@@ -8,7 +8,6 @@ return {
         { "nanotee/sqls.nvim", keys = {
             { "<leader>ds", ":SqlsSwitchConnection<cr>", desc = "Sqls Switch Connection" },
         } },
-        -- { "Hoffs/omnisharp-extended-lsp.nvim", config = function() require("omnisharp_extended").setup({}) end },
     },
     config = function()
         require("mason-lspconfig").setup({ automatic_installation = true })
@@ -42,7 +41,7 @@ return {
             filetypes = { "css", "html", "javascriptreact", "templ", "typescriptreact" },
             init_options = { userLanguages = { templ = "html" } },
         }
-        serverOpts["tsserver"] = {}
+        serverOpts["ts_ls"] = {}
         serverOpts["templ"] = {}
         serverOpts["taplo"] = {}
         serverOpts["yamlls"] = {}

@@ -92,4 +92,5 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- go nice error
-vim.keymap.set("n", "<leader>ve", "oif err != nil {}<esc>", { desc = "go insert err check" })
+vim.keymap.set("n", "<leader>ge", "oif err != nil {}<esc>", { desc = "go insert err check" })
+vim.keymap.set("n", "<leader>gw", 'wbi(<esc>ea)<esc>Bifmt.Errorf<esc>lli"%w", <esc>Ff;<esc>f%', { desc = "go wrap err" })
