@@ -19,6 +19,7 @@ vim.o.wrap = true
 vim.o.linebreak = true
 vim.o.showbreak = "       󱞩"
 vim.opt.scrolloff = 5
+vim.opt.sidescrolloff = 5
 
 vim.o.undofile = true
 vim.o.swapfile = false

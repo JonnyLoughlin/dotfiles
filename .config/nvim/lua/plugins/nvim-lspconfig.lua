@@ -17,7 +17,16 @@ return {
         serverOpts["bashls"] = { filetypes = { "bash", "sh", "zsh" } }
         serverOpts["biome"] = {}
         serverOpts["clangd"] = {}
-        serverOpts["gopls"] = { settings = {} }
+        serverOpts["gopls"] = {
+            settings = {
+                gopls = {
+                    gofumpt = true,
+                    analyses = {
+                        shadow = true,
+                    },
+                },
+            },
+        }
         serverOpts["html"] = { filetypes = { "html", "templ", "typescriptreact" } }
         serverOpts["htmx"] = { filetypes = { "templ" } }
         serverOpts["jsonls"] = {}
