@@ -23,6 +23,7 @@ vim.opt.sidescrolloff = 5
 
 vim.o.undofile = true
 vim.o.swapfile = false
+vim.o.autoread = true
 
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -93,5 +94,5 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- go nice error
-vim.keymap.set("n", "<leader>ge", "oif err != nil {}<esc>", { desc = "go insert err check" })
-vim.keymap.set("n", "<leader>gw", 'wbi(<esc>ea)<esc>Bifmt.Errorf<esc>lli"%w", <esc>Ff;<esc>f%', { desc = "go wrap err" })
+vim.keymap.set("n", "<leader>Ge", "oif err != nil {}<esc>", { desc = "go insert err check" })
+vim.keymap.set("n", "<leader>Gw", 'wbi(<esc>ea)<esc>Bifmt.Errorf<esc>lli"%w", <esc>Ff;<esc>f%', { desc = "go wrap err" })

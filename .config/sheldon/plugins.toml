@@ -14,6 +14,9 @@ shell = "zsh"
 
 [plugins]
 
+[plugins.fzf-tab]
+github = 'Aloxaf/fzf-tab'
+
 [plugins.fast-syntax-highlighting]
 github = 'zdharma-continuum/fast-syntax-highlighting'
 

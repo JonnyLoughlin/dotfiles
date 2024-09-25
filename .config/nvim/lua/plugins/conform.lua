@@ -9,6 +9,8 @@ return {
     opts = {
 
         formatters_by_ft = {
+            go = { "goimports", "gopls" },
+
             html = { "prettierd" },
 
             javascript = { "biome" },
@@ -21,6 +23,8 @@ return {
 
             bash = { "shfmt" },
             sh = { "shfmt" },
+
+            sql = { "sql_formatter" },
 
             templ = { "templ" },
 
