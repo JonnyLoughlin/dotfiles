@@ -37,6 +37,7 @@
 .config/qBittorrent/
 .config/remmina/
 .config/unity3d/
+.config/vesktop
 .config/vlc/
 .config/wireshark/
 .dotfiles/

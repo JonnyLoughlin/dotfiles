@@ -25,11 +25,11 @@ ui {
 }
 
 plugins {
-    zjstatus location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" 
-    autolock location="https://github.com/fresh2dev/zellij-autolock/releases/latest/download/zellij-autolock.wasm" {
+    zjstatus location="file:/home/jonny/.config/zellij/zjstatus.wasm" 
+    autolock location="file:/home/jonny/.config/zellij/zellij-autolock.wasm" {
         triggers "nvim"
         watch_triggers "fzf"
-        watch_interval "1.0"
+        watch_interval "0.1"
     }
 }
 
@@ -45,10 +45,11 @@ keybinds clear-defaults=true {
     }
     // Standard Mode Bindings
     locked {
-        bind "Alt g" { SwitchToMode "Normal"; }
+        bind "Alt ." { SwitchToMode "Normal"; }
+        bind "Alt o" { ToggleFloatingPanes; }
     }
     shared_except "locked" {
-        bind "Alt g" { SwitchToMode "Locked"; }
+        bind "Alt ." { SwitchToMode "Locked"; }
         // Pane Settings
         bind "Alt h" { MoveFocusOrTab "Left"; }
         bind "Alt l" { MoveFocusOrTab "Right"; }
@@ -63,12 +64,6 @@ keybinds clear-defaults=true {
         bind "Alt K" { MoveFocusOrTab "Right"; }
         bind "Alt L" { MoveTab "Right"; }
         bind "Alt V" { NewTab; }
-        bind "Alt 1" { GoToTab 1; }
-        bind "Alt 2" { GoToTab 2; }
-        bind "Alt 3" { GoToTab 3; }
-        bind "Alt 4" { GoToTab 4; }
-        bind "Alt 5" { GoToTab 5; }
-        bind "Alt 6" { GoToTab 6; }
         bind "Alt B" { BreakPane; }
 
         // Floating Settings
