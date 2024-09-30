@@ -67,6 +67,7 @@ return {
             },
         }
         serverOpts["marksman"] = {}
+        serverOpts["pyright"] = {}
         serverOpts["rust_analyzer"] = {}
         serverOpts["sqls"] = {
             on_attach = function(client, bufnr) require("sqls").on_attach(client, bufnr) end,
@@ -77,7 +78,9 @@ return {
         }
         serverOpts["ts_ls"] = {}
         serverOpts["templ"] = {}
-        serverOpts["taplo"] = {}
+        serverOpts["taplo"] = {
+            root_dir = require("lspconfig.util").root_pattern("*.toml", ".git"),
+        }
         serverOpts["yamlls"] = {}
         serverOpts["zls"] = {}
 
