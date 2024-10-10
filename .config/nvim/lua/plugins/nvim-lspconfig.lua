@@ -24,9 +24,9 @@ return {
             settings = {
                 gopls = {
                     gofumpt = true,
-                    analyses = {
-                        shadow = true,
-                    },
+                    -- analyses = {
+                    --     shadow = true,
+                    -- },
                     hints = {
                         enable = true,
                         assignVariableTypes = true,
@@ -38,16 +38,6 @@ return {
                         rangeVariableTypes = true,
                         functionParameterNames = true,
                     },
-                    -- codelenses = {
-                    --     gc_details = true,
-                    --     generate = true,
-                    --     regenerate_cgo = true,
-                    --     run_govulncheck = true,
-                    --     tidy = true,
-                    --     test = true,
-                    --     upgrade_dependency = true,
-                    --     vendor = true,
-                    -- },
                 },
             },
         }
@@ -119,6 +109,7 @@ return {
                 map("KH", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(nil)) end, "Toggle Inlay Hints")
             end,
         })
+
         -- Hyprlang LSP
         vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
             pattern = { "*.hl", "hypr*.conf" },
