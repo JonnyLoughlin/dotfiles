@@ -7,7 +7,6 @@
 .cargo/
 .config/.avalonia-build-tasks/
 .config/Code/
-.config/Cogent Core/
 .config/HKModInstaller/
 .config/QtProject.conf
 .config/Slippi Launcher/
@@ -30,14 +29,13 @@
 .config/kwalletrc
 .config/libreoffice/
 .config/menus/
-.config/nvim/test.sql
 .config/pavucontrol.ini
 .config/pragtical/
 .config/pulse/
 .config/qBittorrent/
 .config/remmina/
 .config/unity3d/
-.config/vesktop
+.config/vesktop/
 .config/vlc/
 .config/wireshark/
 .dotfiles/
@@ -54,8 +52,6 @@
 .netextender
 .node_repl_history
 .npm/
-.nuget/
-.omnisharp/
 .opam/
 .pki/
 .putty/
@@ -66,12 +62,11 @@
 .steam/
 .steampath
 .steampid
-.templateengine/
 .vscode/
 .wget-hsts
 .wine/
 .zcompdump
-.zen
+.zen/
 Desktop/
 Documents/
 Downloads/
@@ -81,4 +76,3 @@ apps/
 carson/
 go/
 proj/
-rsi-images/
