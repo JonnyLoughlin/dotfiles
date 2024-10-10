@@ -2,10 +2,8 @@ return {
     -- "GR3YH4TT3R93/zellij-nav.nvim",
     dir = "~/proj/zellij-nav.nvim/",
     lazy = false,
-    init = function() -- Only needed if you want to override default keymaps otherwise just call opts = {}
-        vim.g.zellij_nav_default_mappings = false -- Default: true
-    end,
-    opts = {}, -- Optional
+    init = function() vim.g.zellij_nav_default_mappings = false end,
+    opts = {},
     keys = {
         { "<A-h>", "<cmd>ZellijNavigateLeft<CR>", { silent = true } },
         { "<A-j>", "<cmd>ZellijNavigateDown<CR>", { silent = true } },
