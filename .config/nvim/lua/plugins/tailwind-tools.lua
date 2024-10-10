@@ -8,9 +8,9 @@ return {
         "nvim-telescope/telescope.nvim",
         "neovim/nvim-lspconfig",
     },
-    ft = { "html", "templ" },
+    ft = { "html", "templ", "javascript" },
     keys = {
-        { "<leader>tt", "<cmd>TailwindConcealToggle<cr>", { desc = "toggle tailwind conceal" } },
+        { "<leader>xt", "<cmd>TailwindConcealToggle<cr>", { desc = "toggle tailwind conceal" } },
     },
     config = function()
         vim.api.nvim_create_autocmd("BufWritePre", {

@@ -33,6 +33,9 @@ ssh-add ~/.ssh/id_rsa
 function zvm_after_init() {
     bindkey "^[[B" history-beginning-search-forward
     bindkey "^[[A" history-beginning-search-backward
+
+    # Setup mcfly
+    eval "$(mcfly init zsh)"
 }
 
 alias c='clear'
