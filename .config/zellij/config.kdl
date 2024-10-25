@@ -3,17 +3,17 @@ scroll_buffer_size 1000000
 
 themes {
     main {
-        fg "#A9B1D6"
-        bg "#888888"
-        black "#383E5A"
-        red "#F93357"
-        green "#2AC3DE"
-        yellow "#E0AF68"
-        blue "#7AA2F7"
-        magenta "#BB9AF7"
-        cyan "#2AC3DE"
-        white "#C0CAF5"
-        orange "#FF9E64"
+        fg "#c0caf5"
+        bg "#292e42"
+        black "#1a1b26"
+        red "#f7768e"
+        green "#2ac3de" // This is just cyan for borders
+        yellow "#e0af68"
+        blue "#7aa2f7"
+        magenta "#bb9af7"
+        cyan "#7dcfff"
+        white "#a9b1d6"
+        orange "#ff9e64"
     }
 }
 theme "main"

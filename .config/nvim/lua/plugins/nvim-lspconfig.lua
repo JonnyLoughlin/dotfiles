@@ -24,9 +24,6 @@ return {
             settings = {
                 gopls = {
                     gofumpt = true,
-                    -- analyses = {
-                    --     shadow = true,
-                    -- },
                     hints = {
                         enable = true,
                         assignVariableTypes = true,
@@ -44,33 +41,18 @@ return {
         serverOpts["html"] = { filetypes = { "html", "templ", "typescriptreact" } }
         serverOpts["htmx"] = { filetypes = { "templ" } }
         serverOpts["jsonls"] = {}
-        serverOpts["lua_ls"] = {
-            settings = {
-                Lua = {
-                    runtime = { version = "LuaJIT" },
-                    workspace = {
-                        checkThirdParty = false,
-                        library = { "${3rd}/luv/library", unpack(vim.api.nvim_get_runtime_file("", true)) },
-                    },
-                    hint = { enable = true, setType = true },
-                },
-            },
-        }
+        serverOpts["lua_ls"] = {}
         serverOpts["marksman"] = {}
         serverOpts["pyright"] = {}
         serverOpts["rust_analyzer"] = {}
-        serverOpts["sqls"] = {
-            on_attach = function(client, bufnr) require("sqls").on_attach(client, bufnr) end,
-        }
+        serverOpts["sqls"] = { on_attach = function(client, bufnr) require("sqls").on_attach(client, bufnr) end }
         serverOpts["tailwindcss"] = {
             filetypes = { "css", "html", "javascriptreact", "templ", "typescriptreact" },
             init_options = { userLanguages = { templ = "html" } },
         }
         serverOpts["ts_ls"] = {}
         serverOpts["templ"] = {}
-        serverOpts["taplo"] = {
-            root_dir = require("lspconfig.util").root_pattern("*.toml", ".git"),
-        }
+        serverOpts["taplo"] = { root_dir = require("lspconfig.util").root_pattern("*.toml", ".git") }
         serverOpts["yamlls"] = {}
         serverOpts["zls"] = {}
 
@@ -89,12 +71,6 @@ return {
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
             callback = function(ev)
-                -- local client = vim.lsp.get_client_by_id(ev.data.client_id)
-                -- if client ~= nil and client.supports_method("codelens") then
-                --     vim.lsp.codelens.refresh()
-                --     vim.print(vim.lsp.codelens.get(ev.buf))
-                -- end
-
                 local function map(rhs, lhs, desc) vim.keymap.set("n", rhs, lhs, { buffer = ev.buf, desc = desc }) end
 
                 -- Buffer local mappings.

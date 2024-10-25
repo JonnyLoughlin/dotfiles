@@ -11,6 +11,7 @@ return {
             javascript = { "biomejs" },
             typescript = { "biomejs" },
             typescriptreact = { "biomejs" },
+            json = { "biomejs" },
         }
 
         vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {

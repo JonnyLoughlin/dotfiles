@@ -16,6 +16,7 @@ return {
             javascript = { "biome" },
             typescript = { "biome" },
             typescriptreact = { "biome" },
+            json = { "biome" },
 
             markdown = { "markdownlint", "injected" },
 

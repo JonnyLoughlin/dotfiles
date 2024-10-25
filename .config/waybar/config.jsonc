@@ -64,7 +64,7 @@
         "format-alt": "{time} {icon}"
     },
     "network": {
-        "interface": "enp86s0u1u4u4u3",
+        "interface": "enp86*",
         "format-ethernet": "󰈀 {ipaddr}/{cidr}",
         "format-disconnected": "",
         "tooltip-format": "{ifname}"
@@ -74,12 +74,6 @@
         "format-wifi": " {ipaddr}/{cidr}",
         "format-disconnected": "",
         "tooltip-format": "{essid}"
-    },
-    "network#n3": {
-        "interface": "enp86s0u1u4u4u1",
-        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
-        "format-disconnected": "",
-        "tooltip-format": "{ifname}"
     },
     "clock": {
         "interval": 1,

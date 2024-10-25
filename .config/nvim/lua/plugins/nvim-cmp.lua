@@ -2,11 +2,11 @@ return {
     "iguanacucumber/magazine.nvim",
     name = "nvim-cmp",
     dependencies = {
-        "hrsh7th/cmp-cmdline",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-nvim-lsp",
+        { "iguanacucumber/mag-nvim-lsp", name = "cmp-nvim-lsp", opts = {} },
+        { "iguanacucumber/mag-buffer", name = "cmp-buffer" },
+        { "iguanacucumber/mag-cmdline", name = "cmp-cmdline" },
         "hrsh7th/cmp-nvim-lsp-signature-help",
+        "hrsh7th/cmp-path",
         {
             "windwp/nvim-autopairs",
             event = "InsertEnter",
@@ -25,16 +25,16 @@ return {
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.abort(),
                 ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-                ["<C-j>"] = cmp.mapping.scroll_docs(3),
-                ["<C-k>"] = cmp.mapping.scroll_docs(-3),
+                ["<C-j>"] = cmp.mapping.scroll_docs(1),
+                ["<C-k>"] = cmp.mapping.scroll_docs(-1),
             }),
 
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "buffer" },
-                { name = "path" },
-                { name = "lazydev" },
+                { name = "lazydev", group_index = 0 },
                 { name = "nvim_lsp_signature_help" },
+                { name = "path" },
             }),
 
             formatting = {
