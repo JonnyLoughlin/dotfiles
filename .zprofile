@@ -63,3 +63,10 @@ fi
 # This section can be safely removed at any time if needed.
 [[ ! -r '/home/jonny/.opam/opam-init/init.zsh' ]] || source '/home/jonny/.opam/opam-init/init.zsh' >/dev/null 2>/dev/null
 # END opam configuration
+#
+#
+
+# Dotnet Path
+if [[ ":$PATH:" != *":$HOME/.dotnet/tools"* ]]; then
+    export PATH="$PATH:$HOME/.dotnet/tools"
+fi

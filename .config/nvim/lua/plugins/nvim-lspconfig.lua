@@ -20,6 +20,7 @@ return {
         serverOpts["bashls"] = { filetypes = { "bash", "sh", "zsh" } }
         serverOpts["biome"] = {}
         serverOpts["clangd"] = {}
+        serverOpts["cssls"] = {}
         serverOpts["gopls"] = {
             settings = {
                 gopls = {
@@ -39,10 +40,12 @@ return {
             },
         }
         serverOpts["html"] = { filetypes = { "html", "templ", "typescriptreact" } }
-        serverOpts["htmx"] = { filetypes = { "templ" } }
+        serverOpts["htmx"] = { filetypes = { "html", "templ" } }
+        serverOpts["hyprls"] = {}
         serverOpts["jsonls"] = {}
         serverOpts["lua_ls"] = {}
         serverOpts["marksman"] = {}
+        serverOpts["omnisharp"] = {}
         serverOpts["pyright"] = {}
         serverOpts["rust_analyzer"] = {}
         serverOpts["sqls"] = { on_attach = function(client, bufnr) require("sqls").on_attach(client, bufnr) end }
@@ -83,19 +86,6 @@ return {
                 map("grn", vim.lsp.buf.rename, "Rename")
                 map("gra", vim.lsp.buf.code_action, "Code Action")
                 map("KH", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(nil)) end, "Toggle Inlay Hints")
-            end,
-        })
-
-        -- Hyprlang LSP
-        vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-            pattern = { "*.hl", "hypr*.conf" },
-            callback = function(event)
-                print(string.format("starting hyprls for %s", vim.inspect(event)))
-                vim.lsp.start({
-                    name = "hyprlang",
-                    cmd = { "hyprls" },
-                    root_dir = vim.fn.getcwd(),
-                })
             end,
         })
     end,
