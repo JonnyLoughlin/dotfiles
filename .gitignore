@@ -5,6 +5,8 @@
 .bun/
 .cache/
 .cargo/
+.config/QtProject.conf
+.config/Vial/
 .config/chromium/
 .config/dconf/
 .config/go/

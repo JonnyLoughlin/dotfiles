@@ -6,8 +6,7 @@ return {
         "debugloop/telescope-undo.nvim",
         {
             "nvim-telescope/telescope-fzf-native.nvim",
-            build = "make",
-            cond = function() return vim.fn.executable("make") == 1 end,
+            build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
         },
     },
     keys = {
@@ -21,7 +20,6 @@ return {
     },
 
     config = function()
-        require("telescope").load_extension("undo")
         require("telescope").setup({
             pickers = {
                 current_buffer_fuzzy_find = {
@@ -34,5 +32,7 @@ return {
                 },
             },
         })
+        require("telescope").load_extension("undo")
+        require("telescope").load_extension("fzf")
     end,
 }
