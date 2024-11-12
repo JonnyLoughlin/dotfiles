@@ -12,7 +12,6 @@
         "battery",
         "network",
         "network#n2",
-        "network#n3",
         "tray",
         "clock",
         "clock#c2"
@@ -65,27 +64,31 @@
     },
     "network": {
         "interface": "enp86*",
-        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+        "format": "󰈀 {ipaddr}/{cidr}",
         "format-disconnected": "",
-        "tooltip-format": "{ifname}"
+        "tooltip-format": "{ifname}",
+        "on-click": "foot zellij run -- nmtui"
     },
     "network#n2": {
         "interface": "wlp0s20f3",
         "format-wifi": " {ipaddr}/{cidr}",
         "format-disconnected": "",
-        "tooltip-format": "{essid}"
-    },
-    "clock": {
-        "interval": 1,
-        "format": "{:%I:%M:%S:%p}"
-    },
-    "clock#c2": {
-        "interval": 1,
-        "format": "{:%m/%d/%y}",
-        "tooltip-format": "<big>{calendar}</big>"
+        "tooltip-format": "{essid}",
+        "on-click": "foot zellij run -- nmtui"
     },
     "tray": {
         "icon-size": 18,
         "spacing": 10
+    },
+    "clock": {
+        "interval": 1,
+        "format": "{:%I:%M:%S:%p}",
+        "tooltip": false
+    },
+    "clock#c2": {
+        "interval": 1,
+        "format": "{:%m/%d/%y}",
+        "tooltip-format": "<big>{calendar}</big>",
+        "on-click": "firefox-nightly https://calendar.proton.me/"
     }
 }

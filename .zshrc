@@ -19,6 +19,7 @@ alias cf='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # SystemCTL Alias
 alias stl='sudo systemctl'
+alias stlu='systemctl --user'
 
 # Podman/Docker Alias
 alias pm='podman'
@@ -35,25 +36,55 @@ function zvm_after_init() {
     bindkey "^[[A" history-beginning-search-backward
 
     # Setup mcfly
+    export MCFLY_KEY_SCHEME=vim
+    export MCFLY_FUZZY=5
+    export MCFLY_RESULTS=50
+    export MCFLY_RESULTS_SORT=LAST_RUN
     eval "$(mcfly init zsh)"
 }
+
+export TERM=foot
+export VISUAL=nvim
+export EDITOR=nvim
+export BROWSER=/usr/share/applications/firefox-nightly.desktop
+export MANPAGER='nvim +Man!'
+export FZF_DEFAULT_COMMAND='fd -H'
+export FZF_DEFAULT_OPTS="\
+    --height 60% \
+    --highlight-line \
+    --info=inline-right \
+    --ansi \
+    --layout=reverse \
+    --border=none
+    --color=bg+:#2d3f76 \
+    --color=bg:#1e2030 \
+    --color=border:#589ed7 \
+    --color=fg:#c8d3f5 \
+    --color=gutter:#1e2030 \
+    --color=header:#ff966c \
+    --color=hl+:#65bcff \
+    --color=hl:#65bcff \
+    --color=info:#545c7e \
+    --color=marker:#ff007c \
+    --color=pointer:#ff007c \
+    --color=prompt:#65bcff \
+    --color=query:#c8d3f5:regular \
+    --color=scrollbar:#589ed7 \
+    --color=separator:#ff966c \
+    --color=spinner:#ff007c \
+    --preview='cat {+}' \
+"
 
 alias c='clear'
 alias co='wl-copy'
 alias l='hyprlock'
-alias lr='luarocks'
-alias lrn='LUAROCKS_CONFIG=$HOME/.luarocks/config-nlua.lua luarocks --local'
 alias ls='lsd -Fv --group-directories-first'
 alias n='nvim'
-alias ss='grim -g "$(slurp -o -r )" - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png'
 alias tm='trash-put'
 alias z='zellij'
 
 alias update-pms='go-global-update; cargo install-update --all; bun update -g --all'
 
-alias Scarab='/home/jonny/Apps/Scarab/Scarab'
-
-# shellcheck source='/usr/share/fzf/completion.zsh'
 source <(fzf --zsh)
 
 f() {
@@ -72,8 +103,37 @@ alias sshCarson-Retailer-Dashboard='ssh apps@192.168.0.118'
 
 eval "$(sheldon source)"
 
-# Set luarocks path
+## Package manager paths
+# Luarocks path
 eval "$(luarocks path --bin)"
+if [[ ":$PATH:" != *":$HOME/.luarocks/bin"* ]]; then
+    export PATH="$PATH:$HOME/.luarocks/bin"
+fi
+# Cargo Path
+if [[ ":$PATH:" != *":$HOME/.cargo/bin"* ]]; then
+    export PATH="$PATH:$HOME/.cargo/bin"
+fi
+# Bun Path
+if [[ ":$PATH:" != *":$HOME/.bun/bin"* ]]; then
+    export PATH="$PATH:$HOME/.bun/bin"
+fi
+export BUN_INSTALL="$HOME/.bun"
+# Go Path
+GOPATH_BIN=$(go env GOPATH)/bin
+if [[ ":$PATH:" != *":$GOPATH_BIN"* ]]; then
+    export PATH="$PATH:$GOPATH_BIN"
+fi
+# Dotnet Path
+if [[ ":$PATH:" != *":$HOME/.dotnet/tools"* ]]; then
+    export PATH="$PATH:$HOME/.dotnet/tools"
+fi
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r '/home/jonny/.opam/opam-init/init.zsh' ]] || source '/home/jonny/.opam/opam-init/init.zsh' >/dev/null 2>/dev/null
+# END opam configuration
 
 # Load starship
 eval "$(starship init zsh)"

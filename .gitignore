@@ -9,11 +9,14 @@
 .config/Vial/
 .config/chromium/
 .config/dconf/
+.config/freerdp/
 .config/go/
+.config/kdeconnect/
 .config/keepassxc/
 .config/pavucontrol.ini
 .config/pulse/
 .config/remmina/
+.config/systemd/
 .config/unity3d/
 .dotfiles/
 .dotnet/
