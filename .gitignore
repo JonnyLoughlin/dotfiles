@@ -7,8 +7,10 @@
 .cargo/
 .config/QtProject.conf
 .config/Vial/
+.config/WebCord/
 .config/chromium/
 .config/dconf/
+.config/discord/
 .config/freerdp/
 .config/go/
 .config/kdeconnect/

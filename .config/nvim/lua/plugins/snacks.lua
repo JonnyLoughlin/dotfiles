@@ -3,6 +3,9 @@ return {
     priority = 1000,
     lazy = false,
     opts = {
-        statuscolumn = { enabled = false },
+        bigfile = { enabled = true },
+        notifier = { enabled = true },
+        quickfile = { enabled = true },
+        words = { enabled = true },
     },
 }

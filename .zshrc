@@ -135,7 +135,9 @@ fi
 [[ ! -r '/home/jonny/.opam/opam-init/init.zsh' ]] || source '/home/jonny/.opam/opam-init/init.zsh' >/dev/null 2>/dev/null
 # END opam configuration
 
-# Load starship
-eval "$(starship init zsh)"
+# xc task runner auto-completion
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /home/jonny/go/bin/xc xc
+
+# Load starship
+eval "$(starship init zsh)"
