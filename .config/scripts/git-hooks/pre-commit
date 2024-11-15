@@ -1,4 +1,5 @@
 #!/bin/bash
 echo "[Pre-commit hook] Running package tracking script..." >&2
 paru -Qeq > ~/.config/packages/"$(hostnamectl --static)"-packages.txt
-/usr/bin/git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" add .
+git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" add ~/.config/packages/"$(hostnamectl --static)"-packages.txt
+
