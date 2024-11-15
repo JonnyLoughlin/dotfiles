@@ -4,6 +4,7 @@ arc-gtk-theme-git
 base
 base-devel
 bottom
+brightnessctl
 btrfs-progs
 bun-bin
 caddy

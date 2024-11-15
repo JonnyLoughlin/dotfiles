@@ -35,7 +35,9 @@
             "",
             ""
         ],
-        "format-tooltip": ""
+        "format-tooltip": "",
+        "on-scroll-up": "brightnessctl set +1",
+        "on-scroll-down": "brightnessctl set 1-"
     },
     "pulseaudio": {
         "format": " {volume}% {format_source}",

@@ -24,12 +24,11 @@ return {
 
             bash = { "shfmt" },
             sh = { "shfmt" },
+            zsh = { "shfmt" },
 
             sql = { "sql_formatter" },
 
             templ = { "templ" },
-
-            zsh = { "shfmt" },
         },
         format_on_save = function(bufnr)
             -- Disable with a global or buffer-local variable
