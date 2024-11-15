@@ -90,6 +90,7 @@ udiskie
 udisks2
 ufw
 uwsm
+vi
 vial-appimage
 vim
 watchexec
