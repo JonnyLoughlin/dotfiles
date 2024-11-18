@@ -5,6 +5,7 @@
 .bun/
 .cache/
 .cargo/
+.config/JetBrains/
 .config/QtProject.conf
 .config/Vial/
 .config/WebCord/
@@ -13,6 +14,7 @@
 .config/discord/
 .config/freerdp/
 .config/go/
+.config/godot/
 .config/kdeconnect/
 .config/keepassxc/
 .config/pavucontrol.ini
@@ -23,6 +25,7 @@
 .dotfiles/
 .dotnet/
 .histfile
+.java/
 .local/
 .mozilla/
 .node_repl_history

@@ -1,29 +1,15 @@
-* {
-    font-family: 'CommitMono Nerd Font Mono', 'Noto Sans Mono';
-    font-size: 12px;
-}
+@define-color default-text-color #e9e9ed;
+@define-color default-bg-color #1a1b26;
+@define-color default-unfocused_borders #73738c;
+@define-color default-focused_borders #e9e9ed;
+@define-color default-hover-borders #27a1b9;
 
-window#waybar {
+#waybar {
+    font-family: 'CommitMono Nerd Font Mono', 'Noto Sans Mono';
+    font-size: 14px;
     background-color: rgba(0, 0, 0, 0);
 }
 
-#workspaces button {
-    margin-right: 4px;
-    padding: 0px 0px;
-    color: #c0caf5;
-    background-color: #1a1b26;
-    border: 2px solid #565f89;
-}
-
-#workspaces button:hover {
-    border: 2px solid #61afef;
-}
-
-#workspaces button.active {
-    color: #1a1b26;
-    background-color: #888888;
-    border: 2px solid #c0caf5;
-}
 
 #workspaces {
     margin-left: 4px;
@@ -31,19 +17,37 @@ window#waybar {
     padding-top: 4px;
 }
 
+#workspaces button {
+    margin-right: 4px;
+    padding: 0px 4px;
+    border-radius: 6px;
+    color: @default-text-color;
+    background-color: @default-bg-color;
+    border: 2px solid @default-unfocused_borders;
+}
+
+#workspaces button.active {
+    border: 2px solid @default-focused_borders;
+}
+
+
+#workspaces button:hover {
+    border: 2px solid @default-hover-borders;
+}
+
 #window {
     margin: 4px 4px;
     padding: 2px 4px;
-    color: #c0caf5;
-    background-color: #1a1b26;
-    border: 2px solid #c0caf5;
+    color: @default-text-color;
+    background-color: @default-bg-color;
+    border: 2px solid @default-focused_borders;
     border-radius: 6px;
 }
 
 window#waybar.empty #window {
-    background-color: transparent;
     border: 0;
     color: transparent;
+    background-color: transparent;
 }
 
 #backlight,
@@ -55,8 +59,8 @@ window#waybar.empty #window {
 #tray {
     margin: 4px;
     padding: 2px 6px;
-    color: #c0caf5;
-    background-color: #1a1b26;
-    border: 2px solid #c0caf5;
+    color: @default-text-color;
+    background-color: @default-bg-color;
+    border: 2px solid @default-focused_borders;
     border-radius: 6px;
 }

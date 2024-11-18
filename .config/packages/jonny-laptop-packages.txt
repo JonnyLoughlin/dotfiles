@@ -3,6 +3,7 @@ anydesk-bin
 arc-gtk-theme-git
 base
 base-devel
+bat
 bottom
 brightnessctl
 btrfs-progs
@@ -14,9 +15,9 @@ cpio
 deno
 dkms
 dmidecode
-dotnet-runtime
-dotnet-sdk
+dotnet-sdk-bin
 dunst
+dust
 esbuild
 fd
 filezilla
@@ -28,8 +29,11 @@ fwupd
 fzf
 git
 git-delta
+gnome-tweaks
 go
 go-sqlcmd
+godot
+gtk-engine-murrine
 hunspell
 hyprland-git
 hyprlock-git
@@ -75,8 +79,10 @@ qt5ct
 qt6-base
 qt6ct
 remmina
+rider
 ripgrep
 rustup
+sassc
 sheldon
 sof-firmware
 sshfs
