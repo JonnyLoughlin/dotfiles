@@ -1,6 +1,7 @@
 # History
 HISTFILE=~/.histfile
 HISTSIZE=500000
+# shellcheck disable=SC2034
 SAVEHIST=500000
 setopt INC_APPEND_HISTORY
 # I hate this
@@ -25,11 +26,6 @@ alias stlu='systemctl --user'
 alias pm='podman'
 alias dc='sudo docker'
 
-# SSH Agent
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
-ssh-add ~/.ssh/id_rsa
-
 # Up and Down scroll history based on first letters typed
 function zvm_after_init() {
     bindkey "^[[B" history-beginning-search-forward
@@ -49,8 +45,8 @@ alias z='zellij'
 
 alias update-pms='go-global-update; cargo install-update --all; bun update -g --all'
 
+# shellcheck disable=SC1090
 source <(fzf --zsh)
-
 f() {
     selected_path=$(command fzf)
     if [[ -d "$selected_path" ]]; then
@@ -65,11 +61,12 @@ alias sshCRMExtended='ssh apps@192.168.0.152'
 alias sshCRMStaging='ssh apps@192.168.0.45'
 alias sshCarson-Retailer-Dashboard='ssh apps@192.168.0.118'
 
-eval "$(sheldon source)"
-
 # xc task runner auto-completion
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /home/jonny/go/bin/xc xc
+
+# Load sheldon plugins
+eval "$(sheldon source)"
 
 # Load starship
 eval "$(starship init zsh)"
