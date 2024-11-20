@@ -1,15 +1,14 @@
-@define-color default-text-color #e9e9ed;
+@define-color default-text-color #a9b1d6;
 @define-color default-bg-color #1a1b26;
 @define-color default-unfocused_borders #73738c;
-@define-color default-focused_borders #e9e9ed;
-@define-color default-hover-borders #27a1b9;
+@define-color default-focused_borders #a9b1d6;
+@define-color default-hover-borders #c0caf5;
 
 #waybar {
     font-family: 'CommitMono Nerd Font Mono', 'Noto Sans Mono';
     font-size: 14px;
     background-color: rgba(0, 0, 0, 0);
 }
-
 
 #workspaces {
     margin-left: 4px;
@@ -50,6 +49,8 @@ window#waybar.empty #window {
     background-color: transparent;
 }
 
+#submap,
+#keyboard-state,
 #backlight,
 #pulseaudio,
 #network,
@@ -63,4 +64,16 @@ window#waybar.empty #window {
     background-color: @default-bg-color;
     border: 2px solid @default-focused_borders;
     border-radius: 6px;
+}
+
+#submap.Move {
+    color: #E0AF68
+}
+
+#submap.Resize {
+    color: #BB9AF7
+}
+
+#keyboard-state label.locked {
+    color: #F7768E;
 }

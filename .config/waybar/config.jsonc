@@ -7,6 +7,8 @@
         "hyprland/window"
     ],
     "modules-right": [
+        "hyprland/submap",
+        "keyboard-state",
         "backlight",
         "pulseaudio",
         "battery",
@@ -21,6 +23,22 @@
     },
     "hyprland/window": {
         "format": "{class} - {title}"
+    },
+    "hyprland/submap": {
+        "format": "Submap: {}",
+        "always-on": true,
+        "tooltip": false
+    },
+    "keyboard-state": {
+        "capslock": true,
+        "device-path": "/dev/input/by-id/usb-beekeeb_Piantor_Pro_vial:f64c2b3c-event-kbd",
+        "format": {
+            "capslock": "Capslock {icon}"
+        },
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
     },
     "backlight": {
         "format": "{icon} {percent}%",

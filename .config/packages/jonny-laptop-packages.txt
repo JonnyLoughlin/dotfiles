@@ -29,6 +29,7 @@ fwupd
 fzf
 git
 git-delta
+git-filter-repo
 gnome-tweaks
 go
 go-sqlcmd
@@ -89,6 +90,7 @@ sshfs
 starship
 steam
 sudo
+tealdeer
 terminus-font
 texinfo
 trash-cli
@@ -102,6 +104,7 @@ vim
 watchexec
 waybar
 webcord
+xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland-git
 xorg-xeyes
 zellij
