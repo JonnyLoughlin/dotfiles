@@ -2,6 +2,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
         { "j-hui/fidget.nvim", opts = {} },
+        { "saghen/blink.cmp" },
         { "williamboman/mason.nvim", opts = {} },
         { "williamboman/mason-lspconfig.nvim" },
         { "artemave/workspace-diagnostics.nvim" },
@@ -41,21 +42,10 @@ return {
         }
         serverOpts["html"] = { filetypes = { "html", "templ", "typescriptreact" } }
         serverOpts["htmx"] = { filetypes = { "html", "templ" } }
-        -- -- Hyprlang LSP
         serverOpts["hyprls"] = {}
-        -- vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-        --     pattern = { "*.hl", "hypr*.conf" },
-        --     callback = function(event)
-        --         print(string.format("starting hyprls for %s", vim.inspect(event)))
-        --         vim.lsp.start({
-        --             name = "hyprlang",
-        --             cmd = { "/home/jonny/proj/hyprls/hyprls" },
-        --             root_dir = vim.fn.getcwd(),
-        --         })
-        --     end,
-        -- })
         serverOpts["jsonls"] = {}
         serverOpts["lua_ls"] = {}
+        serverOpts["ols"] = {}
         serverOpts["marksman"] = {}
         serverOpts["omnisharp"] = {}
         serverOpts["pyright"] = {}
@@ -71,15 +61,13 @@ return {
         serverOpts["yamlls"] = {}
         serverOpts["zls"] = {}
 
-        -- Configure Language Servers
         local lspconfig = require("lspconfig")
-
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-        for k, v in pairs(serverOpts) do
-            v.capabilities = capabilities
-            if k ~= "sqls" then v.on_attach = function(client, bufnr) require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr) end end
-            lspconfig[k].setup(v)
+        for server, config in pairs(serverOpts) do
+            config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+            if server ~= "sqls" then
+                config.on_attach = function(client, bufnr) require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr) end
+            end
+            lspconfig[server].setup(config)
         end
 
         -- Create LSP keymaps

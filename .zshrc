@@ -28,11 +28,11 @@ alias dc='sudo docker'
 
 # Up and Down scroll history based on first letters typed
 function zvm_after_init() {
-    bindkey "^[[B" history-beginning-search-forward
-    bindkey "^[[A" history-beginning-search-backward
-
     # Setup mcfly
     eval "$(mcfly init zsh)"
+
+    bindkey "^[[B" history-beginning-search-forward
+    bindkey "^[[A" history-beginning-search-backward
 }
 
 alias c='clear'

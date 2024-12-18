@@ -96,3 +96,18 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 -- go nice error
 vim.keymap.set("n", "<leader>Ge", "oif err != nil {}<esc>", { desc = "go insert err check" })
 vim.keymap.set("n", "<leader>Gw", 'wbi(<esc>ea)<esc>Bifmt.Errorf<esc>lli"%w", <esc>Ff;<esc>f%', { desc = "go wrap err" })
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "poefilter",
+    callback = function()
+        local client = vim.lsp.start({
+            name = "PoEls",
+            cmd = { "/home/jonny/proj/PoE-Tools/PoEls/PoEls" },
+        })
+
+        if not client then
+            vim.notify("No client for PoEls")
+            return
+        end
+    end,
+})
