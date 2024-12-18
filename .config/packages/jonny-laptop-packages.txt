@@ -35,10 +35,8 @@ glfw
 gnome-tweaks
 go
 go-sqlcmd
-godot
 grim
 gtk-engine-murrine
-hugo
 hunspell
 hyprland-git
 hyprlock-git
@@ -100,7 +98,6 @@ sshfs
 starship
 steam
 sudo
-superhtml
 tealdeer
 terminus-font
 texinfo
@@ -113,13 +110,10 @@ uwsm
 vesktop-bin
 vial-appimage
 vim
-watchexec
 waybar
-webcord
 whois
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland-git
 xorg-xeyes
-yarn
 zellij
 zsh
