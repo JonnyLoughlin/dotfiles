@@ -32,9 +32,12 @@
     br = branch
     hist = log --graph --oneline --color
     df = diff
+    sw = switch
 
 [merge]
     conflictstyle = zdiff3
 
 [diff]
     colorMoved = default
+[push]
+	autoSetupRemote = true

@@ -13,7 +13,7 @@ return {
 			typescriptreact = { "biomejs" },
 			json = { "biomejs" },
 
-			bash = { "shellcheck " },
+			bash = { "shellcheck" },
 		}
 
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {

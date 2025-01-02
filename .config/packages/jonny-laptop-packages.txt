@@ -13,10 +13,11 @@ clang
 cliphist
 cpio
 ctags
+cups
+cups-pdf
 deno
 dkms
 dmidecode
-dotnet-sdk-bin
 dunst
 dust
 esbuild
@@ -28,6 +29,7 @@ freerdp
 fuzzel
 fwupd
 fzf
+ghostty
 git
 git-delta
 git-filter-repo
@@ -38,9 +40,9 @@ go-sqlcmd
 grim
 gtk-engine-murrine
 hunspell
-hyprland-git
-hyprlock-git
-hyprpaper-git
+hyprland
+hyprlock
+hyprpaper
 intel-ucode
 inxi
 just
@@ -80,13 +82,13 @@ pavucontrol
 pipewire-alsa
 pipewire-docs
 pipewire-pulse
+qflipper-git
 qt5-wayland
 qt5ct
 qt6-base
 qt6ct
 raylib
 remmina
-rider
 ripgrep
 rustup
 sassc
@@ -113,7 +115,7 @@ vim
 waybar
 whois
 xdg-desktop-portal-gtk
-xdg-desktop-portal-hyprland-git
+xdg-desktop-portal-hyprland
 xorg-xeyes
 zellij
 zsh

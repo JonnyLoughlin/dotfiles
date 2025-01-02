@@ -2,7 +2,7 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		{ "j-hui/fidget.nvim", opts = {} },
-		{ "saghen/blink.cmp" },
+		-- { "saghen/blink.cmp" },
 		{ "williamboman/mason.nvim", opts = {} },
 		{ "williamboman/mason-lspconfig.nvim" },
 		{ "artemave/workspace-diagnostics.nvim" },
@@ -69,7 +69,7 @@ return {
 		-- Setup each server
 		local lspconfig = require("lspconfig")
 		for server, config in pairs(serverOpts) do
-			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+			-- config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
 			if server ~= "sqls" then
 				config.on_attach = function(client, bufnr)
 					require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
