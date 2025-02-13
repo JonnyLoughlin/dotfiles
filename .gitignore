@@ -5,6 +5,8 @@
 .bun/
 .cache/
 .cargo/
+.config/.avalonia-build-tasks/
+.config/HKModInstaller/
 .config/JetBrains/
 .config/QtProject.conf
 .config/Vial/
@@ -32,9 +34,13 @@
 .java/
 .local/
 .mozilla/
+.netExtender.log
+.netExtenderCerts/
+.netextender
 .node_repl_history
 .npm/
 .nuget/
+.ollama/
 .pki/
 .pulse-cookie
 .rustup/
@@ -44,6 +50,7 @@
 .steampid
 .templateengine/
 .wget-hsts
+.wine/
 .zcompdump
 Backup/
 Desktop/

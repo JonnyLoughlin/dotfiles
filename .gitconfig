@@ -13,7 +13,7 @@
     navigate = true
     dark = true
     line-numbers = true
-    ; side-by-side = true
+    side-by-side = false
     minus-style                   = syntax "#37222c"
     minus-non-emph-style          = syntax "#37222c"
     minus-emph-style              = syntax "#713137"
@@ -31,7 +31,8 @@
     st = status
     br = branch
     hist = log --graph --oneline --color
-    df = diff
+    df = -c delta.side-by-side=false diff
+    dfss = -c delta.side-by-side=true diff
     sw = switch
 
 [merge]

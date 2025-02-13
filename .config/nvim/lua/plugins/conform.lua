@@ -9,14 +9,9 @@ return {
 	opts = {
 
 		formatters_by_ft = {
-			go = { "goimports", "gopls" },
+			go = { "goimports" },
 
 			html = { "prettierd" },
-
-			javascript = { "biome" },
-			typescript = { "biome" },
-			typescriptreact = { "biome" },
-			json = { "biome" },
 
 			markdown = { "markdownlint", "injected" },
 

@@ -1,8 +1,7 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		{ "j-hui/fidget.nvim", opts = {} },
-		-- { "saghen/blink.cmp" },
+		{ "saghen/blink.cmp" },
 		{ "williamboman/mason.nvim", opts = {} },
 		{ "williamboman/mason-lspconfig.nvim" },
 		{ "artemave/workspace-diagnostics.nvim" },
@@ -20,9 +19,10 @@ return {
 		-- Configure server opts
 		local serverOpts = {}
 		serverOpts["bashls"] = { filetypes = { "bash", "sh", "zsh" } }
-		serverOpts["biome"] = {}
+		serverOpts["biome"] = { filetypes = { "javascript", "typescript", "typescriptreact" } }
 		serverOpts["clangd"] = {}
 		serverOpts["cssls"] = {}
+		serverOpts["css_variables"] = {}
 		serverOpts["gopls"] = {
 			settings = {
 				gopls = {
@@ -41,8 +41,7 @@ return {
 				},
 			},
 		}
-		serverOpts["html"] = { filetypes = { "html", "templ", "typescriptreact" } }
-		serverOpts["htmx"] = { filetypes = { "html", "templ" } }
+		serverOpts["html"] = { filetypes = { "html", "templ" } }
 		serverOpts["hyprls"] = {}
 		serverOpts["jsonls"] = {}
 		serverOpts["lua_ls"] = {}
@@ -69,7 +68,7 @@ return {
 		-- Setup each server
 		local lspconfig = require("lspconfig")
 		for server, config in pairs(serverOpts) do
-			-- config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
 			if server ~= "sqls" then
 				config.on_attach = function(client, bufnr)
 					require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
@@ -90,11 +89,7 @@ return {
 
 				-- Buffer local mappings.
 				map("KE", vim.diagnostic.open_float, "Float Error")
-				map("gd", require("telescope.builtin").lsp_definitions, "Go to Lsp Definitions")
-				map("grr", require("telescope.builtin").lsp_references, "Go to Lsp References")
-				map("gI", require("telescope.builtin").lsp_implementations, "Go to Lsp Implementations")
 				map("KK", vim.lsp.buf.hover, "Hover Docuementation")
-				map("KT", require("telescope.builtin").lsp_type_definitions, "Go to Type Definitions")
 				map("grn", vim.lsp.buf.rename, "Rename")
 				map("gra", vim.lsp.buf.code_action, "Code Action")
 				map("KH", function()

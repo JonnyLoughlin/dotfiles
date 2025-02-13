@@ -46,7 +46,6 @@ keybinds clear-defaults=true {
     // Standard Mode Bindings
     locked {
         bind "Alt ." { SwitchToMode "Normal"; }
-        bind "Alt o" { ToggleFloatingPanes; }
     }
     shared_except "locked" {
         bind "Alt ." { SwitchToMode "Locked"; }

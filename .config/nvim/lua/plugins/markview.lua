@@ -3,7 +3,6 @@ return {
 	ft = "markdown",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
-		"nvim-tree/nvim-web-devicons",
 	},
 	keys = {
 		{ "<leader>md", ":Markview disable<cr>", desc = "Disable Markdown Preview" },

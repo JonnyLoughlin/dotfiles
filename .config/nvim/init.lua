@@ -16,10 +16,10 @@ vim.o.smartindent = true
 vim.o.linebreak = false
 vim.o.breakindent = true
 vim.o.wrap = true
-vim.o.linebreak = true
 vim.o.showbreak = "       󱞩"
-vim.opt.scrolloff = 5
-vim.opt.sidescrolloff = 5
+vim.o.cursorline = true
+vim.o.scrolloff = 5
+vim.o.sidescrolloff = 5
 
 vim.o.undofile = true
 vim.o.swapfile = false
@@ -30,16 +30,16 @@ vim.o.smartcase = true
 
 vim.o.termguicolors = true
 
-vim.wo.signcolumn = "yes"
+vim.o.signcolumn = "yes"
 
-vim.opt.hlsearch = true
-vim.keymap.set("n", "<Esc>", "<esc>:nohlsearch<CR>")
+vim.o.hlsearch = true
+vim.keymap.set("n", "<Esc>", "<esc>:nohlsearch<CR>", { silent = true })
 
-vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
 
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+vim.o.splitbelow = true
+vim.o.splitright = true
 
 vim.opt.completeopt = { "menuone", "noselect" }
 
@@ -58,19 +58,29 @@ vim.api.nvim_create_autocmd("FileType", {
 -- vim.opt.spell = true
 -- vim.opt.spelllang = { "en_us" }
 
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable",
-		lazypath,
-	})
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		vim.api.nvim_echo({
+			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+			{ out, "WarningMsg" },
+			{ "\nPress any key to exit..." },
+		}, true, {})
+		vim.fn.getchar()
+		os.exit(1)
+	end
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup({ { import = "plugins" } }, { defaults = {} })
+
+-- Setup lazy.nvim
+require("lazy").setup({
+	spec = { { import = "plugins" } },
+	install = {},
+	checker = { enabled = true },
+})
 
 -- [[ Keymaps ]]
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
@@ -84,8 +94,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	group = highlight_group,
 	pattern = "*",
 })
-vim.keymap.set({ "n", "v" }, "<C-d>", "<C-d>zz", { desc = "Center cursor after moving down half-page" })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Center cursor after moving up half-page" })
 
 vim.keymap.set("n", "<leader>w", ":w<cr>", { noremap = true, desc = "write buffer" })
 vim.keymap.set("n", "<leader>q", ":q<cr>", { noremap = true, desc = "quit" })
@@ -105,18 +113,3 @@ vim.keymap.set(
 	'wbi(<esc>ea)<esc>Bifmt.Errorf<esc>lli"%w", <esc>Ff;<esc>f%',
 	{ desc = "go wrap err" }
 )
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "poefilter",
-	callback = function()
-		local client = vim.lsp.start({
-			name = "PoEls",
-			cmd = { "/home/jonny/proj/PoE-Tools/PoEls/PoEls" },
-		})
-
-		if not client then
-			vim.notify("No client for PoEls")
-			return
-		end
-	end,
-})

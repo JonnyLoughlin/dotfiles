@@ -8,10 +8,7 @@ return {
 
 			lua = { "luacheck" },
 
-			javascript = { "biomejs" },
-			typescript = { "biomejs" },
-			typescriptreact = { "biomejs" },
-			json = { "biomejs" },
+			css = { "stylelint" },
 
 			bash = { "shellcheck" },
 		}

@@ -16,6 +16,8 @@ x-scheme-handler/spice=org.remmina.Remmina.desktop
 x-scheme-handler/vnc=org.remmina.Remmina.desktop
 x-scheme-handler/remmina=org.remmina.Remmina.desktop
 application/x-remmina=org.remmina.Remmina.desktop
+application/pdf=firefox-nightly.desktop
+application/octet-stream=nvim-foot.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox-nightly.desktop;
@@ -37,3 +39,5 @@ x-scheme-handler/spice=org.remmina.Remmina.desktop;
 x-scheme-handler/vnc=org.remmina.Remmina.desktop;
 x-scheme-handler/remmina=org.remmina.Remmina.desktop;
 application/x-remmina=org.remmina.Remmina.desktop;
+application/pdf=firefox-nightly.desktop;
+application/x-shellscript=userapp-foot-YBNV02.desktop;userapp-uwsm-Q7OV02.desktop;

@@ -1,6 +1,7 @@
 # History
 HISTFILE=~/.histfile
 HISTSIZE=500000
+TERM=xterm-256color
 # shellcheck disable=SC2034
 SAVEHIST=500000
 setopt INC_APPEND_HISTORY
@@ -28,9 +29,6 @@ alias dc='sudo docker'
 
 # Up and Down scroll history based on first letters typed
 function zvm_after_init() {
-    # Setup mcfly
-    eval "$(mcfly init zsh)"
-
     bindkey "^[[B" history-beginning-search-forward
     bindkey "^[[A" history-beginning-search-backward
 }
