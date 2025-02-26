@@ -79,7 +79,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = { { import = "plugins" } },
 	install = {},
-	checker = { enabled = true },
 })
 
 -- [[ Keymaps ]]

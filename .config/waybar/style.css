@@ -5,7 +5,7 @@
 @define-color default-hover-borders #c0caf5;
 
 #waybar {
-    font-family: 'CommitMono Nerd Font Mono', 'Noto Sans Mono';
+    font-family: 'CommitMono Nerd Font Propo', 'Noto Sans Mono';
     font-size: 14px;
     background-color: rgba(0, 0, 0, 0);
 }

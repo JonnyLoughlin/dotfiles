@@ -2,8 +2,6 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		{ "saghen/blink.cmp" },
-		{ "williamboman/mason.nvim", opts = {} },
-		{ "williamboman/mason-lspconfig.nvim" },
 		{ "artemave/workspace-diagnostics.nvim" },
 		{
 			"nanotee/sqls.nvim",
@@ -14,13 +12,10 @@ return {
 		},
 	},
 	config = function()
-		require("mason-lspconfig").setup({ automatic_installation = true })
-
 		-- Configure server opts
 		local serverOpts = {}
 		serverOpts["bashls"] = { filetypes = { "bash", "sh", "zsh" } }
 		serverOpts["biome"] = { filetypes = { "javascript", "typescript", "typescriptreact" } }
-		serverOpts["clangd"] = {}
 		serverOpts["cssls"] = {}
 		serverOpts["css_variables"] = {}
 		serverOpts["gopls"] = {
@@ -45,25 +40,18 @@ return {
 		serverOpts["hyprls"] = {}
 		serverOpts["jsonls"] = {}
 		serverOpts["lua_ls"] = {}
-		serverOpts["ols"] = {}
 		serverOpts["marksman"] = {}
-		serverOpts["omnisharp"] = {}
-		serverOpts["pyright"] = {}
-		serverOpts["rust_analyzer"] = {}
 		serverOpts["sqls"] = {
 			on_attach = function(client, bufnr)
 				require("sqls").on_attach(client, bufnr)
 			end,
 		}
 		serverOpts["tailwindcss"] = {
-			filetypes = { "css", "html", "javascriptreact", "templ", "typescriptreact" },
+			filetypes = { "html", "javascriptreact", "templ", "typescriptreact" },
 			init_options = { userLanguages = { templ = "html" } },
 		}
 		serverOpts["ts_ls"] = {}
 		serverOpts["templ"] = {}
-		serverOpts["taplo"] = { root_dir = require("lspconfig.util").root_pattern("*.toml", ".git") }
-		serverOpts["yamlls"] = {}
-		serverOpts["zls"] = {}
 
 		-- Setup each server
 		local lspconfig = require("lspconfig")

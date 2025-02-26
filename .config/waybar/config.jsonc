@@ -33,7 +33,7 @@
         "capslock": true,
         "device-path": "/dev/input/by-id/usb-beekeeb_Piantor_Pro_vial:f64c2b3c-event-kbd",
         "format": {
-            "capslock": "Capslock {icon}"
+            "capslock": "{icon} Capslock"
         },
         "format-icons": {
             "locked": "",
@@ -70,7 +70,7 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
+        "format": "{icon} {capacity}%",
         "format-icons": [
             "",
             "",
@@ -78,23 +78,23 @@
             "",
             ""
         ],
-        "format-charging": "{capacity}% 󰃨",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}"
+        "format-charging": "󰃨 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}"
     },
     "network": {
         "interface": "enp86*",
         "format": "󰈀 {ipaddr}/{cidr}",
         "format-disconnected": "",
         "tooltip-format": "{ifname}",
-        "on-click": "foot zellij run -- nmtui"
+        "on-click": "foot -e nmtui"
     },
     "network#n2": {
         "interface": "wlp0s20f3",
         "format-wifi": " {ipaddr}/{cidr}",
         "format-disconnected": "",
         "tooltip-format": "{essid}",
-        "on-click": "foot zellij run -- nmtui"
+        "on-click": "foot -e nmtui"
     },
     "tray": {
         "icon-size": 18,

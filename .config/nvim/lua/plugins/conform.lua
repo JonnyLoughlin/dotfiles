@@ -11,7 +11,7 @@ return {
 		formatters_by_ft = {
 			go = { "goimports" },
 
-			html = { "prettierd" },
+			-- html = { "prettierd" },
 
 			markdown = { "markdownlint", "injected" },
 

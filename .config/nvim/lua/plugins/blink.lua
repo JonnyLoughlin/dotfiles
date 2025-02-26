@@ -19,12 +19,9 @@ return {
 				lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
 			},
 		},
-
 		completion = {
 			keyword = { range = "full" },
-			trigger = {
-				prefetch_on_insert = false,
-			},
+			trigger = { prefetch_on_insert = false },
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 0,
@@ -47,8 +44,8 @@ return {
 				},
 			},
 		},
-
 		signature = { enabled = true },
+		cmdline = { enabled = true },
 	},
 	opts_extend = { "sources.default" },
 }

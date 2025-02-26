@@ -39,6 +39,10 @@
     conflictstyle = zdiff3
 
 [diff]
+    algorithm = histogram
+    mnemonicPrefix = true
+    renames = true
     colorMoved = default
+
 [push]
 	autoSetupRemote = true

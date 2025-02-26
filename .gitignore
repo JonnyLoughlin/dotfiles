@@ -27,6 +27,7 @@
 .config/systemd/
 .config/unity3d/
 .config/vesktop/
+.degit/
 .dotfiles/
 .dotnet/
 .gnupg/
