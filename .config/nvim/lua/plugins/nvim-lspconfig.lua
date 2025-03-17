@@ -52,6 +52,7 @@ return {
 		}
 		serverOpts["ts_ls"] = {}
 		serverOpts["templ"] = {}
+		serverOpts["yamlls"] = {}
 
 		-- Setup each server
 		local lspconfig = require("lspconfig")

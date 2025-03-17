@@ -11,11 +11,11 @@ return {
 		formatters_by_ft = {
 			go = { "goimports" },
 
-			-- html = { "prettierd" },
-
 			markdown = { "markdownlint", "injected" },
 
 			lua = { "stylua" },
+
+			typescript = { "biome" },
 
 			bash = { "shfmt" },
 			sh = { "shfmt" },

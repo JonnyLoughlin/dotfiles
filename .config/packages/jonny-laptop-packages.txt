@@ -4,7 +4,7 @@ base
 base-devel
 bash-language-server
 bat
-biome-bin
+biome
 bottom
 brightnessctl
 btrfs-progs
@@ -94,6 +94,7 @@ pavucontrol
 pipewire-alsa
 pipewire-docs
 pipewire-pulse
+prismlauncher
 qflipper-git
 qt5-wayland
 qt5ct
@@ -144,6 +145,7 @@ winetricks
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 xorg-xeyes
+yaml-language-server
 zathura
 zathura-pdf-mupdf
 zellij

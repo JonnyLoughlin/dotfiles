@@ -11,6 +11,7 @@ return {
 				},
 			},
 		},
+		{ "echasnovski/mini.nvim" },
 	},
 	opts = {
 		sources = {
@@ -21,31 +22,46 @@ return {
 		},
 		completion = {
 			keyword = { range = "full" },
-			trigger = { prefetch_on_insert = false },
-			documentation = {
-				auto_show = true,
-				auto_show_delay_ms = 0,
-			},
 			list = {
 				selection = {
 					preselect = false,
 					auto_insert = false,
 				},
 			},
-			ghost_text = { enabled = true },
 			menu = {
 				max_height = 20,
 				draw = {
 					columns = {
 						{ "kind_icon" },
-						{ "label", "label_description", gap = 1 },
+						{ "label" },
 						{ "source_name" },
+					},
+					components = {
+						kind_icon = {
+							ellipsis = false,
+							text = function(ctx)
+								local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+								return kind_icon
+							end,
+						},
 					},
 				},
 			},
+			documentation = {
+				auto_show = true,
+				auto_show_delay_ms = 0,
+			},
+			ghost_text = { enabled = true },
 		},
 		signature = { enabled = true },
-		cmdline = { enabled = true },
+		cmdline = {
+			enabled = true,
+			completion = {
+				menu = {
+					auto_show = true,
+				},
+			},
+		},
 	},
 	opts_extend = { "sources.default" },
 }
