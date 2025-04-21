@@ -2,7 +2,6 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		{ "saghen/blink.cmp" },
-		{ "artemave/workspace-diagnostics.nvim" },
 		{
 			"nanotee/sqls.nvim",
 			ft = { "sql" },
@@ -15,9 +14,8 @@ return {
 		-- Configure server opts
 		local serverOpts = {}
 		serverOpts["bashls"] = { filetypes = { "bash", "sh", "zsh" } }
-		serverOpts["biome"] = { filetypes = { "javascript", "typescript", "typescriptreact" } }
+		serverOpts["biome"] = { filetypes = { "javascript", "typescript", "typescriptreact", "css" } }
 		serverOpts["cssls"] = {}
-		serverOpts["css_variables"] = {}
 		serverOpts["gopls"] = {
 			settings = {
 				gopls = {
@@ -58,13 +56,6 @@ return {
 		local lspconfig = require("lspconfig")
 		for server, config in pairs(serverOpts) do
 			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-			if server ~= "sqls" then
-				config.on_attach = function(client, bufnr)
-					require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
-				end
-			end
-			-- This doesnt work for some reason
-			-- config.capabilities.workspace = { didChangeWatchedFiles = { dynamicRegistration = true } }
 			lspconfig[server].setup(config)
 		end
 

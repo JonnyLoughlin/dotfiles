@@ -55,11 +55,5 @@ if [[ ":$PATH:" != *":$HOME/.dotnet/tools"* ]]; then
     export PATH="$PATH:$HOME/.dotnet/tools"
 fi
 
-# Setup mcfly
-export MCFLY_KEY_SCHEME=vim
-export MCFLY_FUZZY=5
-export MCFLY_RESULTS=50
-export MCFLY_RESULTS_SORT=LAST_RUN
-
-# uv
-export PATH="$PATH:/home/jonny/.local/share/../bin"
+# uv install location
+export PATH="$PATH:/home/jonny/.local/bin"

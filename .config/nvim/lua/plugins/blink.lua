@@ -31,10 +31,11 @@ return {
 			menu = {
 				max_height = 20,
 				draw = {
+					treesitter = { "lsp" },
 					columns = {
 						{ "kind_icon" },
-						{ "label" },
-						{ "source_name" },
+						{ "label", "label_description" },
+						{ "source_name", "item_client_name", gap = 1 },
 					},
 					components = {
 						kind_icon = {
@@ -44,12 +45,19 @@ return {
 								return kind_icon
 							end,
 						},
+						item_client_name = {
+							width = { max = 30 },
+							text = function(ctx)
+								return ctx.item.client_name
+							end,
+							highlight = "BlinkCmpSource",
+						},
 					},
 				},
 			},
 			documentation = {
 				auto_show = true,
-				auto_show_delay_ms = 0,
+				auto_show_delay_ms = 100,
 			},
 			ghost_text = { enabled = true },
 		},
@@ -57,9 +65,13 @@ return {
 		cmdline = {
 			enabled = true,
 			completion = {
-				menu = {
-					auto_show = true,
+				list = {
+					selection = {
+						preselect = false,
+						auto_insert = false,
+					},
 				},
+				menu = { auto_show = true },
 			},
 		},
 	},

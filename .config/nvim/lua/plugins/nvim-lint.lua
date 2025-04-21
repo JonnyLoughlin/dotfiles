@@ -1,5 +1,6 @@
 return {
 	"mfussenegger/nvim-lint",
+	-- dir = "~/proj/nvim-lint",
 	ft = { "go", "lua", "javascript", "typescript", "typescriptreact", "sh", "bash" },
 	config = function()
 		local lint = require("lint")
@@ -7,8 +8,6 @@ return {
 			go = { "golangcilint" },
 
 			lua = { "luacheck" },
-
-			css = { "stylelint" },
 
 			bash = { "shellcheck" },
 		}

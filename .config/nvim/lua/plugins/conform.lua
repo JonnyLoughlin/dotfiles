@@ -15,6 +15,8 @@ return {
 
 			lua = { "stylua" },
 
+			css = { "biome" },
+			javascript = { "biome" },
 			typescript = { "biome" },
 
 			bash = { "shfmt" },

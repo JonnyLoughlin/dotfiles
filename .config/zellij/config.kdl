@@ -1,13 +1,13 @@
 keybinds clear-defaults=true {
-    normal {
-        bind "enter" {
-            WriteChars "\r"
-            MessagePlugin "autolock" {
-                name "autolock"
-                floating false
-            }
-        }
-    }
+    // normal {
+    //     bind "enter" {
+    //         WriteChars "\r"
+    //         MessagePlugin "autolock" {
+    //             name "autolock"
+    //             floating false
+    //         }
+    //     }
+    // }
     locked {
         bind "Alt ." { SwitchToMode "normal"; }
     }
@@ -189,11 +189,11 @@ themes {
 
 plugins {
     about location="zellij:about"
-    autolock location="file:/home/jonny/.config/zellij/zellij-autolock.wasm" {
-        triggers "nvim"
-        watch_interval "0.1"
-        watch_triggers "fzf"
-    }
+    // autolock location="file:/home/jonny/.config/zellij/zellij-autolock.wasm" {
+    //     triggers "nvim"
+    //     watch_interval "0.1"
+    //     watch_triggers "fzf"
+    // }
     compact-bar location="zellij:compact-bar"
     configuration location="zellij:configuration"
     filepicker location="zellij:strider" {

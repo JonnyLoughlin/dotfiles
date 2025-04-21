@@ -98,7 +98,7 @@ return {
 		},
 		-- git
 		{
-			"<leader>gc",
+			"<leader>gl",
 			function()
 				require("snacks").picker.git_log()
 			end,

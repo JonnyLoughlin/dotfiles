@@ -1,6 +1,6 @@
 # History
 HISTFILE=~/.histfile
-HISTSIZE=500000
+HISTSIZE=1000000
 TERM=xterm-256color
 # shellcheck disable=SC2034
 SAVEHIST=500000
@@ -35,6 +35,7 @@ function zvm_after_init() {
 
 alias c='clear'
 alias co='wl-copy'
+alias ff="firefox-nightly"
 alias l='hyprlock'
 alias ls='lsd -Fv --group-directories-first'
 alias n='nvim'
