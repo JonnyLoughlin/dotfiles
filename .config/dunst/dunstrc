@@ -1,5 +1,13 @@
 # TokyoNight colors for dunst
 # For more configuration options see https://github.com/dunst-project/dunst/blob/master/dunstrc
+[global]
+    font = Monospace 10
+
+    frame_width = 2
+
+    gap_size = 4
+    
+    corner_radius = 4
 
 [urgency_low]
     background = "#16161e"
@@ -14,4 +22,4 @@
 [urgency_critical]
     background = "#292e42"
     foreground = "#db4b4b"
-    frame_color = "#db4b4bh
+    frame_color = "#db4b4b"

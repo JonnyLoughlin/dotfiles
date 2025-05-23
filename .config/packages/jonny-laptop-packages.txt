@@ -19,12 +19,14 @@ ctags
 cups
 cups-pdf
 deno
+discord
 dkms
 dmidecode
 docker
 dunst
 dust
 esbuild
+expac
 fd
 filezilla
 firefox-nightly
@@ -37,7 +39,6 @@ gamescope
 ghostty
 git
 git-delta
-git-filter-repo
 glfw
 gnome-tweaks
 go
@@ -54,10 +55,8 @@ intel-ucode
 inxi
 jq
 just
-kdeconnect
 kvantum
 kvantum-qt5
-lazygit
 ldns
 lib32-nvidia-utils
 lib32-pipewire
@@ -101,9 +100,11 @@ pavucontrol
 pipewire-alsa
 pipewire-docs
 pipewire-pulse
+powertop
 prismlauncher
 proton-pass-bin
 qflipper-git
+qmk
 qt5-wayland
 qt5ct
 qt6-base
@@ -129,7 +130,6 @@ steam
 streamrip
 stylua
 sudo
-systemctl-tui
 tailwindcss-language-server
 tealdeer
 terminus-font
@@ -145,11 +145,11 @@ uwsm
 vesktop-bin
 vial-appimage
 vim
-visual-studio-code-bin
 vscode-css-languageserver
 vscode-html-languageserver
 vscode-json-languageserver
 waybar
+webcord-bin
 webkit2gtk
 whois
 wine
@@ -161,5 +161,6 @@ xorg-xeyes
 yaml-language-server
 zathura
 zathura-pdf-mupdf
+zed
 zellij
 zsh

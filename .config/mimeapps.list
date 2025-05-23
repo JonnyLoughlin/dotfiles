@@ -43,3 +43,4 @@ application/x-remmina=org.remmina.Remmina.desktop;
 application/pdf=firefox-nightly.desktop;
 application/x-shellscript=userapp-foot-YBNV02.desktop;userapp-uwsm-Q7OV02.desktop;
 application/xml=userapp-foot-YBNV02.desktop;
+text/csv=userapp-foot-YBNV02.desktop;

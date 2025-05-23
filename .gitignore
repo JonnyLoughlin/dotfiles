@@ -11,6 +11,7 @@
 .config/Proton Pass/
 .config/QtProject.conf
 .config/Vial/
+.config/WebCord/
 .config/chromium/
 .config/dconf/
 .config/discord/
