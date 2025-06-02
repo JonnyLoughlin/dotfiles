@@ -1,5 +1,6 @@
 acpi
 anydesk-bin
+asdf-vm
 base
 base-devel
 bash-language-server

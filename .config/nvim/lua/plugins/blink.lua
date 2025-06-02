@@ -1,5 +1,6 @@
 return {
 	"saghen/blink.cmp",
+	event = "VeryLazy",
 	build = "cargo build --release",
 	dependencies = {
 		{
@@ -11,13 +12,15 @@ return {
 				},
 			},
 		},
-		{ "echasnovski/mini.nvim" },
 	},
 	opts = {
 		sources = {
 			default = { "lsp", "path", "buffer", "lazydev" },
 			providers = {
 				lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+			},
+			per_filetype = {
+				minifiles = { inherit_defaults = false },
 			},
 		},
 		completion = {

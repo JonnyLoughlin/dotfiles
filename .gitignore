@@ -1,4 +1,6 @@
+.aider/
 .anydesk/
+.asdf/
 .bash_history
 .bash_logout
 .bash_profile
@@ -24,6 +26,7 @@
 .config/libreoffice/
 .config/menus/
 .config/pavucontrol.ini
+.config/posting/
 .config/pulse/
 .config/remmina/
 .config/sqls/

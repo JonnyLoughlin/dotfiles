@@ -42,6 +42,8 @@ alias n='nvim'
 alias tm='trash-put'
 alias z='zellij'
 
+alias nnvim="cd ~/.config/nvim && nvim"
+
 alias update-pms='go-global-update; cargo install-update --all; bun update -g --all'
 
 # shellcheck disable=SC1090

@@ -48,13 +48,6 @@ vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "templ",
-	callback = function()
-		vim.bo.commentstring = "// %s"
-	end,
-})
-
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -74,7 +67,9 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
 require("lazy").setup({
-	spec = { { import = "plugins" } },
+	spec = {
+		{ import = "plugins" },
+	},
 	install = {},
 })
 

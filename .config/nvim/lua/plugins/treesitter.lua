@@ -1,9 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-	},
 	build = ":TSUpdate",
+	lazy = false,
 	config = function()
 		---@diagnostic disable-next-line: missing-fields
 		require("nvim-treesitter.configs").setup({
