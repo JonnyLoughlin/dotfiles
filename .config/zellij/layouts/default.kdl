@@ -1,37 +1,19 @@
 layout {
     pane size=1 borderless=true {
         plugin location="file:/home/jonny/.config/zellij/zjstatus.wasm" {
-
-            format_left       "#[fg=#00ffff,bg=#26314D] {session} {mode} {tabs}"
-            format_right      "#[fg=#a9b1d6,bg=#26314D] {swap_layout} #[fg=#a9b1d6,bg=#26314D] {datetime}"
-            format_space      "#[fg=#a9b1d6,bg=#26314D]"
-
-            mode_normal       "#[fg=black,bg=blue] {name} "
-            mode_resize       "#[fg=black,bg=magenta] {name} "
-            mode_move         "#[fg=black,bg=yellow] {name} "
-
-            tab_normal        "#[fg=#000000,bg=#26314D] {index} "
-            tab_active        "#[fg=#a9b1d6] {index} "
-
-            datetime          "#[fg=#6C7086,bold,bg=#26314D] {format} "
-            datetime_format   "%A, %d %b %Y %I:%M:%S%p"
+            format_left "#[fg=#00ffff,bg=#26314D] {session} {mode} {tabs}"
+            format_right "#[fg=#a9b1d6,bg=#26314D] {swap_layout} #[fg=#a9b1d6,bg=#26314D] {datetime}"
+            format_space "#[fg=#a9b1d6,bg=#26314D]"
+            mode_normal "#[fg=black,bg=blue] {name} "
+            mode_resize "#[fg=black,bg=magenta] {name} "
+            mode_move "#[fg=black,bg=yellow] {name} "
+            tab_normal "#[fg=#000000,bg=#26314D] {index} "
+            tab_active "#[fg=#a9b1d6] {index} "
+            datetime "#[fg=#6C7086,bold,bg=#26314D] {format} "
+            datetime_format "%A, %d %b %Y %I:%M:%S%p"
             datetime_timezone "US/Eastern"
         }
     }
     pane
-
-    swap_floating_layout {
-        floating_panes max_panes=1 {
-            pane x="2%" y="2%" width="96%" height="92%"
-        }
-        floating_panes max_panes=2 {
-            pane x="2%" y="2%" width="46%" height="92%"
-            pane x="52%" y="2%" width="46%" height="92%"
-        }
-        floating_panes max_panes=3 {
-            pane x="2%" y="2%" width="30%" height="92%"
-            pane x="35%" y="2%" width="30%" height="92%"
-            pane x="68%" y="2%" width="30%" height="92%"
-        }
-    }
 }
+
