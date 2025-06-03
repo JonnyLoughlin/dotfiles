@@ -26,6 +26,8 @@ return {
 			sql = { "sql_formatter" },
 
 			templ = { "templ" },
+
+			kdl = { "kdlfmt" },
 		},
 		format_on_save = function(bufnr)
 			-- Disable with a global or buffer-local variable
