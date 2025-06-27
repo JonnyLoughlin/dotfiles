@@ -6,6 +6,8 @@ ${directory}\
 [](fg:#404040)\
 """
 
+# ${cmd_duration}\
+
 [hostname]
 style = "bg:#404040 fg:#00ffff"
 format = "[ $hostname ]($style)"
@@ -16,3 +18,6 @@ truncation_length = 0
 style = "bg:#404040 fg:#00ffff"
 format = "[ $path ]($style)"
 truncate_to_repo = false
+
+# [cmd_duration]
+# format = 'underwent [$duration](bold yellow)'

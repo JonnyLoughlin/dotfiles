@@ -7,7 +7,10 @@
 .bun/
 .cache/
 .cargo/
+.claude/
 .config/.avalonia-build-tasks/
+.config/Boosteroid Games S.R.L./
+.config/Code/
 .config/HKModInstaller/
 .config/JetBrains/
 .config/Proton Pass/
@@ -15,20 +18,25 @@
 .config/Vial/
 .config/WebCord/
 .config/chromium/
+.config/claude/
 .config/dconf/
 .config/discord/
 .config/filezilla/
 .config/freerdp/
 .config/go/
+.config/google-chrome/
 .config/gtk-3.0/bookmarks
 .config/kdeconnect/
 .config/keepassxc/
 .config/libreoffice/
 .config/menus/
+.config/nvm/
 .config/pavucontrol.ini
 .config/posting/
 .config/pulse/
+.config/rclone/
 .config/remmina/
+.config/solaar/
 .config/sqls/
 .config/streamrip/
 .config/systemd/
@@ -54,11 +62,13 @@
 .pki/
 .pulse-cookie
 .rustup/
+.sqlsecrets/
 .ssh/
 .steam/
 .steampath
 .steampid
 .templateengine/
+.vscode/
 .wget-hsts
 .wine/
 .zcompdump
@@ -69,5 +79,6 @@ Downloads/
 Music/
 Pictures/
 StreamripDownloads/
+apps/
 go/
 proj/

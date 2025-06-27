@@ -12,6 +12,7 @@ return {
 			lua = { "luacheck" },
 
 			bash = { "shellcheck" },
+			sh = { "shellcheck" },
 		}
 
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {

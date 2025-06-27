@@ -6,7 +6,7 @@ base-devel
 bash-language-server
 bat
 bind
-biome
+boosteroid
 bottom
 brightnessctl
 btrfs-progs
@@ -44,6 +44,7 @@ glfw
 gnome-tweaks
 go
 go-sqlcmd
+graphviz
 grim
 gtk-engine-murrine
 hunspell
@@ -74,6 +75,7 @@ luacheck
 luarocks
 man-db
 man-pages
+mariadb
 markdownlint-cli
 marksman
 mixxx
@@ -91,13 +93,16 @@ noto-fonts-extra
 npm
 nvidia-open-dkms
 nvidia-settings
+nvm
 odin
 ollama-cuda
 otf-commit-mono-nerd
 pacman-contrib
+pacutils
 paru
 paru-debug
 pavucontrol
+piper
 pipewire-alsa
 pipewire-docs
 pipewire-pulse
@@ -111,6 +116,7 @@ qt5ct
 qt6-base
 qt6ct
 raylib
+rclone
 remmina
 ripgrep
 rsync
@@ -136,6 +142,7 @@ tealdeer
 terminus-font
 texinfo
 trash-cli
+tree-sitter-cli
 ttf-noto-nerd
 typescript-language-server
 udiskie
@@ -146,12 +153,13 @@ uwsm
 vesktop-bin
 vial-appimage
 vim
+visual-studio-code-bin
 vscode-css-languageserver
 vscode-html-languageserver
 vscode-json-languageserver
 waybar
-webcord-bin
 webkit2gtk
+wget
 whois
 wine
 wine-mono

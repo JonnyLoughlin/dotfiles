@@ -19,6 +19,7 @@ application/x-remmina=org.remmina.Remmina.desktop
 application/pdf=firefox-nightly.desktop
 application/octet-stream=nvim-foot.desktop
 x-scheme-handler/discord=vesktop.desktop
+x-scheme-handler/discord-1170028348756471908=discord-1170028348756471908.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox-nightly.desktop;

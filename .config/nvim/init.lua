@@ -96,6 +96,9 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	command = 'silent! normal! g`"zv',
 })
 
+vim.keymap.set("n", "<C-w>H", ":tabprevious<cr>", { noremap = true, desc = "previous tab" })
+vim.keymap.set("n", "<C-w>L", ":tabnext<cr>", { noremap = true, desc = "next tab" })
+
 -- go nice error
 vim.keymap.set("n", "<leader>Ge", "oif err != nil {}<esc>", { desc = "go insert err check" })
 vim.keymap.set(

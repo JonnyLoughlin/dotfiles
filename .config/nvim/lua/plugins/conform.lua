@@ -19,6 +19,8 @@ return {
 			javascript = { "biome" },
 			typescript = { "biome" },
 
+			html = { "biome" },
+
 			bash = { "shfmt" },
 			sh = { "shfmt" },
 			zsh = { "shfmt" },

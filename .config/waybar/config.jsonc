@@ -18,6 +18,7 @@
         "clock",
         "clock#c2"
     ],
+    "reload_style_on_change": true,
     "hyprland/workspaces": {
         "format": "{id}"
     },
@@ -108,7 +109,7 @@
     "clock#c2": {
         "interval": 1,
         "format": "{:%m/%d/%y}",
-        "tooltip-format": "<big>{calendar}</big>",
+        "tooltip-format": "<span font-family='CommitMono Nerd Font Mono'><big>{calendar}</big></span>",
         "on-click": "firefox-nightly https://calendar.proton.me/"
     }
 }

@@ -66,6 +66,9 @@ alias sshCarson-Retailer-Dashboard='ssh apps@192.168.0.118'
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /home/jonny/go/bin/xc xc
 
+# NVM
+# source /usr/share/nvm/init-nvm.sh
+
 # Load sheldon plugins
 eval "$(sheldon source)"
 
