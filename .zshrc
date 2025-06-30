@@ -74,3 +74,6 @@ eval "$(sheldon source)"
 
 # Load starship
 eval "$(starship init zsh)"
+
+#Load Mise
+eval "$(mise activate zsh)"

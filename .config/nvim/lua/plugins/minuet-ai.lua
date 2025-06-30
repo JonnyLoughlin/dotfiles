@@ -1,0 +1,35 @@
+return {
+	-- {
+	-- 	"milanglacier/minuet-ai.nvim",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 	},
+	-- 	opts = {
+	--
+	-- 		model = "gemini-2.5-flash",
+	-- 		-- system = "see [Prompt] section for the default value",
+	-- 		-- few_shots = "see [Prompt] section for the default value",
+	-- 		-- chat_input = "See [Prompt Section for default value]",
+	-- 		stream = true,
+	-- 		blink = {
+	-- 			enable_auto_complete = true,
+	-- 		},
+	-- 		provider = "gemini",
+	-- 		end_point = "https://generativelanguage.googleapis.com/v1beta/models",
+	-- 		provider_options = {
+	-- 			gemini = {
+	-- 				optional = {
+	-- 					generationConfig = {
+	-- 						maxOutputTokens = 256,
+	-- 						-- When using `gemini-2.5-flash`, it is recommended to entirely
+	-- 						-- disable thinking for faster completion retrieval.
+	-- 						thinkingConfig = {
+	-- 							thinkingBudget = 0,
+	-- 						},
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
+}

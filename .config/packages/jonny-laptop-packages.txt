@@ -37,14 +37,12 @@ fuzzel
 fwupd
 fzf
 gamescope
-ghostty
 git
 git-delta
 glfw
 gnome-tweaks
 go
 go-sqlcmd
-graphviz
 grim
 gtk-engine-murrine
 hunspell
@@ -56,7 +54,6 @@ hyprpolkitagent
 intel-ucode
 inxi
 jq
-just
 kvantum
 kvantum-qt5
 ldns
@@ -78,6 +75,7 @@ man-pages
 mariadb
 markdownlint-cli
 marksman
+mise
 mixxx
 mkinitcpio-firmware
 nemo
@@ -128,7 +126,6 @@ shellcheck
 shfmt
 slurp
 sof-firmware
-soulseekqt
 sql-formatter
 sqls
 sshfs

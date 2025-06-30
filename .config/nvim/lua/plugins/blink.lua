@@ -15,9 +15,24 @@ return {
 	},
 	opts = {
 		sources = {
-			default = { "lsp", "path", "buffer", "lazydev" },
+			default = {
+				"lsp",
+				"path",
+				"buffer",
+				"lazydev",
+				-- "minuet"
+			},
 			providers = {
 				lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+				-- minuet = {
+				-- 	name = "minuet",
+				-- 	module = "minuet.blink",
+				-- 	async = true,
+				-- 	-- Should match minuet.config.request_timeout * 1000,
+				-- 	-- since minuet.config.request_timeout is in seconds
+				-- 	timeout_ms = 3000,
+				-- 	score_offset = 50, -- Gives minuet higher priority among suggestions
+				-- },
 			},
 			per_filetype = {
 				minifiles = { inherit_defaults = false },
@@ -57,6 +72,9 @@ return {
 						},
 					},
 				},
+			},
+			trigger = {
+				prefetch_on_insert = false,
 			},
 			documentation = {
 				auto_show = true,

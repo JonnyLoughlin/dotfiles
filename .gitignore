@@ -7,6 +7,7 @@
 .bun/
 .cache/
 .cargo/
+.claude.json
 .claude/
 .config/.avalonia-build-tasks/
 .config/Boosteroid Games S.R.L./
@@ -45,6 +46,7 @@
 .degit/
 .dotfiles/
 .dotnet/
+.env
 .gnupg/
 .histfile
 .java/

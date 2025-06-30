@@ -51,6 +51,7 @@ return {
 		-- }
 		serverOpts["ts_ls"] = {}
 		serverOpts["templ"] = {}
+		serverOpts["taplo"] = {}
 		serverOpts["yamlls"] = {}
 
 		-- Setup each server
